@@ -16,7 +16,9 @@
 3. สถานะงาน 4. ลิงก์อ้างอิง (Figma / live / repo)
 
 ## ยังไม่ทำในรอบ scaffold นี้
-- Model pages ~27 หน้า + Refrigeration L3 → จะแตกทีหลังต่อ family
 - Global shell (nav/footer) → IT ขึ้นเสร็จแล้ว ยังไม่จำเป็น
+
+## Sync log
+- 2026-09-16: เพิ่ม 27 model pages (Coils/Coating/AHU/Refrigeration/Marine) จาก `cib-website` (repo dev จริงของ www.cigblu.com, `site/products/library.json`) — เนื้อหาเขียนเสร็จพร้อม deploy แล้วทุกหน้า เช็คสดยัง 404 ทั้ง web.cigblusolutions.com และ www.cigblu.com รอ IT publish เท่านั้น ไม่ใช่รอเนื้อหา
 
 > สถานะเป็นเว็บภายใน — ตั้ง `noindex` ทุกหน้า ไม่ให้ search engine เก็บ
