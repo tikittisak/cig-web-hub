@@ -20,5 +20,6 @@
 
 ## Sync log
 - 2026-09-16: เพิ่ม 27 model pages (Coils/Coating/AHU/Refrigeration/Marine) จาก `cib-website` (repo dev จริงของ www.cigblu.com, `site/products/library.json`) — เนื้อหาเขียนเสร็จพร้อม deploy แล้วทุกหน้า เช็คสดยัง 404 ทั้ง web.cigblusolutions.com และ www.cigblu.com รอ IT publish เท่านั้น ไม่ใช่รอเนื้อหา
+- 2026-09-16: เพิ่มอีก 4 solution pages (coil-replacement-ahu-renovation, cold-room-design-installation, smart-solutions-iot, product-development) จาก `cib-website` `site/solutions/library.json` เหตุผลเดียวกัน — ยังไม่พบ content สำหรับ "BluSolutions" (overview) หรือ "M&E Design & Solutions" ใน cib-website (M&E ตัวจริงชี้ออกไปเพจ Facebook `cigmesolutions` จากหน้า catalog ของ cigblu.com เอง ดูเหมือนเป็นแบรนด์/ทีมแยกต่างหาก ไม่ใช่ของที่จะย้ายเข้ามา)
 
 > สถานะเป็นเว็บภายใน — ตั้ง `noindex` ทุกหน้า ไม่ให้ search engine เก็บ
