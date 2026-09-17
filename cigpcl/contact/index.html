@@ -11,16 +11,29 @@
 <header class="topbar"><a class="home-link" href="../index.html">&larr; Dashboard</a><span class="crumb">Contact</span></header>
 <main class="wrap node">
   <div class="hero">
-    <div class="hero-badges"><span class="badge owner-it">IT/เว็บภายนอก</span><span class="pill st-todo">Live &middot; รอ audit</span></div>
+    <div class="hero-badges"><span class="badge owner-it">IT/เว็บภายนอก</span><span class="pill st-wip">Live &middot; พบ finding</span></div>
     <h1>Contact</h1>
     <a class="url" href="https://www.cigpcl.com/contact/" target="_blank" rel="noopener">EN /contact/ &#8599;</a>
     <a class="url" href="https://www.cigpcl.com/th/contact/" target="_blank" rel="noopener" style="margin-left:8px">TH /th/contact/ &#8599;</a>
-    <p class="hero-note">มิเรอร์หน้า "Contact" ของ cigpcl.com &mdash; ยังไม่ได้ลง audit ละเอียด</p>
+    <p class="hero-note">อีเมลติดต่อหลักเป็นโดเมน cigblusolutions.com ไม่ใช่ cigpcl.com เอง + ไม่มี heading เลยทั้งหน้า</p>
   </div>
 
   <section class="block">
-    <h2><span class="num">1</span> Change notes <span class="hint">Audit 2026-09-16</span></h2>
-    <div class="empty">ยังไม่ได้ audit หน้านี้ &mdash; รอบถัดไป (หน้านี้ scaffold ไว้ก่อนให้ครบทั้งเว็บ ตาม URL จริง)</div>
+    <h2><span class="num">1</span> Change notes <span class="hint">Audit 2026-09-17</span></h2>
+    <div class="ci high">
+      <div class="ci-top"><span class="sev high">High</span><span class="stt hold">รอ MKT</span></div>
+      <div class="ci-title">อีเมลติดต่อหลักบนหน้า Contact ของ cigpcl.com (บริษัทแม่) คือ <code>contact@cigblusolutions.com</code> &mdash; ใช้โดเมนแบรนด์ cigblu.com ไม่ใช่ cigpcl.com เอง</div>
+      <p class="fix">&rarr; ย้อนแย้งกับทิศทาง "แยกแบรนด์" ที่กำลังทำอยู่ (cigpcl.com จะเป็น corporate/holding, cigblu.com แยกเป็นแบรนด์ลูก) &mdash; ควรมีอีเมลของ cigpcl.com เองสำหรับติดต่อบริษัทแม่โดยตรง</p>
+    </div>
+    <div class="ci med">
+      <div class="ci-top"><span class="sev med">Med</span><span class="stt wait">รอ IT</span></div>
+      <div class="ci-title">ไม่มี heading เลยทั้งหน้า (ไม่มีทั้ง H1 และ H2) &mdash; แย่กว่าหน้าอื่นที่อย่างน้อยมี H2</div>
+      <p class="fix">&rarr; เพิ่ม H1 อย่างน้อย เพื่อ accessibility และโครงสร้าง SEO</p>
+    </div>
+    <div class="ci low">
+      <div class="ci-top"><span class="stt ok">ใช้งานได้</span></div>
+      <div class="ci-title">มีฟอร์มติดต่อจริง (3 ฟอร์ม) พร้อม department dropdown ครบ 7 แผนก (รวม Investor Relations) + ที่อยู่ 3 สาขา + social link จริงครบ 5 ช่องทาง</div>
+    </div>
   </section>
 
   <section class="block">
@@ -32,7 +45,7 @@
     <h2><span class="num">3</span> สถานะงาน</h2>
     <table class="kv">
     <tr><td>เจ้าของเว็บ</td><td>cigpcl.com &mdash; เว็บ live จริงของบริษัทแม่ (ไม่ได้ build ใน repo นี้)</td></tr>
-    <tr><td>สถานะปัจจุบัน</td><td>Live &middot; ยังไม่ได้ audit ละเอียด</td></tr><tr><td>อัปเดตล่าสุด</td><td>2026-09-16</td></tr></table>
+    <tr><td>สถานะปัจจุบัน</td><td>พบ finding แล้ว</td></tr><tr><td>อัปเดตล่าสุด</td><td>2026-09-17</td></tr></table>
   </section>
 
   <section class="block">
@@ -44,6 +57,6 @@
     </ul>
   </section>
 
-  <footer class="scaffold-foot">Contact node &middot; cigpcl.com &middot; audit 2026-09-16</footer>
+  <footer class="scaffold-foot">Contact node &middot; cigpcl.com &middot; audit 2026-09-17</footer>
 </main>
 </body></html>

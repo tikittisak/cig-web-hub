@@ -11,16 +11,29 @@
 <header class="topbar"><a class="home-link" href="../../../index.html">&larr; Dashboard</a><span class="crumb">Benchmark</span></header>
 <main class="wrap node">
   <div class="hero">
-    <div class="hero-badges"><span class="badge owner-it">IT/เว็บภายนอก</span><span class="pill st-todo">Live &middot; รอ audit</span></div>
+    <div class="hero-badges"><span class="badge owner-it">IT/เว็บภายนอก</span><span class="pill st-wip">Live &middot; พบ finding</span></div>
     <h1>Benchmark</h1>
     <a class="url" href="https://www.cigpcl.com/products/benchmark/" target="_blank" rel="noopener">EN /products/benchmark/ &#8599;</a>
     <a class="url" href="https://www.cigpcl.com/th/products/benchmark/" target="_blank" rel="noopener" style="margin-left:8px">TH /th/products/benchmark/ &#8599;</a>
-    <p class="hero-note">มิเรอร์หน้า "Benchmark" ของ cigpcl.com &mdash; ยังไม่ได้ลง audit ละเอียด</p>
+    <p class="hero-note">สินค้า Kingspan &mdash; เนื้อหาจริงครบ แต่ไม่มี H1/meta description/og:image (ปัญหาเดียวกันทั้งหมวด Building Envelope)</p>
   </div>
 
   <section class="block">
-    <h2><span class="num">1</span> Change notes <span class="hint">Audit 2026-09-16</span></h2>
-    <div class="empty">ยังไม่ได้ audit หน้านี้ &mdash; รอบถัดไป (หน้านี้ scaffold ไว้ก่อนให้ครบทั้งเว็บ ตาม URL จริง)</div>
+    <h2><span class="num">1</span> Change notes <span class="hint">Audit 2026-09-17</span></h2>
+    <div class="ci high">
+      <div class="ci-top"><span class="sev high">High</span><span class="stt wait">รอ IT</span></div>
+      <div class="ci-title">ไม่มี <code>&lt;h1&gt;</code> เลยทั้งหน้า &mdash; heading เริ่มที่ H2 ("Benchmark") ตรงๆ (เช็คจาก DOM จริง ไม่ใช่แค่ดูตา)</div>
+      <p class="fix">&rarr; รูปแบบเดียวกับที่เจอบน cigblu.com's Products overview ก่อนหน้านี้ &mdash; ดูเหมือนเป็นบั๊ก theme เดียวกันข้ามเว็บในเครือ ควรใส่ H1 ให้หน้าสินค้าทุกหน้า</p>
+    </div>
+    <div class="ci med">
+      <div class="ci-top"><span class="sev med">Med</span><span class="stt wait">รอ IT</span></div>
+      <div class="ci-title">ไม่มี meta description และไม่มี og:image (เช็คจาก <code>&lt;head&gt;</code> จริง)</div>
+      <p class="fix">&rarr; ไม่มีทั้งคู่ &mdash; แชร์ลิงก์หน้านี้จะไม่มีคำอธิบาย/รูปพรีวิว และ Google อาจไปดึงข้อความสุ่มจากหน้ามาทำ snippet เอง</p>
+    </div>
+    <div class="ci low">
+      <div class="ci-top"><span class="stt ok">เนื้อหาจริง</span></div>
+      <div class="ci-title">เนื้อหาสินค้าจริงครบ ไม่ใช่ placeholder (~250 คำ) &mdash; แต่รูปโลโก้ไซต์ (<code>cig-logo-120x60.png</code>) แตก 404 เหมือนกันทุกหน้าที่เช็ค (ปัญหาทั้งเว็บ ไม่ใช่แค่หน้านี้)</div>
+    </div>
   </section>
 
   <section class="block">
@@ -32,7 +45,7 @@
     <h2><span class="num">3</span> สถานะงาน</h2>
     <table class="kv">
     <tr><td>เจ้าของเว็บ</td><td>cigpcl.com &mdash; เว็บ live จริงของบริษัทแม่ (ไม่ได้ build ใน repo นี้)</td></tr>
-    <tr><td>สถานะปัจจุบัน</td><td>Live &middot; ยังไม่ได้ audit ละเอียด</td></tr><tr><td>อัปเดตล่าสุด</td><td>2026-09-16</td></tr></table>
+    <tr><td>สถานะปัจจุบัน</td><td>พบ finding แล้ว</td></tr><tr><td>อัปเดตล่าสุด</td><td>2026-09-17</td></tr></table>
   </section>
 
   <section class="block">
@@ -44,6 +57,6 @@
     </ul>
   </section>
 
-  <footer class="scaffold-foot">Benchmark node &middot; cigpcl.com &middot; audit 2026-09-16</footer>
+  <footer class="scaffold-foot">Benchmark node &middot; cigpcl.com &middot; audit 2026-09-17</footer>
 </main>
 </body></html>
