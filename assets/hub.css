@@ -156,3 +156,4 @@ table.board tr.sitewide{background:#fff9ec;box-shadow:inset 4px 0 0 var(--warn)}
 .round{background:#fff;border:2px solid var(--blue);border-radius:12px;padding:16px 20px;margin-bottom:16px}
 .round h2{margin:0 0 6px;font-size:18px;color:var(--navy)}.round .goal{margin:0 0 8px}
 .round ol{margin:6px 0 10px;padding-left:22px}.round li{margin:7px 0}.round p{margin:6px 0}
+.round .why{color:#9a3412;font-size:13px}

@@ -238,8 +238,8 @@ def dashboard():
     r = DATA.get('round')
     if r:
         o.append('<div class="round"><h2>🎯 %s</h2><p class="goal"><b>เป้าหมาย:</b> %s</p><ol>' % (esc(r['name']), esc(r['goal'])))
-        for num, t, href, sub in r['focus']:
-            o.append('<li><a href="%s"><b>%s</b></a><br><span class="muted">%s</span></li>' % (esc(href), esc(t), esc(sub)))
+        for num, t, href, sub, why in r['focus']:
+            o.append('<li><a href="%s"><b>%s</b></a><br><span class="muted">%s</span><br><span class="why">⚠ ทำไมต้องแก้: %s</span></li>' % (esc(href), esc(t), esc(sub), esc(why)))
         o.append('</ol><p><b>เสร็จรอบนี้เมื่อ:</b> %s</p><p class="muted small">%s</p></div>' % (esc(r['done_when']), esc(r['later'])))
     o.append('<div class="launch"><h2>พร้อมเปิดตัวหรือยัง? <span class="pill st-confirm">ยังไม่พร้อม</span></h2>'
              '<p>ยังมี <b>P0 ค้าง %d ข้อ</b> — ต้องปิดทุกข้อ แล้วให้ 4 ฝ่ายอนุมัติร่วมกัน</p>' % n0 if n0 else
