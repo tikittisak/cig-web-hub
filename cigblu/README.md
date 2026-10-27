@@ -1,25 +1,43 @@
-# CIG Web Hub
+# CIG Web Hub — cigblu.com
 
-ศูนย์สื่อสาร **IT ↔ MKT** สำหรับเว็บ `cigblu.com` — เว็บภายในที่ **มิเรอร์โครงหน้าเว็บจริง**
-เพื่อบอกในที่เดียวว่าแต่ละหน้า *ต้องแก้อะไร · โหลด resource อะไร · สถานะแค่ไหน*
+ที่เดียวสำหรับ **IT · MKT · Eng/QA · Sales** — แต่ละหน้าเว็บ cigblu.com บอกว่า
+**ต้องทำอะไร · ใช้ไฟล์ไหน · ใครทำ · เสร็จเมื่อไร** และ Dashboard บอกว่าพร้อมเปิดตัวหรือยัง
 
 ## เปิดใช้งาน
-- หน้าเว็บ (GitHub Pages): เปิด `index.html` = Dashboard รวมทุกหน้า
-- แต่ละหน้ามิเรอร์ URL จริง เช่น เว็บจริง `/products/refrigeration` → hub `products/refrigeration/`
+- `index.html` = Dashboard: สถานะทุกหน้า + ความพร้อมเปิดตัว (P0 ค้าง + การอนุมัติ 4 ฝ่าย)
+- `todo/` = งานที่ต้องทำทั้งหมด กรองตามฝ่ายได้
+- `url-map/` = URL ที่ตกลงแล้ว + redirect จากเว็บทดสอบและเว็บเก่า
+- `site-wide/` = งานที่ไม่ใช่ของหน้าใดหน้าหนึ่ง (โดเมน, server, อีเมล, ทดสอบ, อนุมัติ)
+- โฟลเดอร์หน้า = URL ที่ตกลง (เช่น `products/refrigeration/unit-cooler-slim-type/`) ไม่ใช่ URL เว็บทดสอบตอนนี้
+  โฟลเดอร์ชื่อเก่า (เช่น `products/special-coating/`) เหลือไว้เป็นหน้า redirect ให้ลิงก์ที่ส่งไปแล้วยังใช้ได้
 
-## หลักการ
-- hub เป็น **ชั้น index** ไม่เก็บไฟล์เนื้อหาซ้ำ (กันข้อมูลล้า) — ปุ่มโหลดชี้ไฟล์จริงใน repo เว็บ
-- **โครง** มาจาก target tree (migration-map + nav-structure) · **สถานะ** มาจากเว็บที่ IT ขึ้นจริง
+## วิธีแก้ข้อมูล
+หน้า `index.html` ทุกหน้าในโฟลเดอร์นี้ **สร้างจากสคริปต์** — อย่าแก้ HTML ตรงๆ
 
-## แต่ละหน้ามี 4 บล็อก
-1. Change notes — สิ่งที่ต้องแก้ 2. Resource downloads — ไฟล์ให้ IT โหลด
-3. สถานะงาน 4. ลิงก์อ้างอิง (Figma / live / repo)
+1. แก้ `../_src/cigblu/pages.json` (หรือ `redirects-old-site.json`)
+2. รัน `python3 _src/cigblu/build.py` จาก root ของ repo
+3. commit ทั้ง `_src/` และ `cigblu/`
 
-## ยังไม่ทำในรอบ scaffold นี้
-- Global shell (nav/footer) → IT ขึ้นเสร็จแล้ว ยังไม่จำเป็น
+สคริปต์เขียนเฉพาะ `index.html` — ไฟล์อื่นในโฟลเดอร์หน้า (รูป, draft, PDF) ไม่ถูกแตะ
+
+## มาตรฐานการเขียน 1 งาน (1 การ์ด)
+| ช่อง | เขียนอะไร |
+|---|---|
+| `p` | `P0` ต้องแก้ก่อนเปิดตัว/ก่อนรับ lead · `P1` แก้ก่อนโปรโมตวงกว้าง · `P2` ปรับปรุงทีหลังได้ |
+| `who` | ใครลงมือ: IT / MKT / Sales / Eng/QA / Ti (ใช้ `A → B` เมื่อ A ส่งต่อให้ B) |
+| `t` | ปัญหาที่เห็นบนเว็บ — ภาษาไทยง่ายๆ ใส่ข้อความ/URL จริงที่เจอ |
+| `do` | ทำอะไรให้เสร็จ แบบที่ทำตามได้เลย (ชื่อไฟล์, URL, ข้อความใหม่) |
+| `files` | ไฟล์ที่ต้องใช้ — ไฟล์ที่จะขึ้นเว็บอยู่แล้ว (รูป, og, favicon) เก็บใน hub ให้โหลดได้โดยไม่ต้อง login · เอกสารภายใน/ร่าง อยู่ใน repo private (`kind: private`, แสดง 🔒) |
+| `done` | เสร็จเมื่อเห็นอะไรบนเว็บจริง (ตรวจได้) |
+| `st` | `it` / `mkt` / `sales` / `eng` / `test` / `decide:<ใคร>` / `done` — "เสร็จ" ใช้เมื่อเช็คบนเว็บจริงแล้วเท่านั้น ไม่ใช่แค่เตรียมไฟล์เสร็จ |
+
+ภาษา: อธิบายเป็นภาษาไทย · ชื่อไฟล์, URL, โค้ด, ข้อความปุ่ม เขียนเป็นภาษาอังกฤษตามที่อยู่บนเว็บ
+หน้าที่ URL ตอนนี้ ≠ URL ที่ตกลง สคริปต์เพิ่มการ์ด "เปลี่ยน URL" ให้เอง (ใส่ `dupes` ถ้ามีหน้าซ้ำ)
 
 ## Sync log
-- 2026-09-16: เพิ่ม 27 model pages (Coils/Coating/AHU/Refrigeration/Marine) จาก `cib-website` (repo dev จริงของ www.cigblu.com, `site/products/library.json`) — เนื้อหาเขียนเสร็จพร้อม deploy แล้วทุกหน้า เช็คสดยัง 404 ทั้ง web.cigblusolutions.com และ www.cigblu.com รอ IT publish เท่านั้น ไม่ใช่รอเนื้อหา
-- 2026-09-16: เพิ่มอีก 4 solution pages (coil-replacement-ahu-renovation, cold-room-design-installation, smart-solutions-iot, product-development) จาก `cib-website` `site/solutions/library.json` เหตุผลเดียวกัน — ยังไม่พบ content สำหรับ "BluSolutions" (overview) หรือ "M&E Design & Solutions" ใน cib-website (M&E ตัวจริงชี้ออกไปเพจ Facebook `cigmesolutions` จากหน้า catalog ของ cigblu.com เอง ดูเหมือนเป็นแบรนด์/ทีมแยกต่างหาก ไม่ใช่ของที่จะย้ายเข้ามา)
+- 2026-10-27: เช็คเว็บจริงทุกหน้า (web.cigblusolutions.com) + รวมรายงานทบทวนเว็บ 26 ต.ค. 2569 — IT ขึ้นครบเกือบทุกหน้าแล้ว
+  ยังไม่พร้อมเปิดตัว (P0 ค้าง 13 ข้อ) · Ti อนุมัติ URL ใหม่ (`/products/<family>/<รุ่น>`), ระดับ P0/P1/P2, เก็บไฟล์ public ใน hub, ภาษาไทยง่าย
+  สร้าง hub ใหม่ทั้งชุดจาก `_src/cigblu/` · ลบ prototype mirror ที่ล้าสมัย (contact, careers, 404, marine) เพราะหน้าจริงขึ้นแล้ว
+- 2026-09-16: เพิ่ม 27 model pages + 4 solution pages จาก `cib-website`
 
-> สถานะเป็นเว็บภายใน — ตั้ง `noindex` ทุกหน้า ไม่ให้ search engine เก็บ
+> เว็บภายใน — ตั้ง `noindex` ทุกหน้า · repo นี้เป็น public: อย่าใส่รายงานภายใน, ร่างที่ยังไม่อนุมัติ หรือข้อมูลส่วนตัว

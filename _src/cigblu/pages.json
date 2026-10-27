@@ -1,0 +1,2016 @@
+{
+ "site": "cigblu",
+ "checked": "2026-10-27",
+ "live_host": "https://web.cigblusolutions.com",
+ "final_host": "https://www.cigblu.com",
+ "pages": [
+  {
+   "id": "site-wide",
+   "title": "ทั้งเว็บ (ทุกหน้า)",
+   "kind": "site",
+   "owner": "IT + MKT",
+   "live": null,
+   "target": null,
+   "built": true,
+   "desc": "งานที่ไม่ได้อยู่หน้าใดหน้าหนึ่ง — ตั้งค่า server, โดเมน, URL, อีเมล, การทดสอบ และการอนุมัติเปิดตัว",
+   "items": [
+    {
+     "p": "P0",
+     "who": "IT",
+     "t": "Google เก็บเว็บ staging (web.cigblusolutions.com) เข้า index ได้ทั้งหมด",
+     "do": "ใส่ header `X-Robots-Tag: noindex` ทุกหน้าบน web.cigblusolutions.com จนกว่าจะย้ายไป www.cigblu.com (อย่าใช้ robots.txt Disallow เพราะ Google จะมองไม่เห็นคำสั่ง noindex)",
+     "done": "เปิดหน้าไหนก็ได้บน web.cigblusolutions.com แล้ว response header มี `X-Robots-Tag: noindex`",
+     "st": "it",
+     "why": "ถ้าปล่อยไว้ พอย้ายไป www.cigblu.com จะมีเนื้อหาซ้ำ 2 โดเมนแย่งอันดับกันเอง"
+    },
+    {
+     "p": "P0",
+     "who": "ทุกฝ่าย",
+     "t": "ยังไม่มีการอนุมัติเปิดตัวร่วมกัน",
+     "do": "ปิด P0 ทุกข้อในหน้า \"งานที่ต้องทำ\" แล้วให้ MKT / IT / Engineering-QA / Sales ลงชื่อ + วันที่อนุมัติ",
+     "done": "มีชื่อผู้อนุมัติครบ 4 ฝ่ายพร้อมวันที่ ในตารางความพร้อมเปิดตัวบน Dashboard",
+     "st": "decide:ทุกฝ่าย",
+     "why": "ตามรายงานทบทวนเว็บ 26 ต.ค. 2569 — ห้ามถือว่า \"รอทดสอบ\" เท่ากับผ่าน"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "URL ยังไม่เป็นแบบที่ตกลงไว้ (เช่น /productsCatalog/...)",
+     "do": "เปลี่ยน URL ทุกหน้าตามตารางในหน้า \"แผนที่ URL\" และตั้ง redirect 308 จาก URL เดิมทุกอัน — ทำก่อนย้ายโดเมนจะถูกที่สุด",
+     "done": "เปิด URL เดิมทุกอันแล้วถูกส่งไป URL ใหม่ (308) · URL ใหม่ตอบ 200",
+     "st": "it",
+     "files": [
+      {
+       "label": "แผนที่ URL (ตารางเต็ม)",
+       "href": "{root}url-map/index.html",
+       "kind": "hub"
+      }
+     ]
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "URL ตัวพิมพ์ใหญ่ขึ้น 404 (เช่น /productscatalog, /PRODUCTS)",
+     "do": "ตั้งกฎเดียว: URL ที่มีตัวพิมพ์ใหญ่ → redirect 308 ไปตัวพิมพ์เล็ก",
+     "done": "เปิด /Products แล้วถูกส่งไป /products",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "http:// เปิดไม่ได้ (ขึ้น 503 \"No available server\")",
+     "do": "ตั้ง redirect http → https ทุก URL",
+     "done": "เปิด http://web.cigblusolutions.com/about แล้วถูกส่งไป https://… (301/308)",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "canonical ชี้คนละโดเมน — /contact, /careers, /products/marine-application ชี้ www.cigblu.com ส่วนหน้าอื่นชี้ web.cigblusolutions.com",
+     "do": "สร้าง canonical / og:url / JSON-LD url จากค่าตั้งค่าเดียว (เช่น SITE_URL) ไม่เขียนโดเมนตรงในแต่ละหน้า · ไม่มี / ท้าย URL",
+     "done": "ทุกหน้าใช้โดเมนเดียวกันใน canonical และ og:url",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "วันย้ายโดเมน: www.cigblu.com ยังส่งไปเว็บเก่า (WordPress)",
+     "do": "วัน cutover: ชี้ www.cigblu.com มาเว็บใหม่ · web.cigblusolutions.com/* → redirect ไป www.cigblu.com/* (path เดิม) · ตั้ง redirect URL เว็บเก่าทั้ง ~60 อัน ตามตารางในหน้า \"แผนที่ URL\"",
+     "done": "URL เว็บเก่าทุกอันในตาราง redirect ไปหน้าที่ถูกต้อง (ไม่ใช่หน้าแรกทั้งหมด)",
+     "st": "it",
+     "files": [
+      {
+       "label": "แผนที่ URL › redirect เว็บเก่า",
+       "href": "{root}url-map/index.html#old-site",
+       "kind": "hub"
+      }
+     ]
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "sitemap.xml ยังไม่ถูก — มีหน้าซ้ำ, มีหน้า template, ขาด /careers และ /insights/news-events",
+     "do": "สร้าง sitemap ใหม่: 1 URL ต่อ 1 หน้า, เฉพาะหน้าที่ใช้งานจริง, ใช้โดเมน www.cigblu.com, lastmod เป็นวันที่แก้จริง",
+     "done": "ไม่มี URL ซ้ำ / template / 404 ใน sitemap",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "llms.txt (ไฟล์สรุปเว็บให้ AI) ยังชี้ /productsCatalog และไม่มี Projects, Careers",
+     "do": "อัปเดต llms.txt ให้ตรงกับ URL ใหม่ หลังเปลี่ยน URL",
+     "done": "ทุกลิงก์ใน llms.txt ตอบ 200 และตรงกับ sitemap",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "Sales → IT",
+     "t": "ใช้อีเมลหลายโดเมน: contact@cigblusolutions.com (footer, ปุ่ม Email us), contact@cigblu.com (หน้า Contact), engineering@cigblu.com, careers@cigblu.com",
+     "do": "Sales เลือกอีเมลหลัก + ผู้รับสำรอง → IT ตรวจว่า alias/forwarding ส่งถึงจริงทั้ง 2 โดเมน → แก้ข้อความและ mailto ทุกจุดให้เหมือนกัน",
+     "done": "ส่งอีเมลทดสอบถึงทุกที่อยู่ที่แสดงบนเว็บแล้วมีคนได้รับ (เก็บหลักฐาน)",
+     "st": "decide:Sales"
+    },
+    {
+     "p": "P1",
+     "who": "MKT",
+     "t": "ปุ่ม \"Download Catalog\" ทุกหน้ายังลิงก์ไป # (กดแล้วไม่เกิดอะไร)",
+     "do": "ตัดสินใจ: มีไฟล์ catalog PDF ให้ดาวน์โหลดไหม — ถ้ามี ส่งไฟล์ให้ IT · ถ้าไม่มี ให้ IT ซ่อนปุ่มนี้ทุกหน้า",
+     "done": "ไม่มีปุ่ม Download Catalog ที่ลิงก์ไป #",
+     "st": "decide:MKT",
+     "where": "Refrigeration, AHU, Unit coolers, Air-cooled condensers, Cooling Generation"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "หน้า family ไม่ลิงก์ไปหน้ารุ่นสินค้า และหน้ารุ่นไม่ลิงก์กลับหน้า family",
+     "do": "ทุกหน้า family ลิงก์ไปทุกรุ่นในกลุ่ม · ทุกหน้ารุ่นมี breadcrumb ลิงก์กลับ family · ใส่ BreadcrumbList JSON-LD ตรงกับ URL",
+     "done": "จากหน้า family กดไปถึงทุกรุ่นได้โดยไม่ต้องผ่านหน้า catalog",
+     "st": "it",
+     "why": "ตอนนี้รุ่น Refrigeration / Coating / AHU เข้าถึงได้ทางหน้า catalog ทางเดียว — Google และ AI crawler ที่ตามลิงก์จะหาไม่เจอ"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "เมนูย่อยระหว่าง family (quick-nav) ไม่มี Marine",
+     "do": "เพิ่มลิงก์ Marine ในเมนูย่อยของ Refrigeration, Coil coatings, Air handling units",
+     "done": "ทุกหน้า family มีลิงก์ครบ 5 family",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "Eng/QA",
+     "t": "ข้อความอ้างผลงาน/การรับรองยังไม่มีหลักฐานกำกับ: ประหยัดพลังงาน 30% (EC Fan), R290 ดีกว่า R-134a 78%, \"certified to ISO 9001, AHRI, and ASHRAE\", sketch-to-quote ใน 24 ชั่วโมง, ข้อความรับรองของ D-COAT+",
+     "do": "Eng/QA ทำทะเบียน claim: รุ่น, เงื่อนไขทดสอบ, ฐานเปรียบเทียบ, เอกสารอ้างอิง, วันหมดอายุ · แยก \"ระบบองค์กรได้รับรอง\" / \"สินค้าได้รับรอง\" / \"ออกแบบตามมาตรฐาน\" · ข้อไหนไม่มีหลักฐาน MKT ลดระดับข้อความ · Sales ยืนยันเงื่อนไข 24 ชั่วโมง",
+     "done": "ทุก claim บนเว็บมีแถวในทะเบียนพร้อมผู้อนุมัติ",
+     "st": "eng",
+     "where": "Home, Products, R290, EC Fan, D-COAT+"
+    },
+    {
+     "p": "P1",
+     "who": "Eng/QA → MKT",
+     "t": "ข้อมูลโรงงานไม่ตรงกัน: หน้า Products บอก \"ผลิตและทดสอบทุก family ที่ 30,000 sq.m ใน Pathumthani\" แต่หน้า Contact มีโรงงาน Pinthong และ Teparak",
+     "do": "Eng/QA ยืนยันว่าแต่ละที่ทำอะไร + พื้นที่เท่าไร → MKT แก้ทุกหน้าให้ใช้ข้อมูลชุดเดียว",
+     "done": "ทุกหน้าพูดถึงโรงงานตรงกัน",
+     "st": "eng"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ยังไม่ได้ทดสอบมือถือ / การใช้งานด้วยคีย์บอร์ด / ความเร็ว",
+     "do": "ทดสอบ iOS Safari + Android Chrome ที่ความกว้าง 360 / 390 / 768 px (เมนูใช้ได้, ไม่ล้นแนวนอน, ปุ่มไม่ถูกบัง) · กด Tab ไปได้ทุกปุ่ม/ช่องกรอก · วัด PageSpeed มือถือ: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1",
+     "done": "มีผลทดสอบ (อุปกรณ์, วันที่, ผล, screenshot) ของ Home, Products, Contact และหน้ารุ่น 1 หน้า",
+     "st": "test"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ยังไม่มีแผนสำรองข้อมูล / ย้อนกลับ และผู้ดูแลหลังเปิดตัว",
+     "do": "เขียนวิธี rollback ถ้า deploy มีปัญหา + ระบุชื่อผู้ดูแลเว็บหลังเปิดตัว",
+     "done": "มีเอกสาร rollback ที่ทดลองทำแล้ว 1 ครั้ง + ชื่อผู้ดูแล",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ไฟล์โลโก้ที่ใช้เป็นรูปแชร์มีเว้นวรรคในชื่อ (`CIG BLUSOLUTIONS LOGO.png`)",
+     "do": "เปลี่ยนชื่อเป็น `cig-blusolutions-logo.png` และแก้ทุกจุดที่อ้างถึง",
+     "done": "ไม่มีชื่อไฟล์ที่มีเว้นวรรคบนเว็บ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "เว็บใหม่ยังไม่มี analytics (ไม่มี GA4 / Google Ads tag)",
+     "do": "MKT ตัดสินใจว่าจะติด GA4 ไหม · ถ้าติด: IT ใส่ tag + event \"กดขอราคา\" และ \"ส่งฟอร์มสำเร็จ\" (ห้ามส่งข้อมูลส่วนตัวใน event) · ถ้า tag ตั้ง cookie ต้องมี cookie banner และแก้ Privacy Policy ข้อ 6",
+     "done": "เห็นข้อมูลใน GA4 Realtime เมื่อเปิดเว็บ และนับ lead ไม่ซ้ำ",
+     "st": "decide:MKT"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "template หน้าเนื้อหา (Insights / Solutions / Projects) มีจุดเล็กๆ: หัวข้อ \"On this page\" เป็น h4 ก่อน h2, มีจุด \".\" เกินหลัง \"Message us on Line OA\", ป้ายหมวดเป็นตัวพิมพ์เล็ก (news, case-study)",
+     "do": "เปลี่ยน \"On this page\" เป็นข้อความธรรมดา (ไม่ใช่ heading) · ลบจุดเกิน · แสดงป้ายหมวดเป็น News / Case Study / Article",
+     "done": "หน้าเนื้อหาไม่มี 3 จุดนี้",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "ทุก internal link ที่เช็ค (ราว 100 ลิงก์) ตอบ 200",
+    "ทุกหน้ามี h1 เดียว และรูปมี alt",
+    "หน้า 404 ส่ง status 404 จริง",
+    "robots.txt อนุญาต AI crawler แล้ว"
+   ]
+  },
+  {
+   "id": "home",
+   "title": "Home",
+   "kind": "page",
+   "owner": "IT",
+   "live": "/",
+   "target": "/",
+   "built": true,
+   "desc": "หน้าแรก — IT สร้างเอง",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "รูปพื้นหลัง hero หนัก 15 MB ทำให้หน้าแรกโหลดช้า",
+     "do": "ใน CSS ของ hero (div ที่มี `bg-cover bg-center`) เปลี่ยน `/home-hero-background.jpg` เป็น `/home-hero-background.webp` (ไฟล์ใหม่ 680 KB) — ต้องแก้ CSS ไม่ใช่แค่วางไฟล์ทับ",
+     "done": "รูปพื้นหลัง hero บนเว็บจริงต่ำกว่า 1 MB",
+     "st": "it",
+     "files": [
+      {
+       "label": "home-hero-background.webp (680 KB)",
+       "href": "files/home-hero-background.webp",
+       "kind": "hub"
+      }
+     ]
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "การ์ด Industries \"Marine & Offshore\" ลิงก์ไป /products (หน้ารวม) แทนหน้า Marine",
+     "do": "เปลี่ยนลิงก์เป็นหน้า Marine (ปัจจุบัน /products/marine-application → URL ใหม่ /products/marine-hvac)",
+     "done": "กดการ์ด Marine แล้วไปหน้า Marine",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) เป็นโลโก้ ทั้งที่มีรูปหน้าแรกเตรียมไว้แล้ว",
+     "do": "วางไฟล์ og-home.jpg ที่ root ของเว็บ แล้วใส่ og:image, og:image:width=1200, og:image:height=630, twitter:card=summary_large_image, twitter:image",
+     "done": "แชร์ลิงก์หน้าแรกแล้วเห็นรูป og-home.jpg",
+     "st": "it",
+     "files": [
+      {
+       "label": "og-home.jpg (1200×630)",
+       "href": "files/og-home.jpg",
+       "kind": "hub"
+      }
+     ]
+    },
+    {
+     "p": "P1",
+     "who": "Ti",
+     "t": "เมนู \"Engineering\" กดแล้วไม่ไปไหน (หน้ายังไม่มี — รอเนื้อหาจาก MKT)",
+     "do": "ตัดสินใจ: ซ่อนเมนูนี้ไว้ก่อนจนกว่าหน้าจะพร้อม หรือคงไว้ (แนะนำ: ซ่อนไว้ก่อน)",
+     "done": "เมนูทุกอันกดแล้วไปหน้าที่มีอยู่จริง",
+     "st": "decide:Ti"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "favicon ยังเป็นไอคอนสามเหลี่ยม placeholder ไม่ใช่โลโก้ CIG",
+     "do": "แทนไฟล์ favicon.ico และเพิ่ม apple-touch-icon.png, icon-192.png, icon-512.png ที่ root",
+     "done": "แท็บ browser แสดงโลโก้ CIG",
+     "st": "it",
+     "files": [
+      {
+       "label": "favicon.ico",
+       "href": "files/favicon/favicon.ico",
+       "kind": "hub"
+      },
+      {
+       "label": "apple-touch-icon.png",
+       "href": "files/favicon/apple-touch-icon.png",
+       "kind": "hub"
+      },
+      {
+       "label": "icon-192.png",
+       "href": "files/favicon/icon-192.png",
+       "kind": "hub"
+      },
+      {
+       "label": "icon-512.png",
+       "href": "files/favicon/icon-512.png",
+       "kind": "hub"
+      }
+     ]
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "ข้อความ \"RELIABLE PERFORMANCE WITH MEASURABLE ROI\" ฝังอยู่ในรูป (Frame 15979.jpg) — Google และ AI อ่านไม่ได้",
+     "do": "MKT ส่งรูปเวอร์ชันไม่มีตัวหนังสือ → IT วางข้อความเป็น HTML ทับรูป · แก้ alt ให้ตรงกับรูป (ตอนนี้ alt เป็น \"Heat Exchanger Special Coating\")",
+     "done": "ข้อความนี้ select/copy ได้บนเว็บ",
+     "st": "mkt"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "หัวข้อใหญ่ (H1) อ่านเป็น \"Transfer.Built\" เพราะไม่มีเว้นวรรคก่อน <br>",
+     "do": "เติมเว้นวรรคหลัง \"Transfer.\" ก่อน `<br/>`",
+     "done": "ข้อความ H1 ที่ copy ออกมาเป็น \"Engineered to Transfer. Built to Last.\"",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "MKT",
+     "t": "ขนาดตัวอักษรการ์ด EC Fan: Figma 13.3px แต่เว็บใช้ 16px",
+     "do": "ตัดสินใจว่าจะใช้ขนาดไหน (แนะนำ: คง 16px — อ่านบนมือถือง่ายกว่า แล้วแก้ Figma ให้ตรง)",
+     "done": "Figma กับเว็บใช้ขนาดเดียวกัน",
+     "st": "decide:MKT"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ยังไม่มี WebSite JSON-LD (มีแค่ Organization)",
+     "do": "เพิ่ม WebSite JSON-LD (name, url) ที่หน้าแรก",
+     "done": "Rich Results Test เห็น WebSite",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "การ์ด Stainless Steel ลิงก์ถูกแล้ว",
+    "การ์ด Industries ทั้ง 6 ใบกดได้แล้ว",
+    "ปุ่ม View More 2 จุด (EC Fan, AHU) ใช้ได้แล้ว",
+    "ปุ่ม About Us ลิงก์ /about แล้ว",
+    "ชื่อสินค้า 4 ตัวเป็น h3 แล้ว",
+    "รูปอื่นผ่าน next/image แล้ว (ไม่หนัก)",
+    "มี sitemap.xml, robots.txt, llms.txt แล้ว"
+   ],
+   "refs": [
+    {
+     "label": "คู่มือหน้า Home (repo private)",
+     "href": "https://github.com/tikittisak/cib-website/blob/master/archive/pages/home/01-home-page-section-guide.html"
+    }
+   ]
+  },
+  {
+   "id": "about",
+   "title": "About us",
+   "kind": "page",
+   "owner": "IT",
+   "live": "/about",
+   "target": "/about",
+   "built": true,
+   "desc": "หน้าเกี่ยวกับบริษัท — IT สร้างเอง",
+   "items": [
+    {
+     "p": "P2",
+     "who": "MKT",
+     "t": "รูปแชร์ og-about.jpg หนัก 3.2 MB",
+     "do": "บีบไฟล์ให้ต่ำกว่า 300 KB (ขนาดคงเดิม 1200×630) แล้วส่ง IT วางทับ",
+     "done": "og-about.jpg ต่ำกว่า 300 KB",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "Ticker เป็น (SET:CIG) ทั้งหมดแล้ว",
+    "การ์ด Core Values เข้าถึงได้แล้ว",
+    "มี og:image แล้ว"
+   ]
+  },
+  {
+   "id": "products",
+   "title": "Products (ภาพรวม)",
+   "kind": "page",
+   "owner": "IT",
+   "live": "/products",
+   "target": "/products",
+   "built": true,
+   "desc": "หน้ารวมกลุ่มสินค้า — IT สร้างจาก Figma",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "รูปตาราง OEM logo ไม่ขึ้น (next/image ตอบ 400)",
+     "do": "เปลี่ยนชื่อไฟล์ให้ไม่มีวงเล็บ/จุลภาค/… เช่น `oem-logo-grid.webp` แล้วแก้ path ในโค้ด",
+     "done": "รูป OEM logo grid แสดงบนเว็บ",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "การ์ด Marine ไม่ 404 แล้ว",
+    "tag ของการ์ด AHU ไม่ซ้ำกับ Coil แล้ว",
+    "มี H1 \"Products\" แล้ว",
+    "D-COAT+ มีเครื่องหมาย + ครบ",
+    "มี og-products.jpg แล้ว"
+   ],
+   "note_items": [
+    "ข้อความ \"certified to ISO 9001, AHRI, and ASHRAE\", sketch-to-quote 24 ชม. และ \"30,000 sq.m ใน Pathumthani\" — ดูงานใน \"ทั้งเว็บ\""
+   ]
+  },
+  {
+   "id": "products/catalog",
+   "title": "Products catalog",
+   "parent": "products",
+   "kind": "page",
+   "owner": "IT",
+   "live": "/productsCatalog",
+   "target": "/products/catalog",
+   "built": true,
+   "desc": "หน้ารวมทุกรุ่น (27 รุ่น)",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "หน้าเก่า /productsCatalog/coil-heat-exchanger ยังเปิดได้ อยู่ใน sitemap และมีตัว ** แสดงบนหน้า",
+     "do": "redirect 308 ไป /products/coil-heat-exchanger และลบออกจาก sitemap",
+     "done": "เปิด URL เก่าแล้วไปหน้า family Coil",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "ทั้ง 27 รุ่นลิงก์จากหน้า catalog และเปิดได้"
+   ]
+  },
+  {
+   "id": "products/coil-heat-exchanger",
+   "title": "Coil & Heat Exchanger",
+   "parent": "products",
+   "kind": "family",
+   "owner": "IT + MKT",
+   "live": "/products/coil-heat-exchanger",
+   "target": "/products/coil-heat-exchanger",
+   "old_hub": [],
+   "built": true,
+   "desc": "กลุ่มคอยล์และ heat exchanger",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "การ์ดสินค้า 6 ใบลิงก์ไปหน้ารุ่นแบบ template การตลาด ซึ่งซ้ำกับหน้าใน catalog",
+     "do": "หลังรวมหน้าซ้ำ (ดูหน้ารุ่นแต่ละตัว) ให้การ์ดลิงก์ไป URL ใหม่ /products/coil-heat-exchanger/<รุ่น>",
+     "done": "การ์ดทั้ง 6 ใบไปหน้ารุ่นที่ URL ใหม่",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "การ์ดสินค้า 6 ใบกดได้แล้ว",
+    "ปุ่ม D-COAT+, Heresite, Coil Protection ไป /products/special-coating แล้ว",
+    "ปุ่ม Talk to Engineering / Request Selection ไป /contact แล้ว",
+    "ลิงก์ Marine ใน quick-nav ใช้ได้",
+    "คำอธิบาย 4 capability ไม่ซ้ำกันแล้ว",
+    "มี og:image แล้ว"
+   ]
+  },
+  {
+   "id": "products/coil-heat-exchanger/water-coil",
+   "title": "Water Coil",
+   "parent": "products/coil-heat-exchanger",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/water-coil",
+   "target": "/products/coil-heat-exchanger/water-coil",
+   "old_hub": [],
+   "built": true,
+   "desc": "Water coils for hot or cold water applications, in copper, copper-nickel or stainless steel tube with aluminum or copper fins — rated to 250 psi and 300°F for standard-duty copper tube coils, manufactured up to 11 m in length.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ],
+   "dupes": [
+    "/products/coil-heat-exchanger/water-coil"
+   ]
+  },
+  {
+   "id": "products/coil-heat-exchanger/evaporator-coil",
+   "title": "Evaporator Coil",
+   "parent": "products/coil-heat-exchanger",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/evaporator-coil",
+   "target": "/products/coil-heat-exchanger/evaporator-coil",
+   "old_hub": [],
+   "built": true,
+   "desc": "Evaporator coils from 1 to 100 TR that absorb warm air from a room or enclosed space via blower and refrigerant, built for a wide range of temperatures — from standard HVAC/R duty to sub-zero freezing applications — in copper, aluminum or copper-nickel tube with aluminum, copper or precoated aluminum fins.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ],
+   "dupes": [
+    "/products/coil-heat-exchanger/evaporator-coil"
+   ]
+  },
+  {
+   "id": "products/coil-heat-exchanger/condenser-coil",
+   "title": "Condenser Coil",
+   "parent": "products/coil-heat-exchanger",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/condenser-coil",
+   "target": "/products/coil-heat-exchanger/condenser-coil",
+   "old_hub": [],
+   "built": true,
+   "desc": "Condenser coils from 1 to 100 TR that reject heat from the refrigerant in an HVAC/R system, customized to match air conditioning, refrigeration or industrial process requirements, in copper, aluminum or copper-nickel tube with copper, precoated aluminum or copper-nickel fins.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ],
+   "dupes": [
+    "/products/condenser-coil"
+   ]
+  },
+  {
+   "id": "products/coil-heat-exchanger/5mm-tube-coil",
+   "title": "5mm Tube Coil",
+   "parent": "products/coil-heat-exchanger",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/coil-5mm",
+   "target": "/products/coil-heat-exchanger/5mm-tube-coil",
+   "old_hub": [
+    "products/coil-heat-exchanger/coil-5mm"
+   ],
+   "built": true,
+   "desc": "The 5-Series 5mm coil uses a smaller tube diameter for a lighter, more compact coil at the same capacity — at 9,000 BTU, a 5mm coil is noticeably smaller than a comparable 9.52 mm (3/8\") coil, suitable for residential and commercial applications.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ],
+   "dupes": [
+    "/products/coil-5mm"
+   ]
+  },
+  {
+   "id": "products/coil-heat-exchanger/all-aluminum-coil",
+   "title": "All Aluminum Coil",
+   "parent": "products/coil-heat-exchanger",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/all-aluminum-coil",
+   "target": "/products/coil-heat-exchanger/all-aluminum-coil",
+   "old_hub": [],
+   "built": true,
+   "desc": "CIG BluSolutions is the first plant in Southeast Asia to manufacture all-aluminum coils, built to high standards for transportation, residential, commercial and industrial applications — lighter weight and more economical, with a dedicated aluminum production facility.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ],
+   "dupes": [
+    "/products/all-aluminum-coil"
+   ]
+  },
+  {
+   "id": "products/coil-heat-exchanger/tube-in-tube-heat-exchanger",
+   "title": "Tube-in-Tube Heat Exchanger",
+   "parent": "products/coil-heat-exchanger",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/tube-in-tube-heat-exchanger",
+   "target": "/products/coil-heat-exchanger/tube-in-tube-heat-exchanger",
+   "old_hub": [],
+   "built": true,
+   "desc": "Coaxial tube-in-tube heat exchangers, with an inner and outer tube coiled together for a compact design that resists thermal fatigue and improves efficiency — ideal for high-temperature, high-pressure, low-flow applications such as water chillers, water-cooled condensers and water source heat pumps.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ],
+   "dupes": [
+    "/products/tube-in-tube-heat-exchanger"
+   ]
+  },
+  {
+   "id": "products/coil-heat-exchanger/tube-in-tube-condenser",
+   "title": "Tube in Tube Condenser (TTC Series) — draft",
+   "parent": "products/coil-heat-exchanger",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": null,
+   "target": "/products/coil-heat-exchanger/tube-in-tube-condenser",
+   "old_hub": [],
+   "built": false,
+   "desc": "สินค้าที่ตกสำรวจไปตอน sync 27 model pages จาก cib-website (ไม่มีอยู่ใน library.json) — Ti ส่ง spec sheet จริงมาให้ (tube-in-tube-tit-spec.pdf, C.I. Group Public Company Limited) เขียนหน้านี้จากไฟล์นั้นโดยตรง ไม่มีตัวเลข/claim ใดที่ไม่ได้มาจากเอกสาร",
+   "items": [
+    {
+     "p": "P1",
+     "who": "Ti + Eng/QA",
+     "t": "เนื้อหา draft ยังไม่ได้ sign-off (ทุกตัวเลขถอดจาก spec sheet PDF เท่านั้น)",
+     "do": "Ti / Engineering ตรวจว่าครบและตรงกับที่ต้องการสื่อสาร แล้วแจ้ง IT สร้างหน้าจริง",
+     "done": "มีชื่อผู้อนุมัติเนื้อหา + วันที่",
+     "st": "decide:Ti"
+    },
+    {
+     "p": "P1",
+     "who": "MKT",
+     "t": "ยังไม่มีรูปสินค้า (PDF มีแค่ภาพลายเส้น)",
+     "do": "ทำรูปสินค้า (มี prompt สำหรับ AI สร้างรูปอยู่ในหน้า draft) หรือถ่ายรูปจริง",
+     "done": "มีรูป hero 1 รูป + og 1200×630",
+     "st": "mkt"
+    },
+    {
+     "p": "P2",
+     "who": "Eng/QA",
+     "t": "ไดอะแกรมมี label ท่อ \"Copper 3/4\"\" และ \"Copper 1-1/8\"\" แต่ไม่ระบุว่าตรงกับรุ่นไหน",
+     "do": "ยืนยันว่า label ไหนตรงกับคอลัมน์ไหนในตาราง (ถ้าจะแสดง)",
+     "done": "มีคำตอบจาก Engineering",
+     "st": "eng"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ยังไม่มีหน้าบนเว็บ",
+     "do": "หลังเนื้อหาได้ sign-off: สร้างหน้าที่ /products/coil-heat-exchanger/tube-in-tube-condenser และลิงก์จากหน้า family Coil",
+     "done": "หน้าเปิดได้ 200 และอยู่ใน sitemap",
+     "st": "it"
+    }
+   ],
+   "fixed": [],
+   "files": [
+    {
+     "label": "หน้า draft (HTML) + prompt ทำรูป",
+     "href": "tube-in-tube-condenser.html",
+     "kind": "hub"
+    },
+    {
+     "label": "spec sheet ต้นฉบับ (PDF)",
+     "href": "source/tube-in-tube-tit-spec.pdf",
+     "kind": "hub"
+    }
+   ]
+  },
+  {
+   "id": "products/refrigeration",
+   "title": "Refrigeration",
+   "parent": "products",
+   "kind": "family",
+   "owner": "IT + MKT",
+   "live": "/products/refrigeration",
+   "target": "/products/refrigeration",
+   "old_hub": [],
+   "built": true,
+   "desc": "กลุ่มระบบทำความเย็น — มีหน้ากลุ่มย่อย 3 หน้า + 11 รุ่น",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "การ์ด Condensing Units: ปุ่ม \"View Products\" ลิงก์ไป #",
+     "do": "ลิงก์ไปหน้ารุ่น condensing unit 2 รุ่น (หรือหน้ากลุ่มย่อยถ้ามี)",
+     "done": "กด View Products แล้วไปหน้าที่มีรุ่น condensing unit",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "เขียน \"D-Coat+\" (ตัวพิมพ์เล็ก) — ชื่อที่ถูกคือ \"D-COAT+\"",
+     "do": "แก้เป็น D-COAT+ ในหน้านี้ + หน้า Unit coolers + Air-cooled condensers",
+     "done": "ไม่มีคำว่า D-Coat+ บนเว็บ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "หัวข้อ hero แคบไปบนจอใหญ่ (กว้างสุด max-w-2xl)",
+     "do": "เพิ่มความกว้างสำหรับจอ ≥1280px (เช่น xl:max-w-3xl) แล้วเช็คที่จอ 1920px",
+     "done": "หัวข้อไม่ตัดบรรทัดเกิน 3 บรรทัดที่จอ 1920px",
+     "st": "test"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "ปุ่ม View Products อีก 3 กลุ่มลิงก์ไปหน้ากลุ่มย่อยแล้ว"
+   ]
+  },
+  {
+   "id": "products/refrigeration/air-cooled-condensers",
+   "title": "Air-Cooled Condensers (หน้ากลุ่มย่อย)",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/products/refrigeration/air-cooled-condenser",
+   "target": "/products/refrigeration/air-cooled-condensers",
+   "old_hub": [],
+   "built": true,
+   "desc": "หน้ากลุ่มย่อยใน Refrigeration — IT สร้างเอง",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ปุ่ม 5 ปุ่มลิงก์ไป # และไม่มีลิงก์ไปหน้ารุ่น",
+     "do": "ลิงก์การ์ดแต่ละแบบไปหน้ารุ่น air-cooled condenser 4 รุ่น · ปุ่ม Download Catalog ดูงาน \"Download Catalog\" ใน ทั้งเว็บ",
+     "done": "ไม่มีปุ่มที่ลิงก์ไป #",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": []
+  },
+  {
+   "id": "products/refrigeration/unit-coolers",
+   "title": "Unit Coolers (หน้ากลุ่มย่อย)",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/products/refrigeration/unit-cooler",
+   "target": "/products/refrigeration/unit-coolers",
+   "old_hub": [],
+   "built": true,
+   "desc": "หน้ากลุ่มย่อยใน Refrigeration — IT สร้างเอง",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ปุ่ม 6 ปุ่มลิงก์ไป # และไม่มีลิงก์ไปหน้ารุ่น",
+     "do": "ลิงก์การ์ดแต่ละแบบไปหน้ารุ่น unit cooler 4 รุ่น · ปุ่ม Download Catalog ดูงาน \"Download Catalog\" ใน ทั้งเว็บ",
+     "done": "ไม่มีปุ่มที่ลิงก์ไป #",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": []
+  },
+  {
+   "id": "products/refrigeration/cooling-generation",
+   "title": "Cooling Generation (หน้ากลุ่มย่อย — รอตั้งชื่อ)",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/products/refrigeration/cooling-generation",
+   "target": null,
+   "old_hub": [],
+   "built": true,
+   "desc": "หน้ากลุ่มย่อยใน Refrigeration — IT สร้างเอง",
+   "items": [
+    {
+     "p": "P1",
+     "who": "MKT",
+     "t": "ชื่อ \"Cooling Generation\" เป็นศัพท์ภายใน — ใช้เป็น URL ไม่ได้",
+     "do": "MKT ตั้งชื่อหน้า (เนื้อหาคือแพลตฟอร์มทำความเย็น commercial/industrial และสารทำความเย็น GWP ต่ำ) — ข้อเสนอ: \"Refrigeration Systems\" → URL /products/refrigeration/refrigeration-systems",
+     "done": "มีชื่อหน้า + URL ที่ตกลงแล้ว",
+     "st": "decide:MKT"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "<title> ของหน้าผิด: \"Refrigeration Coils — Evaporator & Condenser Coils\"",
+     "do": "แก้ title ให้ตรงกับเนื้อหาหน้า (ตามชื่อที่ MKT ตั้ง)",
+     "done": "title ตรงกับ h1",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ปุ่ม 5 ปุ่มลิงก์ไป # (Download Catalog, Explore R290 Monoblock ฯลฯ)",
+     "do": "\"Explore R290 Monoblock\" → หน้ารุ่น R290 · Download Catalog ดูงานใน ทั้งเว็บ",
+     "done": "ไม่มีปุ่มที่ลิงก์ไป #",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": []
+  },
+  {
+   "id": "products/refrigeration/r290-monoblock-refrigeration-unit",
+   "title": "R290 Monoblock Refrigeration Unit",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/r290-refrigeration-unit",
+   "target": "/products/refrigeration/r290-monoblock-refrigeration-unit",
+   "old_hub": [
+    "products/refrigeration/r290-refrigeration-unit"
+   ],
+   "built": true,
+   "desc": "An all-in-one R290 (propane) monoblock top-mounted refrigeration unit for refrigerators and freezers from 500–1500 liters — a low-GWP, high-efficiency, plug-and-play platform engineered with A3 safety features for commercial kitchens, food retail and continuous-use cold chain.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/air-cooled-condenser-ec-fan",
+   "title": "Air-Cooled Condenser — EC Fan",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/ec-fan-air-cooled-condenser",
+   "target": "/products/refrigeration/air-cooled-condenser-ec-fan",
+   "old_hub": [
+    "products/refrigeration/ec-fan-air-cooled-condenser"
+   ],
+   "built": true,
+   "desc": "CIG's EC-fan air-cooled condenser for cold rooms, walk-in refrigeration and freezer rooms — BETA EC and DELTA EC configurations using electronically commutated (EC) fans for around 30% better power savings, quieter and controllable operation, on R404A, R134A, R407C, R22 and other refrigerants.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/air-cooled-condenser-standard",
+   "title": "Air-Cooled Condenser — Standard (ALFA / BETA / DELTA)",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/acc-standard-series",
+   "target": "/products/refrigeration/air-cooled-condenser-standard",
+   "old_hub": [
+    "products/refrigeration/acc-standard-series"
+   ],
+   "built": true,
+   "desc": "CIG's standard air-cooled condenser range for cold rooms, walk-in refrigeration and freezer rooms — three series (ALFA compact, BETA medium with stand, DELTA large V-shape) covering roughly 6 to 500 kW of heat rejection, for medium- and low-temperature duty on R404A, R134A, R407C, R22 and other refrigerants.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/air-cooled-condenser-refrigeration-ac",
+   "title": "Air-Cooled Condenser — Refrigeration & AC (CAC / CACP / CCU / CCUP)",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/acc-ac-refrigeration-series",
+   "target": "/products/refrigeration/air-cooled-condenser-refrigeration-ac",
+   "old_hub": [
+    "products/refrigeration/acc-ac-refrigeration-series"
+   ],
+   "built": true,
+   "desc": "CIG's air-cooled condenser range for both air conditioning and refrigeration — CAC/CACP for commercial refrigeration with direct dry cooling and CCU/CCUP for walk-in freezers with quiet, wide-temperature operation, from 36,000 to 700,000 BTU/hr (3–60 RT), with or without base stands.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/air-cooled-condenser-gas-engine-generator",
+   "title": "Air-Cooled Condenser — Gas Engine & Generator Set",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/acc-gas-turbine-generator",
+   "target": "/products/refrigeration/air-cooled-condenser-gas-engine-generator",
+   "old_hub": [
+    "products/refrigeration/acc-gas-turbine-generator"
+   ],
+   "built": true,
+   "desc": "Air-cooled heat-rejection condenser units engineered for gas engines and generator sets — matched to engine ratings from roughly 68 to 550 kW, with blowing or sucking airflow, built to global quality standards (AHRI Certified, ISO 9001:2015, UL, 100% water-leak tested).",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ],
+   "note_items": [
+    "URL เดิมมีคำว่า \"turbine\" ซึ่งผิด — สินค้าใช้กับ gas engine และ generator set"
+   ]
+  },
+  {
+   "id": "products/refrigeration/stainless-steel-unit-cooler",
+   "title": "Stainless Steel Unit Cooler",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/stainless-steel-unit-cooler",
+   "target": "/products/refrigeration/stainless-steel-unit-cooler",
+   "old_hub": [],
+   "built": true,
+   "desc": "CIG's Stainless Steel (Grade 304) unit cooler for air-conditioned and industrial rooms — easy to operate, clean and maintain, with a pre-coated 3.175 mm fin that resists corrosion and dust clogging. Available in both DX-coil and water-coil models.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/unit-cooler-single-discharge",
+   "title": "Unit Cooler — Single Discharge",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/unit-cooler-single-discharge",
+   "target": "/products/refrigeration/unit-cooler-single-discharge",
+   "old_hub": [],
+   "built": true,
+   "desc": "CIG's single-discharge unit cooler for cold rooms, walk-in refrigeration, freezer rooms and laboratories — AHRI-certified evaporator coil, 4.5 mm and 6.0 mm fin spacing, for a −30 °C to +25 °C temperature range on R404A, R134A, R407C, R22 and other refrigerants.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/unit-cooler-dual-discharge",
+   "title": "Unit Cooler — Dual Discharge",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/unit-cooler-dual-discharge",
+   "target": "/products/refrigeration/unit-cooler-dual-discharge",
+   "old_hub": [],
+   "built": true,
+   "desc": "CIG's dual-discharge unit cooler, designed for heavy duty with maximum performance — a stainless-steel or aluminum case with both DX-coil and water-coil models for demanding cold-storage and process cooling.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/unit-cooler-slim-type",
+   "title": "Unit Cooler — Slim Type",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/unit-cooler-slim-type",
+   "target": "/products/refrigeration/unit-cooler-slim-type",
+   "old_hub": [],
+   "built": true,
+   "desc": "CIG's slim-type unit cooler for cold rooms, walk-in refrigeration, freezer rooms and laboratories where ceiling height is tight — AHRI-certified coil with 4.5 mm and 6.0 mm fin spacing, −30 °C to +25 °C, on R404A, R134A, R407C, R22 and other refrigerants.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/condensing-unit-semi-hermetic",
+   "title": "Condensing Unit — Semi-Hermetic (Bare Type)",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/condensing-unit",
+   "target": "/products/refrigeration/condensing-unit-semi-hermetic",
+   "old_hub": [
+    "products/refrigeration/condensing-unit"
+   ],
+   "built": true,
+   "desc": "CIG's bare-type condensing unit built around a semi-hermetic compressor for serviceable, durable refrigeration in cold rooms, walk-in refrigeration and freezer rooms — for medium- and low-temperature duty on R404A, R134A, R407C, R22 and other refrigerants.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/refrigeration/condensing-unit-compact-scroll",
+   "title": "Condensing Unit — Compact (Scroll)",
+   "parent": "products/refrigeration",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/condensing-unit-compact",
+   "target": "/products/refrigeration/condensing-unit-compact-scroll",
+   "old_hub": [
+    "products/refrigeration/condensing-unit-compact"
+   ],
+   "built": true,
+   "desc": "CIG's compact-design condensing unit with a scroll compressor for cold rooms, walk-in refrigeration and freezer rooms — 2 to 7 HP across medium- and low-temperature ranges, quiet and energy-saving, on R404A, R134A, R407C, R22 and other refrigerants.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/coil-coatings",
+   "title": "Coil Coatings (เดิม Special Coating)",
+   "parent": "products",
+   "kind": "family",
+   "owner": "IT + MKT",
+   "live": "/products/special-coating",
+   "target": "/products/coil-coatings",
+   "old_hub": [
+    "products/special-coating"
+   ],
+   "built": true,
+   "desc": "กลุ่มสารเคลือบคอยล์ D-COAT+ และ Heresite P-413",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ปุ่ม 4 ปุ่มลิงก์ไป #",
+     "do": "\"Explore D-COAT+\" → หน้ารุ่น D-COAT+ · \"Explore Heresite\" → หน้ารุ่น Heresite · \"Talk to Our Engineers\" และ \"Request Coating Specification\" → /contact",
+     "done": "ไม่มีปุ่มที่ลิงก์ไป #",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "หัวข้อมี apostrophe เกิน: \"D-COAT+ or Heresite' Selection Guide\"",
+     "do": "แก้เป็น \"D-COAT+ or Heresite: Selection Guide\"",
+     "done": "ไม่มี apostrophe เกิน",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "จอใหญ่: hero แคบ (max-w-2xl) และรูปการ์ดเล็ก (224px)",
+     "do": "เพิ่มขนาดสำหรับจอ ≥1280px แล้วเช็คที่จอ 1920px",
+     "done": "เช็คที่ 1920px แล้วสมส่วน",
+     "st": "test"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "H1 ไม่มีเว้นวรรคซ้ำแล้ว"
+   ]
+  },
+  {
+   "id": "products/coil-coatings/d-coat-superhydrophobic-coating",
+   "title": "D-COAT+ Superhydrophobic Coating",
+   "parent": "products/coil-coatings",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/d-coat-superhydrophobic-coating",
+   "target": "/products/coil-coatings/d-coat-superhydrophobic-coating",
+   "old_hub": [
+    "products/special-coating/d-coat-superhydrophobic-coating"
+   ],
+   "built": true,
+   "desc": "D-COAT+ is a water-based superhydrophobic, self-cleaning coating for HVAC/R coils, fins and tubes — verified to 20,000 hours ASTM B117 salt spray, with antimicrobial additives (NSF / FDA), that retards corrosion, sheds water and dust, and helps maintain airflow efficiency.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/coil-coatings/heresite-p413-coating",
+   "title": "Heresite P-413 Baked Phenolic Coating",
+   "parent": "products/coil-coatings",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/heresite-p413-coating",
+   "target": "/products/coil-coatings/heresite-p413-coating",
+   "old_hub": [
+    "products/special-coating/heresite-p413-coating"
+   ],
+   "built": true,
+   "desc": "Heresite P-413 is a world-class baked phenolic epoxy coating for heat-exchanger coils in marine, offshore and harsh industrial environments — verified to 30,000 hours ASTM B117 salt spray and ISO 12944-6 C5-M/C5-I. CIG is the first Heresite Certified Applicator in Southeast Asia.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/air-handling-units",
+   "title": "Air Handling Units (เดิม AHU / AC / Fresh Air)",
+   "parent": "products",
+   "kind": "family",
+   "owner": "IT + MKT",
+   "live": "/products/ahu-ac-fresh-air",
+   "target": "/products/air-handling-units",
+   "old_hub": [
+    "products/ahu-ac-fresh-air"
+   ],
+   "built": true,
+   "desc": "กลุ่ม AHU, fresh air unit และไส้กรองอากาศ",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ปุ่ม 6 ปุ่มลิงก์ไป #: Explore Products, AHU, Fresh Air Units, PU Panels, Pocket Filters, Download Catalog",
+     "do": "AHU / Fresh Air Units / Pocket Filters → หน้ารุ่นนั้นๆ · Explore Products → /products/catalog · PU Panels: ยังไม่มีหน้า (ดูงานถัดไป) · Download Catalog ดูงานใน ทั้งเว็บ",
+     "done": "ไม่มีปุ่มที่ลิงก์ไป #",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "MKT",
+     "t": "ปุ่ม \"PU Panels\" ไม่มีหน้าปลายทาง",
+     "do": "ตัดสินใจ: ลบปุ่ม หรือ ลิงก์ไป /contact หรือทำหน้า PU Panels",
+     "done": "ปุ่ม PU Panels ไม่ลิงก์ไป #",
+     "st": "decide:MKT"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [],
+   "refs": [
+    {
+     "label": "คู่มือหน้า AHU (repo private)",
+     "href": "https://github.com/tikittisak/cib-website/blob/master/archive/pages/products/ahu-ac-fresh-air/10-ahu-air-handling-page-section-guide.html"
+    }
+   ]
+  },
+  {
+   "id": "products/air-handling-units/air-handling-unit",
+   "title": "Air Handling Unit (ACDW Water-Coil Series)",
+   "parent": "products/air-handling-units",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/air-handling-unit",
+   "target": "/products/air-handling-units/air-handling-unit",
+   "old_hub": [
+    "products/ahu-ac-fresh-air/air-handling-unit"
+   ],
+   "built": true,
+   "desc": "CIG's ACDW-series air handling unit (water-coil type) with a 50 mm double-skin, high-density PU-foam casing — 24,000 to 500,000 BTU/hr and 800 to 10,000 CFM, quiet, energy-saving and durable for commercial and industrial air conditioning.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/air-handling-units/air-purifier-fresh-air-unit",
+   "title": "Air Purifier / Fresh Air Unit (ULPA / HEPA)",
+   "parent": "products/air-handling-units",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/air-purifier-fresh-air-unit",
+   "target": "/products/air-handling-units/air-purifier-fresh-air-unit",
+   "old_hub": [
+    "products/ahu-ac-fresh-air/air-purifier-fresh-air-unit"
+   ],
+   "built": true,
+   "desc": "CIG's heavy-duty air purifier / fresh-air unit for healthcare, commercial and industrial use — AP 450 (ULPA U15, 99.9995% @0.12µm) and AP 720 (HEPA H14, 99.995% @0.3µm) with a 3-stage high-performance filter, EC-motor fans and UVGI, installable on fresh-air, mixed-air or exhaust systems.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/air-handling-units/pocket-air-filter",
+   "title": "Pocket Air Filter (Extended Surface)",
+   "parent": "products/air-handling-units",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/pocket-air-filter",
+   "target": "/products/air-handling-units/pocket-air-filter",
+   "old_hub": [
+    "products/ahu-ac-fresh-air/pocket-air-filter"
+   ],
+   "built": true,
+   "desc": "CIG's extended-surface pocket air filter — 100% synthetic, UL 900 Class 1 media with ultrasonically sealed edges and a galvanized-steel frame, available in 65%, 85% and 95% efficiency (MERV 12–14) for AHUs, cleanrooms and commercial ventilation.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/marine-hvac",
+   "title": "Marine HVAC (เดิม Marine Application)",
+   "parent": "products",
+   "kind": "family",
+   "owner": "IT + MKT",
+   "live": "/products/marine-application",
+   "target": "/products/marine-hvac",
+   "old_hub": [
+    "products/marine-application"
+   ],
+   "built": true,
+   "desc": "กลุ่มสินค้าสำหรับเรือและ offshore",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "canonical, og:url และ JSON-LD ชี้ www.cigblu.com ต่างจากหน้าอื่น และไม่มี meta robots",
+     "do": "ใช้ค่าโดเมนเดียวกับทั้งเว็บ (ดูงาน canonical ใน ทั้งเว็บ)",
+     "done": "canonical ตรงกับหน้าอื่น",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว ลิงก์ไปครบ 5 รุ่น",
+    "มี hero, รูป use-case และ og:image แล้ว"
+   ]
+  },
+  {
+   "id": "products/marine-hvac/marine-fan-coil-unit",
+   "title": "Marine Fan Coil Unit",
+   "parent": "products/marine-hvac",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/marine-fan-coil-unit",
+   "target": "/products/marine-hvac/marine-fan-coil-unit",
+   "old_hub": [
+    "products/marine-application/marine-fan-coil-unit"
+   ],
+   "built": true,
+   "desc": "A duct-type chilled-water fan coil unit engineered for Navy and shipboard applications, from 1200 to 5000 CFM (3–12.5 USRT), with HERESITE P-413 corrosion-coated coils, stainless-steel coil casing, and UL-certified pressure-vessel construction designed to ARI Standard 410.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/marine-hvac/marine-chiller-unit",
+   "title": "Marine Chiller Unit",
+   "parent": "products/marine-hvac",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/marine-chiller-unit",
+   "target": "/products/marine-hvac/marine-chiller-unit",
+   "old_hub": [
+    "products/marine-application/marine-chiller-unit"
+   ],
+   "built": true,
+   "desc": "A water-cooled marine chiller engineered for naval vessels and offshore platforms, from 10 to 250 USRT, with a seawater shell-and-tube condenser using 70/30 copper-nickel tubes, marine-type compressor, HERESITE P-413 coil coating for long-term corrosion resistance, and a comprehensive safety-protection package — sized to ARI Standard 410.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/marine-hvac/marine-air-conditioner",
+   "title": "Marine Air Conditioner",
+   "parent": "products/marine-hvac",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/marine-air-conditioner",
+   "target": "/products/marine-hvac/marine-air-conditioner",
+   "old_hub": [
+    "products/marine-application/marine-air-conditioner"
+   ],
+   "built": true,
+   "desc": "A compact sea-water-cooled marine air conditioner for cabins and control rooms, from 12,000 to 24,000 BTU/hr (3.52–7.33 kW), with a 90/10 copper-nickel tube-in-tube seawater condenser, stainless-steel casing, and HERESITE P-413 coil coating for long-term corrosion resistance.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/marine-hvac/marine-unit-cooler-ac-type",
+   "title": "Marine Unit Cooler — AC Type",
+   "parent": "products/marine-hvac",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/marine-unit-cooler-ac-type",
+   "target": "/products/marine-hvac/marine-unit-cooler-ac-type",
+   "old_hub": [
+    "products/marine-application/marine-unit-cooler-ac-type"
+   ],
+   "built": true,
+   "desc": "A stainless-steel (Grade 304) air-conditioning-type unit cooler for marine and naval air-conditioned rooms, from 24,000 to 84,000 BTU on the DX coil, with a swing-open service door, external-rotor axial fans, HERESITE P-413 coil coating for long-term corrosion resistance, and both DX and water-coil options.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/marine-hvac/marine-unit-cooler-cold-room-type",
+   "title": "Marine Unit Cooler — Cold Room Type",
+   "parent": "products/marine-hvac",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/productsCatalog/marine-unit-cooler-cold-room-type",
+   "target": "/products/marine-hvac/marine-unit-cooler-cold-room-type",
+   "old_hub": [
+    "products/marine-application/marine-unit-cooler-cold-room-type"
+   ],
+   "built": true,
+   "desc": "A stainless-steel (Grade 304) cold-room unit cooler for marine and naval refrigerated spaces, with selectable fin spacing (4.5 / 6 / 7 mm) covering room temperatures from +10 down to −25 °C, external-rotor axial fans (1–4), HERESITE P-413 coil coating for long-term corrosion resistance, and electric defrost.",
+   "items": [],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว มี title, h1, canonical, og:image ของตัวเอง"
+   ]
+  },
+  {
+   "id": "products/data-center-cooling",
+   "title": "Data Center Cooling",
+   "parent": "products",
+   "kind": "family",
+   "owner": "MKT",
+   "live": null,
+   "target": "/products/data-center-cooling",
+   "built": false,
+   "desc": "ตอนนี้การ์ดบนเว็บลิงก์ออกไป imvera.co (แบรนด์ IMVERA) — สงวน URL นี้ไว้",
+   "external": "https://www.imvera.co",
+   "items": [
+    {
+     "p": "P2",
+     "who": "MKT",
+     "t": "ยังไม่มีหน้า (เนื้อหายังไม่เสร็จ)",
+     "do": "เมื่อเนื้อหาพร้อม ส่งให้ IT สร้างหน้าที่ /products/data-center-cooling · ระหว่างนี้ลิงก์ออก imvera.co ได้ตามเดิม",
+     "done": "หน้าเปิดได้ 200",
+     "st": "mkt"
+    }
+   ],
+   "fixed": []
+  },
+  {
+   "id": "solutions",
+   "title": "Solutions",
+   "kind": "page",
+   "owner": "MKT",
+   "live": "/solutions",
+   "target": "/solutions",
+   "built": true,
+   "desc": "หน้ารวมบริการ 4 อย่าง",
+   "items": [
+    {
+     "p": "P2",
+     "who": "MKT",
+     "t": "meta description พูดถึงอุตสาหกรรม (data center, cold chain…) ไม่ใช่บริการ 4 อย่าง",
+     "do": "เขียน description ใหม่ให้พูดถึง 4 บริการ (ไม่เกิน 155 ตัวอักษร)",
+     "done": "description ตรงกับเนื้อหาหน้า",
+     "st": "mkt"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "ปุ่มในการ์ด Featured เขียนว่า \"Read the full insight\" ทั้งที่เป็นบริการ",
+     "do": "เปลี่ยนเป็น \"View solution\"",
+     "done": "ปุ่มบอกตรงกับสิ่งที่จะเจอ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "หน้าบริการแสดงแบบบทความ: วันที่ลง, เวลาอ่าน, ผู้เขียน, og:type = article",
+     "do": "ซ่อนวันที่/เวลาอ่าน/ผู้เขียนในหน้า Solutions ทั้งหมด และใช้ og:type = website",
+     "done": "หน้า Solutions ไม่มีวันที่และเวลาอ่าน",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "การ์ด Featured เป็น h3 ก่อนจะมี h2",
+     "do": "ใส่ h2 ก่อน หรือเปลี่ยนการ์ดเป็นข้อความธรรมดา",
+     "done": "ลำดับหัวข้อ h1 → h2 → h3",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "meta description ไม่ใช่ placeholder แล้ว",
+    "มี canonical แล้ว",
+    "มีหัวข้อ \"All Solutions\" เป็น h2 แล้ว",
+    "ลิงก์ Building Envelope (cigpcl.com) และ M&E (Facebook) ใช้ได้"
+   ]
+  },
+  {
+   "id": "solutions/coil-replacement-ahu-renovation",
+   "title": "Coil Replacement & AHU Renovation",
+   "parent": "solutions",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/solutions/coil-replacement-ahu-renovation",
+   "target": "/solutions/coil-replacement-ahu-renovation",
+   "old_hub": [],
+   "built": true,
+   "desc": "HVAC/R systems lose performance and efficiency as they age. CIG BluSolutions replaces worn coils and renovates air-handling units to restore capacity and efficiency with minimal disruption.",
+   "items": [
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "breadcrumb ซ้ำ: Home / Solutions / Solutions / …",
+     "do": "ใช้ป้ายหมวดของหน้านี้ (เช่น Coil Replacement) แทน \"Solutions\" ตัวที่สอง",
+     "done": "breadcrumb ไม่มีคำซ้ำ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "title มีชื่อแบรนด์ซ้ำ เช่น \"… — CIG BluSolutions — CIG BluSolutions Solutions\"",
+     "do": "ใช้รูปแบบ \"<ชื่อบริการ> | CIG BluSolutions\"",
+     "done": "title ไม่มีชื่อแบรนด์ซ้ำ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ไม่มี og:url",
+     "do": "เพิ่ม og:url (ค่าเดียวกับ canonical)",
+     "done": "มี og:url",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว (เดิมรอ IT publish)"
+   ]
+  },
+  {
+   "id": "solutions/cold-room-design-installation",
+   "title": "Cold Room Design & Installation",
+   "parent": "solutions",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/solutions/cold-room-design-installation",
+   "target": "/solutions/cold-room-design-installation",
+   "old_hub": [],
+   "built": true,
+   "desc": "End-to-end cold room design and installation with smart monitoring and control for efficient, reliable temperature management.",
+   "items": [
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "title มีชื่อแบรนด์ซ้ำ เช่น \"… — CIG BluSolutions — CIG BluSolutions Solutions\"",
+     "do": "ใช้รูปแบบ \"<ชื่อบริการ> | CIG BluSolutions\"",
+     "done": "title ไม่มีชื่อแบรนด์ซ้ำ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ไม่มี og:url",
+     "do": "เพิ่ม og:url (ค่าเดียวกับ canonical)",
+     "done": "มี og:url",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว (เดิมรอ IT publish)"
+   ]
+  },
+  {
+   "id": "solutions/oem-product-development",
+   "title": "OEM Product Development",
+   "parent": "solutions",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/solutions/product-development",
+   "target": "/solutions/oem-product-development",
+   "old_hub": [
+    "solutions/product-development"
+   ],
+   "built": true,
+   "desc": "CIG BluSolutions co-develops HVAC/R products with OEMs, EPCs and system integrators, combining 40+ years of engineering experience with certified manufacturing and flexible production volume.",
+   "items": [
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "title มีชื่อแบรนด์ซ้ำ เช่น \"… — CIG BluSolutions — CIG BluSolutions Solutions\"",
+     "do": "ใช้รูปแบบ \"<ชื่อบริการ> | CIG BluSolutions\"",
+     "done": "title ไม่มีชื่อแบรนด์ซ้ำ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ไม่มี og:url",
+     "do": "เพิ่ม og:url (ค่าเดียวกับ canonical)",
+     "done": "มี og:url",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว (เดิมรอ IT publish)"
+   ]
+  },
+  {
+   "id": "solutions/iot-smart-energy-management",
+   "title": "IoT & Smart Energy Management (เดิม Smart Solutions)",
+   "parent": "solutions",
+   "kind": "model",
+   "owner": "IT + MKT",
+   "live": "/solutions/smart-solutions-iot",
+   "target": "/solutions/iot-smart-energy-management",
+   "old_hub": [
+    "solutions/smart-solutions-iot"
+   ],
+   "built": true,
+   "desc": "IoT-based monitoring and control developed over years of field use, for energy, air-quality and manufacturing-efficiency management.",
+   "items": [
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "title มีชื่อแบรนด์ซ้ำ เช่น \"… — CIG BluSolutions — CIG BluSolutions Solutions\"",
+     "do": "ใช้รูปแบบ \"<ชื่อบริการ> | CIG BluSolutions\"",
+     "done": "title ไม่มีชื่อแบรนด์ซ้ำ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ไม่มี og:url",
+     "do": "เพิ่ม og:url (ค่าเดียวกับ canonical)",
+     "done": "มี og:url",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "หน้าขึ้นเว็บแล้ว (เดิมรอ IT publish)"
+   ]
+  },
+  {
+   "id": "projects",
+   "title": "Projects",
+   "kind": "page",
+   "owner": "MKT",
+   "live": "/projects",
+   "target": "/projects",
+   "built": true,
+   "desc": "หน้ารวมผลงาน — ตอนนี้ทั้ง 3 ใบเป็น template",
+   "items": [
+    {
+     "p": "P0",
+     "who": "MKT + Sales",
+     "t": "การ์ดผลงานทั้ง 3 ใบเป็น template ตัวอย่าง แสดงต่อสาธารณะ",
+     "do": "ซ่อน 3 ใบนี้ (ดูหน้าย่อยแต่ละหน้า) · ตัดสินใจว่าระหว่างยังไม่มีผลงานจริง หน้า Projects จะแสดงอะไร (ซ่อนเมนู / ข้อความ \"เร็วๆ นี้\" / เปิดไว้ว่าง)",
+     "done": "หน้า Projects ไม่มีการ์ด template",
+     "st": "decide:MKT"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ปุ่มในการ์ด Featured เขียนว่า \"Read the full insight\"",
+     "do": "เปลี่ยนเป็น \"View project\"",
+     "done": "ปุ่มบอกตรงกับสิ่งที่จะเจอ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "หน้าไม่เป็น stub แล้ว มี filter",
+    "meta description และ canonical ใช้ได้แล้ว"
+   ]
+  },
+  {
+   "id": "projects/cold-chain-refrigeration",
+   "title": "Cold chain refrigeration (template)",
+   "parent": "projects",
+   "kind": "article",
+   "owner": "MKT",
+   "live": "/projects/cold-chain-refrigeration",
+   "target": "/projects/<ชื่อโครงการจริง>",
+   "built": true,
+   "desc": "หน้าย่อยผลงาน — ทั้งหน้าเป็นข้อความตัวอย่าง",
+   "items": [
+    {
+     "p": "P0",
+     "who": "IT (ซ่อน) + MKT/Sales (ข้อมูลจริง)",
+     "t": "หน้านี้เป็น template ตัวอย่าง (\"TEMPLATE — replace with a real, client-approved project\") แต่เปิดสาธารณะและอยู่ใน Google ได้",
+     "do": "IT ซ่อนหน้านี้ทันที (ลบจากหน้ารวม, sitemap และให้ URL ตอบ 404 หรือ noindex) · ถ้าจะใช้: Sales + Eng/QA ส่งข้อมูลโครงการจริงที่ลูกค้าอนุญาตให้เผยแพร่ — ห้ามเดาชื่อลูกค้าหรือผลลัพธ์",
+     "done": "ไม่มีคำว่า template / placeholder บนหน้าสาธารณะ และมีผู้อนุมัติข้อมูล",
+     "st": "it"
+    }
+   ],
+   "fixed": []
+  },
+  {
+   "id": "projects/food-processing-facility-cooling",
+   "title": "Food processing facility cooling (template)",
+   "parent": "projects",
+   "kind": "article",
+   "owner": "MKT",
+   "live": "/projects/food-processing-facility-cooling",
+   "target": "/projects/<ชื่อโครงการจริง>",
+   "built": true,
+   "desc": "หน้าย่อยผลงาน — ทั้งหน้าเป็นข้อความตัวอย่าง",
+   "items": [
+    {
+     "p": "P0",
+     "who": "IT (ซ่อน) + MKT/Sales (ข้อมูลจริง)",
+     "t": "หน้านี้เป็น template ตัวอย่าง (\"TEMPLATE — replace with a real, client-approved project\") แต่เปิดสาธารณะและอยู่ใน Google ได้",
+     "do": "IT ซ่อนหน้านี้ทันที (ลบจากหน้ารวม, sitemap และให้ URL ตอบ 404 หรือ noindex) · ถ้าจะใช้: Sales + Eng/QA ส่งข้อมูลโครงการจริงที่ลูกค้าอนุญาตให้เผยแพร่ — ห้ามเดาชื่อลูกค้าหรือผลลัพธ์",
+     "done": "ไม่มีคำว่า template / placeholder บนหน้าสาธารณะ และมีผู้อนุมัติข้อมูล",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "breadcrumb ซ้ำ: Home / Projects / Projects / …",
+     "do": "ให้เหลือ Home / Projects / ชื่อโครงการ",
+     "done": "breadcrumb ไม่มีคำซ้ำ",
+     "st": "it"
+    }
+   ],
+   "fixed": []
+  },
+  {
+   "id": "projects/marine-cooling",
+   "title": "Marine cooling (template)",
+   "parent": "projects",
+   "kind": "article",
+   "owner": "MKT",
+   "live": "/projects/marine-cooling",
+   "target": "/projects/<ชื่อโครงการจริง>",
+   "built": true,
+   "desc": "หน้าย่อยผลงาน — ทั้งหน้าเป็นข้อความตัวอย่าง",
+   "items": [
+    {
+     "p": "P0",
+     "who": "IT (ซ่อน) + MKT/Sales (ข้อมูลจริง)",
+     "t": "หน้านี้เป็น template ตัวอย่าง (\"TEMPLATE — replace with a real, client-approved project\") แต่เปิดสาธารณะและอยู่ใน Google ได้",
+     "do": "IT ซ่อนหน้านี้ทันที (ลบจากหน้ารวม, sitemap และให้ URL ตอบ 404 หรือ noindex) · ถ้าจะใช้: Sales + Eng/QA ส่งข้อมูลโครงการจริงที่ลูกค้าอนุญาตให้เผยแพร่ — ห้ามเดาชื่อลูกค้าหรือผลลัพธ์",
+     "done": "ไม่มีคำว่า template / placeholder บนหน้าสาธารณะ และมีผู้อนุมัติข้อมูล",
+     "st": "it"
+    }
+   ],
+   "fixed": []
+  },
+  {
+   "id": "engineering",
+   "title": "Engineering",
+   "kind": "page",
+   "owner": "MKT",
+   "live": null,
+   "target": "/engineering",
+   "built": false,
+   "desc": "อยู่ในเมนูหลักแต่ยังไม่มีหน้า — รอเนื้อหาจาก MKT",
+   "items": [
+    {
+     "p": "P1",
+     "who": "MKT",
+     "t": "ยังไม่มีเนื้อหา",
+     "do": "MKT ส่งเนื้อหาให้ IT สร้างหน้าที่ /engineering",
+     "done": "หน้าเปิดได้ 200",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [],
+   "note_items": [
+    "เมนู Engineering ที่กดไม่ได้ — ดูงานในหน้า Home"
+   ]
+  },
+  {
+   "id": "insights",
+   "title": "Insights",
+   "kind": "page",
+   "owner": "MKT",
+   "live": "/insights",
+   "target": "/insights",
+   "built": true,
+   "desc": "หน้ารวมบทความ / case study / ข่าว",
+   "items": [
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "hero ของบทความ coating alt เขียน \"D-COAT\" (ขาด +)",
+     "do": "แก้ alt เป็น D-COAT+",
+     "done": "alt ถูกต้อง",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "บทความ data-center-cooling-coil-retrofit ขึ้นแล้ว (แต่มีปัญหา — ดูหน้าย่อย)",
+    "มี filter All / Articles / Case Studies",
+    "title บทความ coating มี D-COAT+ ครบ",
+    "meta และ canonical ใช้ได้แล้ว"
+   ]
+  },
+  {
+   "id": "insights/news-events",
+   "title": "News & Events",
+   "parent": "insights",
+   "kind": "page",
+   "owner": "MKT",
+   "live": "/insights/news-events",
+   "target": "/insights/news-events",
+   "built": true,
+   "desc": "ข่าวและงานแสดงสินค้า",
+   "items": [
+    {
+     "p": "P2",
+     "who": "MKT → IT",
+     "t": "รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ",
+     "do": "MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image",
+     "done": "แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "งาน BMAM Expo Asia อยู่ในหมวด Exhibition แล้ว",
+    "meta และ canonical ใช้ได้แล้ว"
+   ],
+   "note_items": [
+    "หน้านี้ไม่อยู่ใน sitemap — ดูงาน sitemap ใน ทั้งเว็บ"
+   ]
+  },
+  {
+   "id": "insights/ahri-certified",
+   "title": "CIG BluSolutions coils are AHRI Certified",
+   "parent": "insights",
+   "kind": "article",
+   "owner": "MKT",
+   "live": "/insights/ahri-certified",
+   "target": "/insights/ahri-certified",
+   "built": true,
+   "desc": "บทความใน Insights",
+   "items": [],
+   "fixed": [
+    "หน้าเปิดได้ มี h1 เดียว"
+   ]
+  },
+  {
+   "id": "insights/bmam-expo-asia",
+   "title": "Meet CIG BluSolutions at BMAM Expo Asia",
+   "parent": "insights",
+   "kind": "article",
+   "owner": "MKT",
+   "live": "/insights/bmam-expo-asia",
+   "target": "/insights/bmam-expo-asia",
+   "built": true,
+   "desc": "บทความใน Insights",
+   "items": [
+    {
+     "p": "P0",
+     "who": "MKT",
+     "t": "มีกล่อง \"Note for the team\" แสดงต่อสาธารณะ: ให้ยืนยันวันที่ ฮอลล์ และบูธของงาน",
+     "do": "ยืนยันวันที่/ฮอลล์/บูธจริง แก้ในเนื้อหา แล้วลบกล่องโน้ตออก",
+     "done": "ไม่มีกล่อง Note for the team บนหน้า",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "หน้าเปิดได้ มี h1 เดียว"
+   ]
+  },
+  {
+   "id": "insights/brand-and-domain-journey",
+   "title": "From Coil Inter to CIG BluSolutions: our brand and domain journey",
+   "parent": "insights",
+   "kind": "article",
+   "owner": "MKT",
+   "live": "/insights/brand-and-domain-journey",
+   "target": "/insights/brand-and-domain-journey",
+   "built": true,
+   "desc": "บทความใน Insights",
+   "items": [
+    {
+     "p": "P2",
+     "who": "MKT",
+     "t": "บทความพูดถึง \"our current domain\" แต่ไม่บอกชื่อโดเมน",
+     "do": "ใส่ชื่อโดเมน www.cigblu.com ให้ชัด",
+     "done": "บทความระบุโดเมน",
+     "st": "mkt"
+    }
+   ],
+   "fixed": [
+    "หน้าเปิดได้ มี h1 เดียว"
+   ]
+  },
+  {
+   "id": "insights/coil-coatings-corrosion-protection",
+   "title": "Choosing the right coil coating: Heresite P-413 and D-COAT+",
+   "parent": "insights",
+   "kind": "article",
+   "owner": "MKT",
+   "live": "/insights/coil-coatings-corrosion-protection",
+   "target": "/insights/coil-coatings-corrosion-protection",
+   "built": true,
+   "desc": "บทความใน Insights",
+   "items": [],
+   "fixed": [
+    "หน้าเปิดได้ มี h1 เดียว"
+   ]
+  },
+  {
+   "id": "insights/data-center-cooling-coil-retrofit",
+   "title": "Retrofitting cooling coils for a high-density data center hall",
+   "parent": "insights",
+   "kind": "article",
+   "owner": "MKT",
+   "live": "/insights/data-center-cooling-coil-retrofit",
+   "target": "/insights/data-center-cooling-coil-retrofit",
+   "built": true,
+   "desc": "บทความใน Insights",
+   "items": [
+    {
+     "p": "P0",
+     "who": "MKT",
+     "t": "จัดเป็น Case Study แต่มีกล่องโน้ตบอกว่าเป็น \"สถานการณ์ตัวอย่างเพื่อทดสอบระบบ\" — ไม่ใช่โครงการจริง",
+     "do": "เลือก 1 ทาง: (ก) ถอนออกจากหน้ารวม + sitemap + ให้ URL ตอบ 404 หรือ (ข) เปลี่ยนเป็นบทความความรู้ที่บอกชัดว่าเป็นสถานการณ์สมมติ และลบโน้ตภายใน",
+     "done": "ไม่มีกล่องโน้ตภายใน และไม่ถูกเรียกว่า Case Study ถ้าไม่ใช่งานจริง",
+     "st": "decide:MKT"
+    }
+   ],
+   "fixed": [
+    "หน้าเปิดได้ มี h1 เดียว"
+   ]
+  },
+  {
+   "id": "contact",
+   "title": "Contact",
+   "kind": "page",
+   "owner": "IT",
+   "live": "/contact",
+   "target": "/contact",
+   "built": true,
+   "desc": "หน้าติดต่อ + ฟอร์มขอราคา",
+   "items": [
+    {
+     "p": "P0",
+     "who": "IT + Sales",
+     "t": "ฟอร์มส่งไม่ได้: `<form>` ไม่มี action, ปุ่ม Submit เป็น type=\"button\" และไม่มีโค้ดรับการกด",
+     "do": "IT ต่อฟอร์มเข้าอีเมลหรือ CRM ที่ Sales เลือก (แยกปลายทางตาม Department) + ช่องติ๊กยินยอมที่ลิงก์ไป Privacy Policy · ทดสอบ: ส่ง TEST ทุก Department, กรอกอีเมลผิดรูปแบบ, เว้นช่องบังคับ, กดส่งซ้ำ, กรณีส่งไม่สำเร็จ",
+     "done": "มีหลักฐานจากหน้าจอผู้ส่ง + กล่องรับ/CRM ของทุก Department พร้อมวันเวลาและชื่อ Sales ที่ยืนยัน",
+     "st": "it",
+     "why": "ห้ามเปิดรับ lead หรือทำแคมเปญจนกว่าข้อนี้จะผ่าน"
+    },
+    {
+     "p": "P0",
+     "who": "MKT → IT",
+     "t": "ข้อความสั่งงานภายในแสดงบนหน้า: \"IT note: connect this form…\", \"Field set carried over from the legacy…\", \"Use the three original location records…\", \"The legacy page used a direction map…\"",
+     "do": "MKT เขียนข้อความสำหรับลูกค้าแทน (เช่น ข้อมูลที่ควรเตรียม, ช่องทางติดต่อสำรอง — เวลาตอบกลับให้ Sales ยืนยันก่อน) → IT แทนที่และลบโน้ตทั้ง 4 จุด",
+     "done": "ไม่มีข้อความ IT note / legacy / draft บนหน้า",
+     "st": "mkt"
+    },
+    {
+     "p": "P2",
+     "who": "MKT",
+     "t": "อีเมลที่แสดงบนหน้ามีเว้นวรรคก่อน \".COM\"",
+     "do": "จัดรูปแบบอีเมลให้ติดกัน",
+     "done": "อีเมลไม่มีเว้นวรรค",
+     "st": "mkt"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ไม่มี JSON-LD ช่องทางติดต่อ",
+     "do": "เพิ่ม Organization + ContactPoint (telephone, email, contactType \"customer service\")",
+     "done": "Rich Results Test เห็น ContactPoint",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "Sales",
+     "t": "ฟอร์มยังไม่ถามข้อมูลโครงการสำหรับขอราคา",
+     "do": "Sales เลือกช่องที่จำเป็นจริง (เช่น operating condition, รุ่นสินค้า) และขั้นตอนติดตาม lead",
+     "done": "มีรายการช่องที่ Sales อนุมัติ",
+     "st": "decide:Sales"
+    }
+   ],
+   "fixed": [
+    "หน้าไม่เป็น stub แล้ว มีฟอร์ม, 3 สถานที่, แผนที่",
+    "ใช้คำว่า inquiry แล้ว",
+    "แผนที่ Google Maps ฝังได้"
+   ],
+   "note_items": [
+    "อีเมลหลายโดเมน และ canonical ที่ชี้ www.cigblu.com/contact/ — ดูงานใน ทั้งเว็บ"
+   ]
+  },
+  {
+   "id": "careers",
+   "title": "Careers",
+   "kind": "page",
+   "owner": "IT + MKT",
+   "live": "/careers",
+   "target": "/careers",
+   "built": true,
+   "desc": "หน้าประกาศรับสมัครงาน",
+   "items": [
+    {
+     "p": "P0",
+     "who": "IT",
+     "t": "ประกาศงานตัวอย่าง \"[ตัวอย่าง] Mechanical Design Engineer\" (MOCKUP) เปิดสาธารณะ และปุ่ม Apply ลิงก์ไป example.com",
+     "do": "ลบประกาศตัวอย่างออกจากหน้ารวมและให้ URL /careers/mockup-mechanical-design-engineer ตอบ 404",
+     "done": "ไม่มีประกาศตัวอย่างและไม่มีลิงก์ example.com",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "Ti",
+     "t": "หน้า Careers ไม่อยู่ในเมนูและ sitemap — ยังไม่มีประกาศงานจริง",
+     "do": "ตัดสินใจกับ HR: เปิดหน้า Careers ตอนเปิดตัวไหม (ถ้าเปิด ต้องมีประกาศจริงอย่างน้อย 1 ตำแหน่ง + ใส่เมนู + sitemap)",
+     "done": "มีคำตอบ เปิด/ไม่เปิด",
+     "st": "decide:Ti"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ตัวกรองแผนกมีแค่ \"All\"",
+     "do": "ใส่รายชื่อแผนกตามที่ HR ให้",
+     "done": "ตัวกรองมีแผนกจริง",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "หน้า /careers เปิดได้แล้ว"
+   ],
+   "refs": [
+    {
+     "label": "เครื่องมือเขียนประกาศงาน careers-studio (repo private)",
+     "href": "https://github.com/tikittisak/cib-website/blob/master/publishing-app/tools/careers-studio.html"
+    }
+   ]
+  },
+  {
+   "id": "404",
+   "title": "404 / Page not found",
+   "kind": "page",
+   "owner": "IT",
+   "live": null,
+   "target": null,
+   "built": true,
+   "desc": "หน้าที่แสดงเมื่อเปิด URL ที่ไม่มีอยู่",
+   "items": [
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "title เป็น \"Cigblu\" และ description เป็น \"Cigblu Application\" (placeholder)",
+     "do": "title: \"Page not found | CIG BluSolutions\" · ลบ description หรือเขียนจริง",
+     "done": "title ไม่ใช่ Cigblu",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "ใช้ดีไซน์แบรนด์แล้ว",
+    "ส่ง status 404 จริง + noindex"
+   ]
+  },
+  {
+   "id": "privacy-policy",
+   "title": "Privacy Policy",
+   "kind": "legal",
+   "owner": "MKT + IT",
+   "live": null,
+   "target": "/privacy-policy",
+   "built": false,
+   "desc": "นโยบายความเป็นส่วนตัว (PDPA) — ต้องมีก่อนเปิดรับข้อมูลจากฟอร์ม",
+   "items": [
+    {
+     "p": "P0",
+     "who": "Ti + DPO",
+     "t": "ร่างพร้อมแล้ว แต่ยังมีช่อง [TBC] และยังไม่ได้ตรวจ",
+     "do": "กรอก [TBC]: ชื่อนิติบุคคล + เลขทะเบียน, DPO + อีเมล privacy, ระยะเก็บ log, ระบบที่ฟอร์มใช้ · ให้ DPO (ตามนโยบายกลุ่ม = ผจก.ฝ่ายทรัพยากรบุคคลและธุรการ) หรือฝ่ายกฎหมายตรวจ · แนะนำทำฉบับภาษาไทยด้วย",
+     "done": "มีผู้อนุมัติ + วันที่ และไม่เหลือ [TBC]",
+     "st": "decide:Ti",
+     "files": [
+      {
+       "label": "ร่าง privacy-policy-draft.md (repo private)",
+       "href": "https://github.com/tikittisak/cib-website/blob/master/site/pages/legal/privacy-policy-draft.md",
+       "kind": "private"
+      }
+     ]
+    },
+    {
+     "p": "P0",
+     "who": "IT",
+     "t": "footer มีคำว่า Privacy Policy แต่เป็นข้อความธรรมดา ไม่ใช่ลิงก์ และหน้า /privacy-policy ตอบ 404",
+     "do": "หลังร่างได้อนุมัติ: สร้างหน้า /privacy-policy · ทำ footer เป็นลิงก์จริง (กด Tab ถึงได้) · ลิงก์จากช่องยินยอมในฟอร์ม Contact",
+     "done": "กดลิงก์ใน footer แล้วเปิดหน้า Privacy Policy ได้",
+     "st": "it"
+    }
+   ],
+   "fixed": [],
+   "refs": [
+    {
+     "label": "นโยบาย PDPA ของ C.I. Group (ต้นแบบ)",
+     "href": "https://www.cigpcl.com/wp-content/uploads/2021/02/Website-CIG_%E0%B8%99%E0%B9%82%E0%B8%A2%E0%B8%9A%E0%B8%B2%E0%B8%A2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%B5%E0%B8%A2%E0%B8%9A%E0%B8%9B%E0%B8%8F%E0%B8%B4%E0%B8%9A%E0%B8%B1%E0%B8%95%E0%B8%B4-PDPA-CIG_02022021.pdf"
+    }
+   ]
+  },
+  {
+   "id": "terms-of-use",
+   "title": "Terms of Use",
+   "kind": "legal",
+   "owner": "MKT + IT",
+   "live": null,
+   "target": "/terms-of-use",
+   "built": false,
+   "desc": "ข้อกำหนดการใช้เว็บไซต์",
+   "items": [
+    {
+     "p": "P1",
+     "who": "Ti",
+     "t": "ร่างพร้อมแล้ว แต่ยังมีช่อง [TBC] และยังไม่ได้ตรวจ",
+     "do": "ยืนยันเครื่องหมายการค้าที่จดทะเบียน (CIG, BluSolutions, D-COAT+, Imvera) + ให้ฝ่ายกฎหมายตรวจ",
+     "done": "มีผู้อนุมัติ + วันที่ และไม่เหลือ [TBC]",
+     "st": "decide:Ti",
+     "files": [
+      {
+       "label": "ร่าง terms-of-use-draft.md (repo private)",
+       "href": "https://github.com/tikittisak/cib-website/blob/master/site/pages/legal/terms-of-use-draft.md",
+       "kind": "private"
+      }
+     ]
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "footer เขียน \"Term of Uses\" (ผิด) เป็นข้อความธรรมดา และหน้าตอบ 404",
+     "do": "แก้เป็น \"Terms of Use\" · ทำเป็นลิงก์ไป /terms-of-use · สร้างหน้าหลังร่างได้อนุมัติ",
+     "done": "กดลิงก์ใน footer แล้วเปิดหน้า Terms of Use ได้",
+     "st": "it"
+    }
+   ],
+   "fixed": []
+  }
+ ]
+}

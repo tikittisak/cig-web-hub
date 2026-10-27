@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>งานที่ต้องทำ · CIG Web Hub</title>
+<link rel="stylesheet" href="../../assets/hub.css">
+</head>
+<body>
+
+<div class="topbar"><a class="home-link" href="../index.html">← Dashboard</a></div>
+
+<main class="wrap">
+<div class="hero">
+<h1>งานที่ต้องทำทั้งหมด</h1>
+<p class="hero-note">ทุกข้อที่ยังไม่เสร็จจากทุกหน้า เรียง P0 → P1 → P2 · กดปุ่มด้านล่างเพื่อดูเฉพาะงานของฝ่ายตัวเอง</p></div>
+<div class="filters" id="f"><button data-w="" class="on">ทั้งหมด (134)</button>
+<button data-w="IT">IT (111)</button>
+<button data-w="MKT">MKT (33)</button>
+<button data-w="Sales">Sales (8)</button>
+<button data-w="Eng/QA">Eng/QA (5)</button>
+<button data-w="Ti">Ti (5)</button>
+</div>
+<section class="block"><h2><span class="num">P0</span> ต้องแก้ก่อนเปิดตัว <span class="hint">13 ข้อ</span></h2>
+<div class="todo-row" data-who="IT"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">Google เก็บเว็บ staging (web.cigblusolutions.com) เข้า index ได้ทั้งหมด</div>
+<p><b>ทำ:</b> ใส่ header <code>X-Robots-Tag: noindex</code> ทุกหน้าบน web.cigblusolutions.com จนกว่าจะย้ายไป www.cigblu.com (อย่าใช้ robots.txt Disallow เพราะ Google จะมองไม่เห็นคำสั่ง noindex)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิดหน้าไหนก็ได้บน web.cigblusolutions.com แล้ว response header มี <code>X-Robots-Tag: noindex</code></p>
+<p class="why">ทำไม: ถ้าปล่อยไว้ พอย้ายไป www.cigblu.com จะมีเนื้อหาซ้ำ 2 โดเมนแย่งอันดับกันเอง</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT Sales Eng/QA Ti"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: ทุกฝ่าย</span><span class="stt hold">รอตัดสินใจ: ทุกฝ่าย</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">ยังไม่มีการอนุมัติเปิดตัวร่วมกัน</div>
+<p><b>ทำ:</b> ปิด P0 ทุกข้อในหน้า &quot;งานที่ต้องทำ&quot; แล้วให้ MKT / IT / Engineering-QA / Sales ลงชื่อ + วันที่อนุมัติ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีชื่อผู้อนุมัติครบ 4 ฝ่ายพร้อมวันที่ ในตารางความพร้อมเปิดตัวบน Dashboard</p>
+<p class="why">ทำไม: ตามรายงานทบทวนเว็บ 26 ต.ค. 2569 — ห้ามถือว่า &quot;รอทดสอบ&quot; เท่ากับผ่าน</p>
+</div></div>
+<div class="todo-row" data-who="MKT Sales"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: MKT + Sales</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<p class="ci-page"><a href="../projects/index.html">Projects</a></p>
+<div class="ci-title">การ์ดผลงานทั้ง 3 ใบเป็น template ตัวอย่าง แสดงต่อสาธารณะ</div>
+<p><b>ทำ:</b> ซ่อน 3 ใบนี้ (ดูหน้าย่อยแต่ละหน้า) · ตัดสินใจว่าระหว่างยังไม่มีผลงานจริง หน้า Projects จะแสดงอะไร (ซ่อนเมนู / ข้อความ &quot;เร็วๆ นี้&quot; / เปิดไว้ว่าง)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> หน้า Projects ไม่มีการ์ด template</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT Sales"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT (ซ่อน) + MKT/Sales (ข้อมูลจริง)</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../projects/cold-chain-refrigeration/index.html">Cold chain refrigeration (template)</a></p>
+<div class="ci-title">หน้านี้เป็น template ตัวอย่าง (&quot;TEMPLATE — replace with a real, client-approved project&quot;) แต่เปิดสาธารณะและอยู่ใน Google ได้</div>
+<p><b>ทำ:</b> IT ซ่อนหน้านี้ทันที (ลบจากหน้ารวม, sitemap และให้ URL ตอบ 404 หรือ noindex) · ถ้าจะใช้: Sales + Eng/QA ส่งข้อมูลโครงการจริงที่ลูกค้าอนุญาตให้เผยแพร่ — ห้ามเดาชื่อลูกค้าหรือผลลัพธ์</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีคำว่า template / placeholder บนหน้าสาธารณะ และมีผู้อนุมัติข้อมูล</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT Sales"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT (ซ่อน) + MKT/Sales (ข้อมูลจริง)</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../projects/food-processing-facility-cooling/index.html">Food processing facility cooling (template)</a></p>
+<div class="ci-title">หน้านี้เป็น template ตัวอย่าง (&quot;TEMPLATE — replace with a real, client-approved project&quot;) แต่เปิดสาธารณะและอยู่ใน Google ได้</div>
+<p><b>ทำ:</b> IT ซ่อนหน้านี้ทันที (ลบจากหน้ารวม, sitemap และให้ URL ตอบ 404 หรือ noindex) · ถ้าจะใช้: Sales + Eng/QA ส่งข้อมูลโครงการจริงที่ลูกค้าอนุญาตให้เผยแพร่ — ห้ามเดาชื่อลูกค้าหรือผลลัพธ์</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีคำว่า template / placeholder บนหน้าสาธารณะ และมีผู้อนุมัติข้อมูล</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT Sales"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT (ซ่อน) + MKT/Sales (ข้อมูลจริง)</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../projects/marine-cooling/index.html">Marine cooling (template)</a></p>
+<div class="ci-title">หน้านี้เป็น template ตัวอย่าง (&quot;TEMPLATE — replace with a real, client-approved project&quot;) แต่เปิดสาธารณะและอยู่ใน Google ได้</div>
+<p><b>ทำ:</b> IT ซ่อนหน้านี้ทันที (ลบจากหน้ารวม, sitemap และให้ URL ตอบ 404 หรือ noindex) · ถ้าจะใช้: Sales + Eng/QA ส่งข้อมูลโครงการจริงที่ลูกค้าอนุญาตให้เผยแพร่ — ห้ามเดาชื่อลูกค้าหรือผลลัพธ์</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีคำว่า template / placeholder บนหน้าสาธารณะ และมีผู้อนุมัติข้อมูล</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../insights/bmam-expo-asia/index.html">Meet CIG BluSolutions at BMAM Expo Asia</a></p>
+<div class="ci-title">มีกล่อง &quot;Note for the team&quot; แสดงต่อสาธารณะ: ให้ยืนยันวันที่ ฮอลล์ และบูธของงาน</div>
+<p><b>ทำ:</b> ยืนยันวันที่/ฮอลล์/บูธจริง แก้ในเนื้อหา แล้วลบกล่องโน้ตออก</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีกล่อง Note for the team บนหน้า</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: MKT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<p class="ci-page"><a href="../insights/data-center-cooling-coil-retrofit/index.html">Retrofitting cooling coils for a high-density data center hall</a></p>
+<div class="ci-title">จัดเป็น Case Study แต่มีกล่องโน้ตบอกว่าเป็น &quot;สถานการณ์ตัวอย่างเพื่อทดสอบระบบ&quot; — ไม่ใช่โครงการจริง</div>
+<p><b>ทำ:</b> เลือก 1 ทาง: (ก) ถอนออกจากหน้ารวม + sitemap + ให้ URL ตอบ 404 หรือ (ข) เปลี่ยนเป็นบทความความรู้ที่บอกชัดว่าเป็นสถานการณ์สมมติ และลบโน้ตภายใน</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีกล่องโน้ตภายใน และไม่ถูกเรียกว่า Case Study ถ้าไม่ใช่งานจริง</p>
+</div></div>
+<div class="todo-row" data-who="IT Sales"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT + Sales</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../contact/index.html">Contact</a></p>
+<div class="ci-title">ฟอร์มส่งไม่ได้: <code>&lt;form&gt;</code> ไม่มี action, ปุ่ม Submit เป็น type=&quot;button&quot; และไม่มีโค้ดรับการกด</div>
+<p><b>ทำ:</b> IT ต่อฟอร์มเข้าอีเมลหรือ CRM ที่ Sales เลือก (แยกปลายทางตาม Department) + ช่องติ๊กยินยอมที่ลิงก์ไป Privacy Policy · ทดสอบ: ส่ง TEST ทุก Department, กรอกอีเมลผิดรูปแบบ, เว้นช่องบังคับ, กดส่งซ้ำ, กรณีส่งไม่สำเร็จ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีหลักฐานจากหน้าจอผู้ส่ง + กล่องรับ/CRM ของทุก Department พร้อมวันเวลาและชื่อ Sales ที่ยืนยัน</p>
+<p class="why">ทำไม: ห้ามเปิดรับ lead หรือทำแคมเปญจนกว่าข้อนี้จะผ่าน</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../contact/index.html">Contact</a></p>
+<div class="ci-title">ข้อความสั่งงานภายในแสดงบนหน้า: &quot;IT note: connect this form…&quot;, &quot;Field set carried over from the legacy…&quot;, &quot;Use the three original location records…&quot;, &quot;The legacy page used a direction map…&quot;</div>
+<p><b>ทำ:</b> MKT เขียนข้อความสำหรับลูกค้าแทน (เช่น ข้อมูลที่ควรเตรียม, ช่องทางติดต่อสำรอง — เวลาตอบกลับให้ Sales ยืนยันก่อน) → IT แทนที่และลบโน้ตทั้ง 4 จุด</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีข้อความ IT note / legacy / draft บนหน้า</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../careers/index.html">Careers</a></p>
+<div class="ci-title">ประกาศงานตัวอย่าง &quot;[ตัวอย่าง] Mechanical Design Engineer&quot; (MOCKUP) เปิดสาธารณะ และปุ่ม Apply ลิงก์ไป example.com</div>
+<p><b>ทำ:</b> ลบประกาศตัวอย่างออกจากหน้ารวมและให้ URL /careers/mockup-mechanical-design-engineer ตอบ 404</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีประกาศตัวอย่างและไม่มีลิงก์ example.com</p>
+</div></div>
+<div class="todo-row" data-who="Ti"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: Ti + DPO</span><span class="stt hold">รอตัดสินใจ: Ti</span></div>
+<p class="ci-page"><a href="../privacy-policy/index.html">Privacy Policy</a></p>
+<div class="ci-title">ร่างพร้อมแล้ว แต่ยังมีช่อง [TBC] และยังไม่ได้ตรวจ</div>
+<p><b>ทำ:</b> กรอก [TBC]: ชื่อนิติบุคคล + เลขทะเบียน, DPO + อีเมล privacy, ระยะเก็บ log, ระบบที่ฟอร์มใช้ · ให้ DPO (ตามนโยบายกลุ่ม = ผจก.ฝ่ายทรัพยากรบุคคลและธุรการ) หรือฝ่ายกฎหมายตรวจ · แนะนำทำฉบับภาษาไทยด้วย</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl private" href="https://github.com/tikittisak/cib-website/blob/master/site/pages/legal/privacy-policy-draft.md" target="_blank" rel="noopener">🔒 ร่าง privacy-policy-draft.md (repo private)</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีผู้อนุมัติ + วันที่ และไม่เหลือ [TBC]</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../privacy-policy/index.html">Privacy Policy</a></p>
+<div class="ci-title">footer มีคำว่า Privacy Policy แต่เป็นข้อความธรรมดา ไม่ใช่ลิงก์ และหน้า /privacy-policy ตอบ 404</div>
+<p><b>ทำ:</b> หลังร่างได้อนุมัติ: สร้างหน้า /privacy-policy · ทำ footer เป็นลิงก์จริง (กด Tab ถึงได้) · ลิงก์จากช่องยินยอมในฟอร์ม Contact</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> กดลิงก์ใน footer แล้วเปิดหน้า Privacy Policy ได้</p>
+</div></div>
+</section>
+<section class="block"><h2><span class="num">P1</span> แก้ก่อนโปรโมต <span class="hint">74 ข้อ</span></h2>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">URL ยังไม่เป็นแบบที่ตกลงไว้ (เช่น /productsCatalog/...)</div>
+<p><b>ทำ:</b> เปลี่ยน URL ทุกหน้าตามตารางในหน้า &quot;แผนที่ URL&quot; และตั้ง redirect 308 จาก URL เดิมทุกอัน — ทำก่อนย้ายโดเมนจะถูกที่สุด</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../url-map/index.html">📄 แผนที่ URL (ตารางเต็ม)</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เดิมทุกอันแล้วถูกส่งไป URL ใหม่ (308) · URL ใหม่ตอบ 200</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">URL ตัวพิมพ์ใหญ่ขึ้น 404 (เช่น /productscatalog, /PRODUCTS)</div>
+<p><b>ทำ:</b> ตั้งกฎเดียว: URL ที่มีตัวพิมพ์ใหญ่ → redirect 308 ไปตัวพิมพ์เล็ก</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /Products แล้วถูกส่งไป /products</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">http:// เปิดไม่ได้ (ขึ้น 503 &quot;No available server&quot;)</div>
+<p><b>ทำ:</b> ตั้ง redirect http → https ทุก URL</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด http://web.cigblusolutions.com/about แล้วถูกส่งไป https://… (301/308)</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">canonical ชี้คนละโดเมน — /contact, /careers, /products/marine-application ชี้ www.cigblu.com ส่วนหน้าอื่นชี้ web.cigblusolutions.com</div>
+<p><b>ทำ:</b> สร้าง canonical / og:url / JSON-LD url จากค่าตั้งค่าเดียว (เช่น SITE_URL) ไม่เขียนโดเมนตรงในแต่ละหน้า · ไม่มี / ท้าย URL</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกหน้าใช้โดเมนเดียวกันใน canonical และ og:url</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">วันย้ายโดเมน: www.cigblu.com ยังส่งไปเว็บเก่า (WordPress)</div>
+<p><b>ทำ:</b> วัน cutover: ชี้ www.cigblu.com มาเว็บใหม่ · web.cigblusolutions.com/* → redirect ไป www.cigblu.com/* (path เดิม) · ตั้ง redirect URL เว็บเก่าทั้ง ~60 อัน ตามตารางในหน้า &quot;แผนที่ URL&quot;</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../url-map/index.html#old-site" download>⬇ แผนที่ URL › redirect เว็บเก่า</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> URL เว็บเก่าทุกอันในตาราง redirect ไปหน้าที่ถูกต้อง (ไม่ใช่หน้าแรกทั้งหมด)</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">sitemap.xml ยังไม่ถูก — มีหน้าซ้ำ, มีหน้า template, ขาด /careers และ /insights/news-events</div>
+<p><b>ทำ:</b> สร้าง sitemap ใหม่: 1 URL ต่อ 1 หน้า, เฉพาะหน้าที่ใช้งานจริง, ใช้โดเมน www.cigblu.com, lastmod เป็นวันที่แก้จริง</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มี URL ซ้ำ / template / 404 ใน sitemap</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">llms.txt (ไฟล์สรุปเว็บให้ AI) ยังชี้ /productsCatalog และไม่มี Projects, Careers</div>
+<p><b>ทำ:</b> อัปเดต llms.txt ให้ตรงกับ URL ใหม่ หลังเปลี่ยน URL</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกลิงก์ใน llms.txt ตอบ 200 และตรงกับ sitemap</p>
+</div></div>
+<div class="todo-row" data-who="IT Sales"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Sales → IT</span><span class="stt hold">รอตัดสินใจ: Sales</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">ใช้อีเมลหลายโดเมน: contact@cigblusolutions.com (footer, ปุ่ม Email us), contact@cigblu.com (หน้า Contact), engineering@cigblu.com, careers@cigblu.com</div>
+<p><b>ทำ:</b> Sales เลือกอีเมลหลัก + ผู้รับสำรอง → IT ตรวจว่า alias/forwarding ส่งถึงจริงทั้ง 2 โดเมน → แก้ข้อความและ mailto ทุกจุดให้เหมือนกัน</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ส่งอีเมลทดสอบถึงทุกที่อยู่ที่แสดงบนเว็บแล้วมีคนได้รับ (เก็บหลักฐาน)</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: MKT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">ปุ่ม &quot;Download Catalog&quot; ทุกหน้ายังลิงก์ไป # (กดแล้วไม่เกิดอะไร)</div>
+<p><b>ทำ:</b> ตัดสินใจ: มีไฟล์ catalog PDF ให้ดาวน์โหลดไหม — ถ้ามี ส่งไฟล์ให้ IT · ถ้าไม่มี ให้ IT ซ่อนปุ่มนี้ทุกหน้า</p>
+<p><b>ที่:</b> Refrigeration, AHU, Unit coolers, Air-cooled condensers, Cooling Generation</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีปุ่ม Download Catalog ที่ลิงก์ไป #</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">หน้า family ไม่ลิงก์ไปหน้ารุ่นสินค้า และหน้ารุ่นไม่ลิงก์กลับหน้า family</div>
+<p><b>ทำ:</b> ทุกหน้า family ลิงก์ไปทุกรุ่นในกลุ่ม · ทุกหน้ารุ่นมี breadcrumb ลิงก์กลับ family · ใส่ BreadcrumbList JSON-LD ตรงกับ URL</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> จากหน้า family กดไปถึงทุกรุ่นได้โดยไม่ต้องผ่านหน้า catalog</p>
+<p class="why">ทำไม: ตอนนี้รุ่น Refrigeration / Coating / AHU เข้าถึงได้ทางหน้า catalog ทางเดียว — Google และ AI crawler ที่ตามลิงก์จะหาไม่เจอ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">เมนูย่อยระหว่าง family (quick-nav) ไม่มี Marine</div>
+<p><b>ทำ:</b> เพิ่มลิงก์ Marine ในเมนูย่อยของ Refrigeration, Coil coatings, Air handling units</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกหน้า family มีลิงก์ครบ 5 family</p>
+</div></div>
+<div class="todo-row" data-who="Eng/QA"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Eng/QA</span><span class="stt wait">รอ Eng/QA</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">ข้อความอ้างผลงาน/การรับรองยังไม่มีหลักฐานกำกับ: ประหยัดพลังงาน 30% (EC Fan), R290 ดีกว่า R-134a 78%, &quot;certified to ISO 9001, AHRI, and ASHRAE&quot;, sketch-to-quote ใน 24 ชั่วโมง, ข้อความรับรองของ D-COAT+</div>
+<p><b>ทำ:</b> Eng/QA ทำทะเบียน claim: รุ่น, เงื่อนไขทดสอบ, ฐานเปรียบเทียบ, เอกสารอ้างอิง, วันหมดอายุ · แยก &quot;ระบบองค์กรได้รับรอง&quot; / &quot;สินค้าได้รับรอง&quot; / &quot;ออกแบบตามมาตรฐาน&quot; · ข้อไหนไม่มีหลักฐาน MKT ลดระดับข้อความ · Sales ยืนยันเงื่อนไข 24 ชั่วโมง</p>
+<p><b>ที่:</b> Home, Products, R290, EC Fan, D-COAT+</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุก claim บนเว็บมีแถวในทะเบียนพร้อมผู้อนุมัติ</p>
+</div></div>
+<div class="todo-row" data-who="MKT Eng/QA"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Eng/QA → MKT</span><span class="stt wait">รอ Eng/QA</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">ข้อมูลโรงงานไม่ตรงกัน: หน้า Products บอก &quot;ผลิตและทดสอบทุก family ที่ 30,000 sq.m ใน Pathumthani&quot; แต่หน้า Contact มีโรงงาน Pinthong และ Teparak</div>
+<p><b>ทำ:</b> Eng/QA ยืนยันว่าแต่ละที่ทำอะไร + พื้นที่เท่าไร → MKT แก้ทุกหน้าให้ใช้ข้อมูลชุดเดียว</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกหน้าพูดถึงโรงงานตรงกัน</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอทดสอบ</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">ยังไม่ได้ทดสอบมือถือ / การใช้งานด้วยคีย์บอร์ด / ความเร็ว</div>
+<p><b>ทำ:</b> ทดสอบ iOS Safari + Android Chrome ที่ความกว้าง 360 / 390 / 768 px (เมนูใช้ได้, ไม่ล้นแนวนอน, ปุ่มไม่ถูกบัง) · กด Tab ไปได้ทุกปุ่ม/ช่องกรอก · วัด PageSpeed มือถือ: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีผลทดสอบ (อุปกรณ์, วันที่, ผล, screenshot) ของ Home, Products, Contact และหน้ารุ่น 1 หน้า</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">ยังไม่มีแผนสำรองข้อมูล / ย้อนกลับ และผู้ดูแลหลังเปิดตัว</div>
+<p><b>ทำ:</b> เขียนวิธี rollback ถ้า deploy มีปัญหา + ระบุชื่อผู้ดูแลเว็บหลังเปิดตัว</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีเอกสาร rollback ที่ทดลองทำแล้ว 1 ครั้ง + ชื่อผู้ดูแล</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">รูปพื้นหลัง hero หนัก 15 MB ทำให้หน้าแรกโหลดช้า</div>
+<p><b>ทำ:</b> ใน CSS ของ hero (div ที่มี <code>bg-cover bg-center</code>) เปลี่ยน <code>/home-hero-background.jpg</code> เป็น <code>/home-hero-background.webp</code> (ไฟล์ใหม่ 680 KB) — ต้องแก้ CSS ไม่ใช่แค่วางไฟล์ทับ</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../home/files/home-hero-background.webp" download>⬇ home-hero-background.webp (680 KB)</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> รูปพื้นหลัง hero บนเว็บจริงต่ำกว่า 1 MB</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">การ์ด Industries &quot;Marine &amp; Offshore&quot; ลิงก์ไป /products (หน้ารวม) แทนหน้า Marine</div>
+<p><b>ทำ:</b> เปลี่ยนลิงก์เป็นหน้า Marine (ปัจจุบัน /products/marine-application → URL ใหม่ /products/marine-hvac)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> กดการ์ด Marine แล้วไปหน้า Marine</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) เป็นโลโก้ ทั้งที่มีรูปหน้าแรกเตรียมไว้แล้ว</div>
+<p><b>ทำ:</b> วางไฟล์ og-home.jpg ที่ root ของเว็บ แล้วใส่ og:image, og:image:width=1200, og:image:height=630, twitter:card=summary_large_image, twitter:image</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../home/files/og-home.jpg" download>⬇ og-home.jpg (1200×630)</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์หน้าแรกแล้วเห็นรูป og-home.jpg</p>
+</div></div>
+<div class="todo-row" data-who="Ti"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Ti</span><span class="stt hold">รอตัดสินใจ: Ti</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">เมนู &quot;Engineering&quot; กดแล้วไม่ไปไหน (หน้ายังไม่มี — รอเนื้อหาจาก MKT)</div>
+<p><b>ทำ:</b> ตัดสินใจ: ซ่อนเมนูนี้ไว้ก่อนจนกว่าหน้าจะพร้อม หรือคงไว้ (แนะนำ: ซ่อนไว้ก่อน)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เมนูทุกอันกดแล้วไปหน้าที่มีอยู่จริง</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/index.html">Products (ภาพรวม)</a></p>
+<div class="ci-title">รูปตาราง OEM logo ไม่ขึ้น (next/image ตอบ 400)</div>
+<p><b>ทำ:</b> เปลี่ยนชื่อไฟล์ให้ไม่มีวงเล็บ/จุลภาค/… เช่น <code>oem-logo-grid.webp</code> แล้วแก้ path ในโค้ด</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> รูป OEM logo grid แสดงบนเว็บ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/catalog/index.html">Products catalog</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/catalog</code> และตั้ง redirect 308 จาก <code>/productsCatalog</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog แล้วไปที่ /products/catalog</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/catalog/index.html">Products catalog</a></p>
+<div class="ci-title">หน้าเก่า /productsCatalog/coil-heat-exchanger ยังเปิดได้ อยู่ใน sitemap และมีตัว ** แสดงบนหน้า</div>
+<p><b>ทำ:</b> redirect 308 ไป /products/coil-heat-exchanger และลบออกจาก sitemap</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เก่าแล้วไปหน้า family Coil</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/index.html">Coil &amp; Heat Exchanger</a></p>
+<div class="ci-title">การ์ดสินค้า 6 ใบลิงก์ไปหน้ารุ่นแบบ template การตลาด ซึ่งซ้ำกับหน้าใน catalog</div>
+<p><b>ทำ:</b> หลังรวมหน้าซ้ำ (ดูหน้ารุ่นแต่ละตัว) ให้การ์ดลิงก์ไป URL ใหม่ /products/coil-heat-exchanger/&lt;รุ่น&gt;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> การ์ดทั้ง 6 ใบไปหน้ารุ่นที่ URL ใหม่</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/water-coil/index.html">Water Coil</a></p>
+<div class="ci-title">หน้านี้มี 2 URL ที่เป็นสินค้าเดียวกัน (Google เห็นเป็นหน้าซ้ำ): /productsCatalog/water-coil และ /products/coil-heat-exchanger/water-coil</div>
+<p><b>ทำ:</b> รวมเป็นหน้าเดียวที่ <code>/products/coil-heat-exchanger/water-coil</code> · ย้ายเนื้อหาการตลาดที่ดีจากหน้า /products/… เข้ามา · redirect 308 จากทั้ง /productsCatalog/water-coil, /products/coil-heat-exchanger/water-coil · ลบ URL เก่าออกจาก sitemap</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เก่าทั้ง 2 อันแล้วไปที่ /products/coil-heat-exchanger/water-coil</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/evaporator-coil/index.html">Evaporator Coil</a></p>
+<div class="ci-title">หน้านี้มี 2 URL ที่เป็นสินค้าเดียวกัน (Google เห็นเป็นหน้าซ้ำ): /productsCatalog/evaporator-coil และ /products/coil-heat-exchanger/evaporator-coil</div>
+<p><b>ทำ:</b> รวมเป็นหน้าเดียวที่ <code>/products/coil-heat-exchanger/evaporator-coil</code> · ย้ายเนื้อหาการตลาดที่ดีจากหน้า /products/… เข้ามา · redirect 308 จากทั้ง /productsCatalog/evaporator-coil, /products/coil-heat-exchanger/evaporator-coil · ลบ URL เก่าออกจาก sitemap</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เก่าทั้ง 2 อันแล้วไปที่ /products/coil-heat-exchanger/evaporator-coil</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/condenser-coil/index.html">Condenser Coil</a></p>
+<div class="ci-title">หน้านี้มี 2 URL ที่เป็นสินค้าเดียวกัน (Google เห็นเป็นหน้าซ้ำ): /productsCatalog/condenser-coil และ /products/condenser-coil</div>
+<p><b>ทำ:</b> รวมเป็นหน้าเดียวที่ <code>/products/coil-heat-exchanger/condenser-coil</code> · ย้ายเนื้อหาการตลาดที่ดีจากหน้า /products/… เข้ามา · redirect 308 จากทั้ง /productsCatalog/condenser-coil, /products/condenser-coil · ลบ URL เก่าออกจาก sitemap</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เก่าทั้ง 2 อันแล้วไปที่ /products/coil-heat-exchanger/condenser-coil</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/5mm-tube-coil/index.html">5mm Tube Coil</a></p>
+<div class="ci-title">หน้านี้มี 2 URL ที่เป็นสินค้าเดียวกัน (Google เห็นเป็นหน้าซ้ำ): /productsCatalog/coil-5mm และ /products/coil-5mm</div>
+<p><b>ทำ:</b> รวมเป็นหน้าเดียวที่ <code>/products/coil-heat-exchanger/5mm-tube-coil</code> · ย้ายเนื้อหาการตลาดที่ดีจากหน้า /products/… เข้ามา · redirect 308 จากทั้ง /productsCatalog/coil-5mm, /products/coil-5mm · ลบ URL เก่าออกจาก sitemap</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เก่าทั้ง 2 อันแล้วไปที่ /products/coil-heat-exchanger/5mm-tube-coil</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/all-aluminum-coil/index.html">All Aluminum Coil</a></p>
+<div class="ci-title">หน้านี้มี 2 URL ที่เป็นสินค้าเดียวกัน (Google เห็นเป็นหน้าซ้ำ): /productsCatalog/all-aluminum-coil และ /products/all-aluminum-coil</div>
+<p><b>ทำ:</b> รวมเป็นหน้าเดียวที่ <code>/products/coil-heat-exchanger/all-aluminum-coil</code> · ย้ายเนื้อหาการตลาดที่ดีจากหน้า /products/… เข้ามา · redirect 308 จากทั้ง /productsCatalog/all-aluminum-coil, /products/all-aluminum-coil · ลบ URL เก่าออกจาก sitemap</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เก่าทั้ง 2 อันแล้วไปที่ /products/coil-heat-exchanger/all-aluminum-coil</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/tube-in-tube-heat-exchanger/index.html">Tube-in-Tube Heat Exchanger</a></p>
+<div class="ci-title">หน้านี้มี 2 URL ที่เป็นสินค้าเดียวกัน (Google เห็นเป็นหน้าซ้ำ): /productsCatalog/tube-in-tube-heat-exchanger และ /products/tube-in-tube-heat-exchanger</div>
+<p><b>ทำ:</b> รวมเป็นหน้าเดียวที่ <code>/products/coil-heat-exchanger/tube-in-tube-heat-exchanger</code> · ย้ายเนื้อหาการตลาดที่ดีจากหน้า /products/… เข้ามา · redirect 308 จากทั้ง /productsCatalog/tube-in-tube-heat-exchanger, /products/tube-in-tube-heat-exchanger · ลบ URL เก่าออกจาก sitemap</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เก่าทั้ง 2 อันแล้วไปที่ /products/coil-heat-exchanger/tube-in-tube-heat-exchanger</p>
+</div></div>
+<div class="todo-row" data-who="Eng/QA Ti"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Ti + Eng/QA</span><span class="stt hold">รอตัดสินใจ: Ti</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/tube-in-tube-condenser/index.html">Tube in Tube Condenser (TTC Series) — draft</a></p>
+<div class="ci-title">เนื้อหา draft ยังไม่ได้ sign-off (ทุกตัวเลขถอดจาก spec sheet PDF เท่านั้น)</div>
+<p><b>ทำ:</b> Ti / Engineering ตรวจว่าครบและตรงกับที่ต้องการสื่อสาร แล้วแจ้ง IT สร้างหน้าจริง</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีชื่อผู้อนุมัติเนื้อหา + วันที่</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/tube-in-tube-condenser/index.html">Tube in Tube Condenser (TTC Series) — draft</a></p>
+<div class="ci-title">ยังไม่มีรูปสินค้า (PDF มีแค่ภาพลายเส้น)</div>
+<p><b>ทำ:</b> ทำรูปสินค้า (มี prompt สำหรับ AI สร้างรูปอยู่ในหน้า draft) หรือถ่ายรูปจริง</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีรูป hero 1 รูป + og 1200×630</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/tube-in-tube-condenser/index.html">Tube in Tube Condenser (TTC Series) — draft</a></p>
+<div class="ci-title">ยังไม่มีหน้าบนเว็บ</div>
+<p><b>ทำ:</b> หลังเนื้อหาได้ sign-off: สร้างหน้าที่ /products/coil-heat-exchanger/tube-in-tube-condenser และลิงก์จากหน้า family Coil</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> หน้าเปิดได้ 200 และอยู่ใน sitemap</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/index.html">Refrigeration</a></p>
+<div class="ci-title">การ์ด Condensing Units: ปุ่ม &quot;View Products&quot; ลิงก์ไป #</div>
+<p><b>ทำ:</b> ลิงก์ไปหน้ารุ่น condensing unit 2 รุ่น (หรือหน้ากลุ่มย่อยถ้ามี)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> กด View Products แล้วไปหน้าที่มีรุ่น condensing unit</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/air-cooled-condensers/index.html">Air-Cooled Condensers (หน้ากลุ่มย่อย)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/air-cooled-condensers</code> และตั้ง redirect 308 จาก <code>/products/refrigeration/air-cooled-condenser</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /products/refrigeration/air-cooled-condenser แล้วไปที่ /products/refrigeration/air-cooled-condensers</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/air-cooled-condensers/index.html">Air-Cooled Condensers (หน้ากลุ่มย่อย)</a></p>
+<div class="ci-title">ปุ่ม 5 ปุ่มลิงก์ไป # และไม่มีลิงก์ไปหน้ารุ่น</div>
+<p><b>ทำ:</b> ลิงก์การ์ดแต่ละแบบไปหน้ารุ่น air-cooled condenser 4 รุ่น · ปุ่ม Download Catalog ดูงาน &quot;Download Catalog&quot; ใน ทั้งเว็บ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีปุ่มที่ลิงก์ไป #</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/unit-coolers/index.html">Unit Coolers (หน้ากลุ่มย่อย)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/unit-coolers</code> และตั้ง redirect 308 จาก <code>/products/refrigeration/unit-cooler</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /products/refrigeration/unit-cooler แล้วไปที่ /products/refrigeration/unit-coolers</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/unit-coolers/index.html">Unit Coolers (หน้ากลุ่มย่อย)</a></p>
+<div class="ci-title">ปุ่ม 6 ปุ่มลิงก์ไป # และไม่มีลิงก์ไปหน้ารุ่น</div>
+<p><b>ทำ:</b> ลิงก์การ์ดแต่ละแบบไปหน้ารุ่น unit cooler 4 รุ่น · ปุ่ม Download Catalog ดูงาน &quot;Download Catalog&quot; ใน ทั้งเว็บ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีปุ่มที่ลิงก์ไป #</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: MKT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/cooling-generation/index.html">Cooling Generation (หน้ากลุ่มย่อย — รอตั้งชื่อ)</a></p>
+<div class="ci-title">ชื่อ &quot;Cooling Generation&quot; เป็นศัพท์ภายใน — ใช้เป็น URL ไม่ได้</div>
+<p><b>ทำ:</b> MKT ตั้งชื่อหน้า (เนื้อหาคือแพลตฟอร์มทำความเย็น commercial/industrial และสารทำความเย็น GWP ต่ำ) — ข้อเสนอ: &quot;Refrigeration Systems&quot; → URL /products/refrigeration/refrigeration-systems</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีชื่อหน้า + URL ที่ตกลงแล้ว</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/cooling-generation/index.html">Cooling Generation (หน้ากลุ่มย่อย — รอตั้งชื่อ)</a></p>
+<div class="ci-title">&lt;title&gt; ของหน้าผิด: &quot;Refrigeration Coils — Evaporator &amp; Condenser Coils&quot;</div>
+<p><b>ทำ:</b> แก้ title ให้ตรงกับเนื้อหาหน้า (ตามชื่อที่ MKT ตั้ง)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> title ตรงกับ h1</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/cooling-generation/index.html">Cooling Generation (หน้ากลุ่มย่อย — รอตั้งชื่อ)</a></p>
+<div class="ci-title">ปุ่ม 5 ปุ่มลิงก์ไป # (Download Catalog, Explore R290 Monoblock ฯลฯ)</div>
+<p><b>ทำ:</b> &quot;Explore R290 Monoblock&quot; → หน้ารุ่น R290 · Download Catalog ดูงานใน ทั้งเว็บ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีปุ่มที่ลิงก์ไป #</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/r290-monoblock-refrigeration-unit/index.html">R290 Monoblock Refrigeration Unit</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/r290-monoblock-refrigeration-unit</code> และตั้ง redirect 308 จาก <code>/productsCatalog/r290-refrigeration-unit</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/r290-refrigeration-unit แล้วไปที่ /products/refrigeration/r290-monoblock-refrigeration-unit</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/air-cooled-condenser-ec-fan/index.html">Air-Cooled Condenser — EC Fan</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/air-cooled-condenser-ec-fan</code> และตั้ง redirect 308 จาก <code>/productsCatalog/ec-fan-air-cooled-condenser</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/ec-fan-air-cooled-condenser แล้วไปที่ /products/refrigeration/air-cooled-condenser-ec-fan</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/air-cooled-condenser-standard/index.html">Air-Cooled Condenser — Standard (ALFA / BETA / DELTA)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/air-cooled-condenser-standard</code> และตั้ง redirect 308 จาก <code>/productsCatalog/acc-standard-series</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/acc-standard-series แล้วไปที่ /products/refrigeration/air-cooled-condenser-standard</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/air-cooled-condenser-refrigeration-ac/index.html">Air-Cooled Condenser — Refrigeration &amp; AC (CAC / CACP / CCU / CCUP)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/air-cooled-condenser-refrigeration-ac</code> และตั้ง redirect 308 จาก <code>/productsCatalog/acc-ac-refrigeration-series</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/acc-ac-refrigeration-series แล้วไปที่ /products/refrigeration/air-cooled-condenser-refrigeration-ac</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/air-cooled-condenser-gas-engine-generator/index.html">Air-Cooled Condenser — Gas Engine &amp; Generator Set</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/air-cooled-condenser-gas-engine-generator</code> และตั้ง redirect 308 จาก <code>/productsCatalog/acc-gas-turbine-generator</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/acc-gas-turbine-generator แล้วไปที่ /products/refrigeration/air-cooled-condenser-gas-engine-generator</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/stainless-steel-unit-cooler/index.html">Stainless Steel Unit Cooler</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/stainless-steel-unit-cooler</code> และตั้ง redirect 308 จาก <code>/productsCatalog/stainless-steel-unit-cooler</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/stainless-steel-unit-cooler แล้วไปที่ /products/refrigeration/stainless-steel-unit-cooler</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/unit-cooler-single-discharge/index.html">Unit Cooler — Single Discharge</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/unit-cooler-single-discharge</code> และตั้ง redirect 308 จาก <code>/productsCatalog/unit-cooler-single-discharge</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/unit-cooler-single-discharge แล้วไปที่ /products/refrigeration/unit-cooler-single-discharge</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/unit-cooler-dual-discharge/index.html">Unit Cooler — Dual Discharge</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/unit-cooler-dual-discharge</code> และตั้ง redirect 308 จาก <code>/productsCatalog/unit-cooler-dual-discharge</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/unit-cooler-dual-discharge แล้วไปที่ /products/refrigeration/unit-cooler-dual-discharge</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/unit-cooler-slim-type/index.html">Unit Cooler — Slim Type</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/unit-cooler-slim-type</code> และตั้ง redirect 308 จาก <code>/productsCatalog/unit-cooler-slim-type</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/unit-cooler-slim-type แล้วไปที่ /products/refrigeration/unit-cooler-slim-type</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/condensing-unit-semi-hermetic/index.html">Condensing Unit — Semi-Hermetic (Bare Type)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/condensing-unit-semi-hermetic</code> และตั้ง redirect 308 จาก <code>/productsCatalog/condensing-unit</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/condensing-unit แล้วไปที่ /products/refrigeration/condensing-unit-semi-hermetic</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/condensing-unit-compact-scroll/index.html">Condensing Unit — Compact (Scroll)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/refrigeration/condensing-unit-compact-scroll</code> และตั้ง redirect 308 จาก <code>/productsCatalog/condensing-unit-compact</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/condensing-unit-compact แล้วไปที่ /products/refrigeration/condensing-unit-compact-scroll</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-coatings/index.html">Coil Coatings (เดิม Special Coating)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/coil-coatings</code> และตั้ง redirect 308 จาก <code>/products/special-coating</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /products/special-coating แล้วไปที่ /products/coil-coatings</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-coatings/index.html">Coil Coatings (เดิม Special Coating)</a></p>
+<div class="ci-title">ปุ่ม 4 ปุ่มลิงก์ไป #</div>
+<p><b>ทำ:</b> &quot;Explore D-COAT+&quot; → หน้ารุ่น D-COAT+ · &quot;Explore Heresite&quot; → หน้ารุ่น Heresite · &quot;Talk to Our Engineers&quot; และ &quot;Request Coating Specification&quot; → /contact</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีปุ่มที่ลิงก์ไป #</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-coatings/d-coat-superhydrophobic-coating/index.html">D-COAT+ Superhydrophobic Coating</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/coil-coatings/d-coat-superhydrophobic-coating</code> และตั้ง redirect 308 จาก <code>/productsCatalog/d-coat-superhydrophobic-coating</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/d-coat-superhydrophobic-coating แล้วไปที่ /products/coil-coatings/d-coat-superhydrophobic-coating</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-coatings/heresite-p413-coating/index.html">Heresite P-413 Baked Phenolic Coating</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/coil-coatings/heresite-p413-coating</code> และตั้ง redirect 308 จาก <code>/productsCatalog/heresite-p413-coating</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/heresite-p413-coating แล้วไปที่ /products/coil-coatings/heresite-p413-coating</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/air-handling-units/index.html">Air Handling Units (เดิม AHU / AC / Fresh Air)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/air-handling-units</code> และตั้ง redirect 308 จาก <code>/products/ahu-ac-fresh-air</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /products/ahu-ac-fresh-air แล้วไปที่ /products/air-handling-units</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/air-handling-units/index.html">Air Handling Units (เดิม AHU / AC / Fresh Air)</a></p>
+<div class="ci-title">ปุ่ม 6 ปุ่มลิงก์ไป #: Explore Products, AHU, Fresh Air Units, PU Panels, Pocket Filters, Download Catalog</div>
+<p><b>ทำ:</b> AHU / Fresh Air Units / Pocket Filters → หน้ารุ่นนั้นๆ · Explore Products → /products/catalog · PU Panels: ยังไม่มีหน้า (ดูงานถัดไป) · Download Catalog ดูงานใน ทั้งเว็บ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีปุ่มที่ลิงก์ไป #</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: MKT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<p class="ci-page"><a href="../products/air-handling-units/index.html">Air Handling Units (เดิม AHU / AC / Fresh Air)</a></p>
+<div class="ci-title">ปุ่ม &quot;PU Panels&quot; ไม่มีหน้าปลายทาง</div>
+<p><b>ทำ:</b> ตัดสินใจ: ลบปุ่ม หรือ ลิงก์ไป /contact หรือทำหน้า PU Panels</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ปุ่ม PU Panels ไม่ลิงก์ไป #</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/air-handling-units/air-handling-unit/index.html">Air Handling Unit (ACDW Water-Coil Series)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/air-handling-units/air-handling-unit</code> และตั้ง redirect 308 จาก <code>/productsCatalog/air-handling-unit</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/air-handling-unit แล้วไปที่ /products/air-handling-units/air-handling-unit</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/air-handling-units/air-purifier-fresh-air-unit/index.html">Air Purifier / Fresh Air Unit (ULPA / HEPA)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/air-handling-units/air-purifier-fresh-air-unit</code> และตั้ง redirect 308 จาก <code>/productsCatalog/air-purifier-fresh-air-unit</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/air-purifier-fresh-air-unit แล้วไปที่ /products/air-handling-units/air-purifier-fresh-air-unit</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/air-handling-units/pocket-air-filter/index.html">Pocket Air Filter (Extended Surface)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/air-handling-units/pocket-air-filter</code> และตั้ง redirect 308 จาก <code>/productsCatalog/pocket-air-filter</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/pocket-air-filter แล้วไปที่ /products/air-handling-units/pocket-air-filter</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/marine-hvac/index.html">Marine HVAC (เดิม Marine Application)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/marine-hvac</code> และตั้ง redirect 308 จาก <code>/products/marine-application</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /products/marine-application แล้วไปที่ /products/marine-hvac</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/marine-hvac/index.html">Marine HVAC (เดิม Marine Application)</a></p>
+<div class="ci-title">canonical, og:url และ JSON-LD ชี้ www.cigblu.com ต่างจากหน้าอื่น และไม่มี meta robots</div>
+<p><b>ทำ:</b> ใช้ค่าโดเมนเดียวกับทั้งเว็บ (ดูงาน canonical ใน ทั้งเว็บ)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> canonical ตรงกับหน้าอื่น</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/marine-hvac/marine-fan-coil-unit/index.html">Marine Fan Coil Unit</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/marine-hvac/marine-fan-coil-unit</code> และตั้ง redirect 308 จาก <code>/productsCatalog/marine-fan-coil-unit</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/marine-fan-coil-unit แล้วไปที่ /products/marine-hvac/marine-fan-coil-unit</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/marine-hvac/marine-chiller-unit/index.html">Marine Chiller Unit</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/marine-hvac/marine-chiller-unit</code> และตั้ง redirect 308 จาก <code>/productsCatalog/marine-chiller-unit</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/marine-chiller-unit แล้วไปที่ /products/marine-hvac/marine-chiller-unit</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/marine-hvac/marine-air-conditioner/index.html">Marine Air Conditioner</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/marine-hvac/marine-air-conditioner</code> และตั้ง redirect 308 จาก <code>/productsCatalog/marine-air-conditioner</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/marine-air-conditioner แล้วไปที่ /products/marine-hvac/marine-air-conditioner</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/marine-hvac/marine-unit-cooler-ac-type/index.html">Marine Unit Cooler — AC Type</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/marine-hvac/marine-unit-cooler-ac-type</code> และตั้ง redirect 308 จาก <code>/productsCatalog/marine-unit-cooler-ac-type</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/marine-unit-cooler-ac-type แล้วไปที่ /products/marine-hvac/marine-unit-cooler-ac-type</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/marine-hvac/marine-unit-cooler-cold-room-type/index.html">Marine Unit Cooler — Cold Room Type</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/marine-hvac/marine-unit-cooler-cold-room-type</code> และตั้ง redirect 308 จาก <code>/productsCatalog/marine-unit-cooler-cold-room-type</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog/marine-unit-cooler-cold-room-type แล้วไปที่ /products/marine-hvac/marine-unit-cooler-cold-room-type</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/oem-product-development/index.html">OEM Product Development</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/solutions/oem-product-development</code> และตั้ง redirect 308 จาก <code>/solutions/product-development</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /solutions/product-development แล้วไปที่ /solutions/oem-product-development</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/iot-smart-energy-management/index.html">IoT &amp; Smart Energy Management (เดิม Smart Solutions)</a></p>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/solutions/iot-smart-energy-management</code> และตั้ง redirect 308 จาก <code>/solutions/smart-solutions-iot</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /solutions/smart-solutions-iot แล้วไปที่ /solutions/iot-smart-energy-management</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../engineering/index.html">Engineering</a></p>
+<div class="ci-title">ยังไม่มีเนื้อหา</div>
+<p><b>ทำ:</b> MKT ส่งเนื้อหาให้ IT สร้างหน้าที่ /engineering</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> หน้าเปิดได้ 200</p>
+</div></div>
+<div class="todo-row" data-who="Ti"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Ti</span><span class="stt hold">รอตัดสินใจ: Ti</span></div>
+<p class="ci-page"><a href="../careers/index.html">Careers</a></p>
+<div class="ci-title">หน้า Careers ไม่อยู่ในเมนูและ sitemap — ยังไม่มีประกาศงานจริง</div>
+<p><b>ทำ:</b> ตัดสินใจกับ HR: เปิดหน้า Careers ตอนเปิดตัวไหม (ถ้าเปิด ต้องมีประกาศจริงอย่างน้อย 1 ตำแหน่ง + ใส่เมนู + sitemap)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีคำตอบ เปิด/ไม่เปิด</p>
+</div></div>
+<div class="todo-row" data-who="Ti"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Ti</span><span class="stt hold">รอตัดสินใจ: Ti</span></div>
+<p class="ci-page"><a href="../terms-of-use/index.html">Terms of Use</a></p>
+<div class="ci-title">ร่างพร้อมแล้ว แต่ยังมีช่อง [TBC] และยังไม่ได้ตรวจ</div>
+<p><b>ทำ:</b> ยืนยันเครื่องหมายการค้าที่จดทะเบียน (CIG, BluSolutions, D-COAT+, Imvera) + ให้ฝ่ายกฎหมายตรวจ</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl private" href="https://github.com/tikittisak/cib-website/blob/master/site/pages/legal/terms-of-use-draft.md" target="_blank" rel="noopener">🔒 ร่าง terms-of-use-draft.md (repo private)</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีผู้อนุมัติ + วันที่ และไม่เหลือ [TBC]</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../terms-of-use/index.html">Terms of Use</a></p>
+<div class="ci-title">footer เขียน &quot;Term of Uses&quot; (ผิด) เป็นข้อความธรรมดา และหน้าตอบ 404</div>
+<p><b>ทำ:</b> แก้เป็น &quot;Terms of Use&quot; · ทำเป็นลิงก์ไป /terms-of-use · สร้างหน้าหลังร่างได้อนุมัติ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> กดลิงก์ใน footer แล้วเปิดหน้า Terms of Use ได้</p>
+</div></div>
+</section>
+<section class="block"><h2><span class="num">P2</span> ปรับปรุงทีหลังได้ <span class="hint">47 ข้อ</span></h2>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">ไฟล์โลโก้ที่ใช้เป็นรูปแชร์มีเว้นวรรคในชื่อ (<code>CIG BLUSOLUTIONS LOGO.png</code>)</div>
+<p><b>ทำ:</b> เปลี่ยนชื่อเป็น <code>cig-blusolutions-logo.png</code> และแก้ทุกจุดที่อ้างถึง</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีชื่อไฟล์ที่มีเว้นวรรคบนเว็บ</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">เว็บใหม่ยังไม่มี analytics (ไม่มี GA4 / Google Ads tag)</div>
+<p><b>ทำ:</b> MKT ตัดสินใจว่าจะติด GA4 ไหม · ถ้าติด: IT ใส่ tag + event &quot;กดขอราคา&quot; และ &quot;ส่งฟอร์มสำเร็จ&quot; (ห้ามส่งข้อมูลส่วนตัวใน event) · ถ้า tag ตั้ง cookie ต้องมี cookie banner และแก้ Privacy Policy ข้อ 6</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เห็นข้อมูลใน GA4 Realtime เมื่อเปิดเว็บ และนับ lead ไม่ซ้ำ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../site-wide/index.html">ทั้งเว็บ (ทุกหน้า)</a></p>
+<div class="ci-title">template หน้าเนื้อหา (Insights / Solutions / Projects) มีจุดเล็กๆ: หัวข้อ &quot;On this page&quot; เป็น h4 ก่อน h2, มีจุด &quot;.&quot; เกินหลัง &quot;Message us on Line OA&quot;, ป้ายหมวดเป็นตัวพิมพ์เล็ก (news, case-study)</div>
+<p><b>ทำ:</b> เปลี่ยน &quot;On this page&quot; เป็นข้อความธรรมดา (ไม่ใช่ heading) · ลบจุดเกิน · แสดงป้ายหมวดเป็น News / Case Study / Article</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> หน้าเนื้อหาไม่มี 3 จุดนี้</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">favicon ยังเป็นไอคอนสามเหลี่ยม placeholder ไม่ใช่โลโก้ CIG</div>
+<p><b>ทำ:</b> แทนไฟล์ favicon.ico และเพิ่ม apple-touch-icon.png, icon-192.png, icon-512.png ที่ root</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../home/files/favicon/favicon.ico" download>⬇ favicon.ico</a> <a class="dl" href="../home/files/favicon/apple-touch-icon.png" download>⬇ apple-touch-icon.png</a> <a class="dl" href="../home/files/favicon/icon-192.png" download>⬇ icon-192.png</a> <a class="dl" href="../home/files/favicon/icon-512.png" download>⬇ icon-512.png</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แท็บ browser แสดงโลโก้ CIG</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">ข้อความ &quot;RELIABLE PERFORMANCE WITH MEASURABLE ROI&quot; ฝังอยู่ในรูป (Frame 15979.jpg) — Google และ AI อ่านไม่ได้</div>
+<p><b>ทำ:</b> MKT ส่งรูปเวอร์ชันไม่มีตัวหนังสือ → IT วางข้อความเป็น HTML ทับรูป · แก้ alt ให้ตรงกับรูป (ตอนนี้ alt เป็น &quot;Heat Exchanger Special Coating&quot;)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ข้อความนี้ select/copy ได้บนเว็บ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">หัวข้อใหญ่ (H1) อ่านเป็น &quot;Transfer.Built&quot; เพราะไม่มีเว้นวรรคก่อน &lt;br&gt;</div>
+<p><b>ทำ:</b> เติมเว้นวรรคหลัง &quot;Transfer.&quot; ก่อน <code>&lt;br/&gt;</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ข้อความ H1 ที่ copy ออกมาเป็น &quot;Engineered to Transfer. Built to Last.&quot;</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">ขนาดตัวอักษรการ์ด EC Fan: Figma 13.3px แต่เว็บใช้ 16px</div>
+<p><b>ทำ:</b> ตัดสินใจว่าจะใช้ขนาดไหน (แนะนำ: คง 16px — อ่านบนมือถือง่ายกว่า แล้วแก้ Figma ให้ตรง)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> Figma กับเว็บใช้ขนาดเดียวกัน</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../home/index.html">Home</a></p>
+<div class="ci-title">ยังไม่มี WebSite JSON-LD (มีแค่ Organization)</div>
+<p><b>ทำ:</b> เพิ่ม WebSite JSON-LD (name, url) ที่หน้าแรก</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> Rich Results Test เห็น WebSite</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../about/index.html">About us</a></p>
+<div class="ci-title">รูปแชร์ og-about.jpg หนัก 3.2 MB</div>
+<p><b>ทำ:</b> บีบไฟล์ให้ต่ำกว่า 300 KB (ขนาดคงเดิม 1200×630) แล้วส่ง IT วางทับ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> og-about.jpg ต่ำกว่า 300 KB</p>
+</div></div>
+<div class="todo-row" data-who="Eng/QA"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: Eng/QA</span><span class="stt wait">รอ Eng/QA</span></div>
+<p class="ci-page"><a href="../products/coil-heat-exchanger/tube-in-tube-condenser/index.html">Tube in Tube Condenser (TTC Series) — draft</a></p>
+<div class="ci-title">ไดอะแกรมมี label ท่อ &quot;Copper 3/4&quot;&quot; และ &quot;Copper 1-1/8&quot;&quot; แต่ไม่ระบุว่าตรงกับรุ่นไหน</div>
+<p><b>ทำ:</b> ยืนยันว่า label ไหนตรงกับคอลัมน์ไหนในตาราง (ถ้าจะแสดง)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีคำตอบจาก Engineering</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/index.html">Refrigeration</a></p>
+<div class="ci-title">เขียน &quot;D-Coat+&quot; (ตัวพิมพ์เล็ก) — ชื่อที่ถูกคือ &quot;D-COAT+&quot;</div>
+<p><b>ทำ:</b> แก้เป็น D-COAT+ ในหน้านี้ + หน้า Unit coolers + Air-cooled condensers</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีคำว่า D-Coat+ บนเว็บ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอทดสอบ</span></div>
+<p class="ci-page"><a href="../products/refrigeration/index.html">Refrigeration</a></p>
+<div class="ci-title">หัวข้อ hero แคบไปบนจอใหญ่ (กว้างสุด max-w-2xl)</div>
+<p><b>ทำ:</b> เพิ่มความกว้างสำหรับจอ ≥1280px (เช่น xl:max-w-3xl) แล้วเช็คที่จอ 1920px</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> หัวข้อไม่ตัดบรรทัดเกิน 3 บรรทัดที่จอ 1920px</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/index.html">Refrigeration</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/air-cooled-condensers/index.html">Air-Cooled Condensers (หน้ากลุ่มย่อย)</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/unit-coolers/index.html">Unit Coolers (หน้ากลุ่มย่อย)</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../products/refrigeration/cooling-generation/index.html">Cooling Generation (หน้ากลุ่มย่อย — รอตั้งชื่อ)</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../products/coil-coatings/index.html">Coil Coatings (เดิม Special Coating)</a></p>
+<div class="ci-title">หัวข้อมี apostrophe เกิน: &quot;D-COAT+ or Heresite&#x27; Selection Guide&quot;</div>
+<p><b>ทำ:</b> แก้เป็น &quot;D-COAT+ or Heresite: Selection Guide&quot;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มี apostrophe เกิน</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอทดสอบ</span></div>
+<p class="ci-page"><a href="../products/coil-coatings/index.html">Coil Coatings (เดิม Special Coating)</a></p>
+<div class="ci-title">จอใหญ่: hero แคบ (max-w-2xl) และรูปการ์ดเล็ก (224px)</div>
+<p><b>ทำ:</b> เพิ่มขนาดสำหรับจอ ≥1280px แล้วเช็คที่จอ 1920px</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เช็คที่ 1920px แล้วสมส่วน</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../products/coil-coatings/index.html">Coil Coatings (เดิม Special Coating)</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../products/air-handling-units/index.html">Air Handling Units (เดิม AHU / AC / Fresh Air)</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../products/data-center-cooling/index.html">Data Center Cooling</a></p>
+<div class="ci-title">ยังไม่มีหน้า (เนื้อหายังไม่เสร็จ)</div>
+<p><b>ทำ:</b> เมื่อเนื้อหาพร้อม ส่งให้ IT สร้างหน้าที่ /products/data-center-cooling · ระหว่างนี้ลิงก์ออก imvera.co ได้ตามเดิม</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> หน้าเปิดได้ 200</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../solutions/index.html">Solutions</a></p>
+<div class="ci-title">meta description พูดถึงอุตสาหกรรม (data center, cold chain…) ไม่ใช่บริการ 4 อย่าง</div>
+<p><b>ทำ:</b> เขียน description ใหม่ให้พูดถึง 4 บริการ (ไม่เกิน 155 ตัวอักษร)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> description ตรงกับเนื้อหาหน้า</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/index.html">Solutions</a></p>
+<div class="ci-title">ปุ่มในการ์ด Featured เขียนว่า &quot;Read the full insight&quot; ทั้งที่เป็นบริการ</div>
+<p><b>ทำ:</b> เปลี่ยนเป็น &quot;View solution&quot;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ปุ่มบอกตรงกับสิ่งที่จะเจอ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/index.html">Solutions</a></p>
+<div class="ci-title">หน้าบริการแสดงแบบบทความ: วันที่ลง, เวลาอ่าน, ผู้เขียน, og:type = article</div>
+<p><b>ทำ:</b> ซ่อนวันที่/เวลาอ่าน/ผู้เขียนในหน้า Solutions ทั้งหมด และใช้ og:type = website</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> หน้า Solutions ไม่มีวันที่และเวลาอ่าน</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/index.html">Solutions</a></p>
+<div class="ci-title">การ์ด Featured เป็น h3 ก่อนจะมี h2</div>
+<p><b>ทำ:</b> ใส่ h2 ก่อน หรือเปลี่ยนการ์ดเป็นข้อความธรรมดา</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ลำดับหัวข้อ h1 → h2 → h3</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../solutions/index.html">Solutions</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/coil-replacement-ahu-renovation/index.html">Coil Replacement &amp; AHU Renovation</a></p>
+<div class="ci-title">breadcrumb ซ้ำ: Home / Solutions / Solutions / …</div>
+<p><b>ทำ:</b> ใช้ป้ายหมวดของหน้านี้ (เช่น Coil Replacement) แทน &quot;Solutions&quot; ตัวที่สอง</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> breadcrumb ไม่มีคำซ้ำ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/coil-replacement-ahu-renovation/index.html">Coil Replacement &amp; AHU Renovation</a></p>
+<div class="ci-title">title มีชื่อแบรนด์ซ้ำ เช่น &quot;… — CIG BluSolutions — CIG BluSolutions Solutions&quot;</div>
+<p><b>ทำ:</b> ใช้รูปแบบ &quot;&lt;ชื่อบริการ&gt; | CIG BluSolutions&quot;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> title ไม่มีชื่อแบรนด์ซ้ำ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/coil-replacement-ahu-renovation/index.html">Coil Replacement &amp; AHU Renovation</a></p>
+<div class="ci-title">ไม่มี og:url</div>
+<p><b>ทำ:</b> เพิ่ม og:url (ค่าเดียวกับ canonical)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มี og:url</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/cold-room-design-installation/index.html">Cold Room Design &amp; Installation</a></p>
+<div class="ci-title">title มีชื่อแบรนด์ซ้ำ เช่น &quot;… — CIG BluSolutions — CIG BluSolutions Solutions&quot;</div>
+<p><b>ทำ:</b> ใช้รูปแบบ &quot;&lt;ชื่อบริการ&gt; | CIG BluSolutions&quot;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> title ไม่มีชื่อแบรนด์ซ้ำ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/cold-room-design-installation/index.html">Cold Room Design &amp; Installation</a></p>
+<div class="ci-title">ไม่มี og:url</div>
+<p><b>ทำ:</b> เพิ่ม og:url (ค่าเดียวกับ canonical)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มี og:url</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/oem-product-development/index.html">OEM Product Development</a></p>
+<div class="ci-title">title มีชื่อแบรนด์ซ้ำ เช่น &quot;… — CIG BluSolutions — CIG BluSolutions Solutions&quot;</div>
+<p><b>ทำ:</b> ใช้รูปแบบ &quot;&lt;ชื่อบริการ&gt; | CIG BluSolutions&quot;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> title ไม่มีชื่อแบรนด์ซ้ำ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/oem-product-development/index.html">OEM Product Development</a></p>
+<div class="ci-title">ไม่มี og:url</div>
+<p><b>ทำ:</b> เพิ่ม og:url (ค่าเดียวกับ canonical)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มี og:url</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/iot-smart-energy-management/index.html">IoT &amp; Smart Energy Management (เดิม Smart Solutions)</a></p>
+<div class="ci-title">title มีชื่อแบรนด์ซ้ำ เช่น &quot;… — CIG BluSolutions — CIG BluSolutions Solutions&quot;</div>
+<p><b>ทำ:</b> ใช้รูปแบบ &quot;&lt;ชื่อบริการ&gt; | CIG BluSolutions&quot;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> title ไม่มีชื่อแบรนด์ซ้ำ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../solutions/iot-smart-energy-management/index.html">IoT &amp; Smart Energy Management (เดิม Smart Solutions)</a></p>
+<div class="ci-title">ไม่มี og:url</div>
+<p><b>ทำ:</b> เพิ่ม og:url (ค่าเดียวกับ canonical)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มี og:url</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../projects/index.html">Projects</a></p>
+<div class="ci-title">ปุ่มในการ์ด Featured เขียนว่า &quot;Read the full insight&quot;</div>
+<p><b>ทำ:</b> เปลี่ยนเป็น &quot;View project&quot;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ปุ่มบอกตรงกับสิ่งที่จะเจอ</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../projects/index.html">Projects</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../projects/food-processing-facility-cooling/index.html">Food processing facility cooling (template)</a></p>
+<div class="ci-title">breadcrumb ซ้ำ: Home / Projects / Projects / …</div>
+<p><b>ทำ:</b> ให้เหลือ Home / Projects / ชื่อโครงการ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> breadcrumb ไม่มีคำซ้ำ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../insights/index.html">Insights</a></p>
+<div class="ci-title">hero ของบทความ coating alt เขียน &quot;D-COAT&quot; (ขาด +)</div>
+<p><b>ทำ:</b> แก้ alt เป็น D-COAT+</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> alt ถูกต้อง</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../insights/index.html">Insights</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="IT MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../insights/news-events/index.html">News &amp; Events</a></p>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../insights/brand-and-domain-journey/index.html">From Coil Inter to CIG BluSolutions: our brand and domain journey</a></p>
+<div class="ci-title">บทความพูดถึง &quot;our current domain&quot; แต่ไม่บอกชื่อโดเมน</div>
+<p><b>ทำ:</b> ใส่ชื่อโดเมน www.cigblu.com ให้ชัด</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> บทความระบุโดเมน</p>
+</div></div>
+<div class="todo-row" data-who="MKT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
+<p class="ci-page"><a href="../contact/index.html">Contact</a></p>
+<div class="ci-title">อีเมลที่แสดงบนหน้ามีเว้นวรรคก่อน &quot;.COM&quot;</div>
+<p><b>ทำ:</b> จัดรูปแบบอีเมลให้ติดกัน</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> อีเมลไม่มีเว้นวรรค</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../contact/index.html">Contact</a></p>
+<div class="ci-title">ไม่มี JSON-LD ช่องทางติดต่อ</div>
+<p><b>ทำ:</b> เพิ่ม Organization + ContactPoint (telephone, email, contactType &quot;customer service&quot;)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> Rich Results Test เห็น ContactPoint</p>
+</div></div>
+<div class="todo-row" data-who="Sales"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: Sales</span><span class="stt hold">รอตัดสินใจ: Sales</span></div>
+<p class="ci-page"><a href="../contact/index.html">Contact</a></p>
+<div class="ci-title">ฟอร์มยังไม่ถามข้อมูลโครงการสำหรับขอราคา</div>
+<p><b>ทำ:</b> Sales เลือกช่องที่จำเป็นจริง (เช่น operating condition, รุ่นสินค้า) และขั้นตอนติดตาม lead</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีรายการช่องที่ Sales อนุมัติ</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../careers/index.html">Careers</a></p>
+<div class="ci-title">ตัวกรองแผนกมีแค่ &quot;All&quot;</div>
+<p><b>ทำ:</b> ใส่รายชื่อแผนกตามที่ HR ให้</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ตัวกรองมีแผนกจริง</p>
+</div></div>
+<div class="todo-row" data-who="IT"><div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<p class="ci-page"><a href="../404/index.html">404 / Page not found</a></p>
+<div class="ci-title">title เป็น &quot;Cigblu&quot; และ description เป็น &quot;Cigblu Application&quot; (placeholder)</div>
+<p><b>ทำ:</b> title: &quot;Page not found | CIG BluSolutions&quot; · ลบ description หรือเขียนจริง</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> title ไม่ใช่ Cigblu</p>
+</div></div>
+</section>
+<script>
+document.getElementById('f').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+document.querySelectorAll('#f button').forEach(function(x){x.classList.toggle('on',x===b)});var w=b.dataset.w;
+document.querySelectorAll('.todo-row').forEach(function(r){r.style.display=!w||r.dataset.who.split(' ').indexOf(w)>=0?'':'none'})});
+</script>
+<footer class="scaffold-foot">เช็คเว็บจริง 2026-10-27</footer>
+</main>
+</body></html>

@@ -8,108 +8,32 @@
 <link rel="stylesheet" href="../../../assets/hub.css">
 </head>
 <body>
-<header class="topbar"><a class="home-link" href="../../index.html">← Dashboard</a><span class="crumb">Products catalog</span></header>
-<main class="wrap node">
-  <div class="hero">
-    <div class="hero-badges"><span class="badge owner-cpk">MKT สร้างเอง</span><span class="pill st-wip">ขึ้นแล้ว · รอแก้</span></div>
-    <h1>Products catalog</h1>
-    <a class="url" href="https://web.cigblusolutions.com/productsCatalog" target="_blank" rel="noopener">/productsCatalog ↗</a>
-    <p class="hero-note">27 model pages (CPK) — 16 ขึ้น live แล้ว · 11 พร้อม deploy แต่ยังไม่ขึ้น — audit 2026-08-28</p>
-  </div>
 
-  <section class="block">
-    <h2><span class="num">1</span> Change notes <span class="hint">Audit 2026-08-28</span></h2>
-    <p class="audit-meta"><span class="stt ok">✓ แก้แล้ว</span> โหลดไฟล์ได้เลย · <span class="stt hold">รอเคาะ</span> รอ Ti · <span class="stt wait">รอ IT</span> รอแก้โค้ด</p>
+<div class="topbar"><a class="home-link" href="../../index.html">← Dashboard</a> › <a class="crumb" href="../../products/index.html">Products (ภาพรวม)</a></div>
 
-    <div class="dim">🚀 Deploy — เนื้อหาเสร็จแล้ว รอ IT เอาขึ้น live</div>
-
-    <div class="ci high">
-      <div class="ci-top"><span class="sev high">High</span><span class="stt wait">รอ IT</span></div>
-      <div class="ci-title">11/27 หน้า content เสร็จผ่านทุก gate แล้ว (gate 1-5 ✅) แต่ยังไม่ขึ้น live เลย — Coil/Heat Exchanger sub-type ทั้ง 6 + Marine ทั้ง 5</div>
-      <p class="fix">→ ไฟล์พร้อม deploy ที่ resource ด้านล่าง ทีละตัว</p>
-    </div>
-
-    <div class="ci med">
-      <div class="ci-top"><span class="sev med">Med</span><span class="stt wait">รอ IT</span></div>
-      <div class="ci-title">หน้าเก่า "Coil / Heat Exchanger" (รวม 1 หน้า, Ti ยกเลิกไปแล้ว 2026-07-16) ยังขึ้น live อยู่ที่ <code>/productsCatalog/coil-heat-exchanger</code> แถมมี bug ซ้ำซ้อน — title กับ description เป็นข้อความเดียวกัน</div>
-      <p class="fix">→ ถอดออกเมื่อ 6 หน้าย่อยด้านบนขึ้น live แล้ว (redirect ไปหน้า Coil &amp; Heat Exchanger family แทน)</p>
-    </div>
-
-    <div class="dim">📋 ตารางสถานะครบ 27 หน้า (จัดกลุ่มตาม family)</div>
-
-    <table class="mini">
-      <tr><td colspan="3"><strong>Coil / Heat Exchanger (6) — ยังไม่ขึ้นเลยสักตัว</strong></td></tr>
-      <tr><td>Water Coil</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/water-coil.html" target="_blank" rel="noopener">water-coil.html</a></td></tr>
-      <tr><td>Evaporator Coil</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/evaporator-coil.html" target="_blank" rel="noopener">evaporator-coil.html</a></td></tr>
-      <tr><td>Condenser Coils</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/condenser-coil.html" target="_blank" rel="noopener">condenser-coil.html</a></td></tr>
-      <tr><td>5mm Coil</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/coil-5mm.html" target="_blank" rel="noopener">coil-5mm.html</a></td></tr>
-      <tr><td>All Aluminum Coil</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/all-aluminum-coil.html" target="_blank" rel="noopener">all-aluminum-coil.html</a></td></tr>
-      <tr><td>Tube-in-Tube Heat Exchanger</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/tube-in-tube-heat-exchanger.html" target="_blank" rel="noopener">tube-in-tube-heat-exchanger.html</a></td></tr>
-
-      <tr><td colspan="3"><strong>Refrigeration (11) — ขึ้น live ครบแล้ว</strong></td></tr>
-      <tr><td>Stainless Steel Unit Cooler</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Single-Discharge Unit Cooler</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Slim-Type Unit Cooler</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Dual-Discharge Unit Cooler</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Condensing Unit — Bare-Type Semi-Hermetic</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Compact-Design Condensing Unit (Scroll)</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>EC-Fan Air-Cooled Condenser</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Standard ACC (ALFA/BETA/DELTA)</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>ACC for Refrigeration &amp; AC (CAC/CACP/CCU/CCUP)</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>ACC Gas Engine &amp; Generator Set</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>R290 Refrigeration Unit</td><td class="good">live</td><td class="muted">⚠ มี bug เดิม (markdown ดิบ + D-COAT+ ขาด +) ยังไม่แก้</td></tr>
-
-      <tr><td colspan="3"><strong>Special Coating (2) — ขึ้น live ครบแล้ว</strong></td></tr>
-      <tr><td>D-COAT+ Superhydrophobic Coating</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Heresite P-413 Baked Phenolic Coating</td><td class="good">live</td><td class="muted">—</td></tr>
-
-      <tr><td colspan="3"><strong>AHU / AC / Fresh Air (3) — ขึ้น live ครบแล้ว</strong></td></tr>
-      <tr><td>Air Purifier / Fresh Air Unit (ULPA/HEPA)</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Air Handling Unit (ACDW Water-Coil Series)</td><td class="good">live</td><td class="muted">—</td></tr>
-      <tr><td>Pocket Air Filter (Extended Surface)</td><td class="good">live</td><td class="muted">—</td></tr>
-
-      <tr><td colspan="3"><strong>Marine Application (5) — ยังไม่ขึ้นเลยสักตัว</strong></td></tr>
-      <tr><td>Marine Fan Coil Unit</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/marine-fan-coil-unit.html" target="_blank" rel="noopener">marine-fan-coil-unit.html</a></td></tr>
-      <tr><td>Marine Chiller Unit</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/marine-chiller-unit.html" target="_blank" rel="noopener">marine-chiller-unit.html</a></td></tr>
-      <tr><td>Marine Air Conditioner</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/marine-air-conditioner.html" target="_blank" rel="noopener">marine-air-conditioner.html</a></td></tr>
-      <tr><td>Marine Unit Cooler — AC Type</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/marine-unit-cooler-ac-type.html" target="_blank" rel="noopener">marine-unit-cooler-ac-type.html</a></td></tr>
-      <tr><td>Marine Unit Cooler — Cold Room Type</td><td class="hold2">ยังไม่ขึ้น</td><td><a href="https://github.com/tikittisak/cib-website/blob/master/site/products/marine-unit-cooler-cold-room-type.html" target="_blank" rel="noopener">marine-unit-cooler-cold-room-type.html</a></td></tr>
-    </table>
-
-    <div class="ci med">
-      <div class="ci-top"><span class="sev med">Med</span><span class="stt wait">รอ IT/Ti</span></div>
-      <div class="ci-title">Catalog PDF download — ไม่มี feature นี้อยู่จริงเลยบนเว็บ (เช็ค Home/Products/Products Catalog แล้ว ไม่เจอลิงก์ดาวน์โหลด PDF จุดไหนเลย)</div>
-      <p class="fix">→ เดิมมาจาก nav-structure spec เก่า (2026-07-13) ที่บอกว่ายัง "รอ confirm ใน Figma" — ยังไม่เคย build เลยตั้งแต่ตอนนั้น ต้องถามว่ายังต้องการ feature นี้ไหม</p>
-    </div>
-
-    <div class="ci low">
-      <div class="ci-top"><span class="stt ok">สถานะดี</span></div>
-      <div class="ci-title">16 หน้าที่ขึ้น live แล้ว ยังตรวจสอบไม่ครบทุกหน้า (ตรวจแล้วเฉพาะ R290) — อาจมีปัญหาแบบเดียวกับที่เจอในหน้าอื่นซ่อนอยู่</div>
-    </div>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">2</span> Resource downloads <span class="hint">ไฟล์ให้ IT โหลด</span></h2>
-    <a class="dl" href="https://github.com/tikittisak/cib-website/tree/master/site/products" target="_blank" rel="noopener">📁 site/products/ — ไฟล์ครบทั้ง 27 หน้า + images/</a>
-    <a class="dl" href="https://github.com/tikittisak/cib-website/blob/master/publishing-app/product-page-progress-tracker.md" target="_blank" rel="noopener">📄 Product page progress tracker (WBS)</a>
-    <p class="small" style="margin-top:8px;color:var(--muted)">IT/MKT login GitHub โหลดได้เลย</p>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">3</span> สถานะงาน</h2>
-    <table class="kv">
-      <tr><td>เจ้าของ build</td><td>MKT สร้างเอง</td></tr>
-      <tr><td>สถานะปัจจุบัน</td><td>16/27 ขึ้น live แล้ว (1 ในนั้นเป็นหน้าเก่าที่ยกเลิกแล้ว) · 11 เนื้อหาเสร็จ รอ IT deploy</td></tr>
-      <tr><td>รอ IT แก้โค้ด</td><td>deploy 11 หน้าใหม่ · ถอดหน้าเก่า coil-heat-exchanger</td></tr>
-      <tr><td>อัปเดตล่าสุด</td><td>2026-08-28</td></tr>
-    </table>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">4</span> ลิงก์อ้างอิง</h2>
-    <ul class="refs"><li>Live: <a href="https://web.cigblusolutions.com/productsCatalog" target="_blank" rel="noopener">https://web.cigblusolutions.com/productsCatalog</a></li><li>Live (final): <span class="muted">https://www.cigblu.com/productsCatalog</span> <span class="muted">(เมื่อย้าย domain — casing รอเคาะด้วย ดู Home node)</span></li><li>Figma frame: <span class="muted">— วางลิงก์ —</span></li><li>ต้นทางใน repo: <a href="https://github.com/tikittisak/cib-website/tree/master/site/products" target="_blank" rel="noopener">site/products/</a> · <a href="https://github.com/tikittisak/cib-website/blob/master/publishing-app/product-page-progress-tracker.md" target="_blank" rel="noopener">product-page-progress-tracker.md</a></li></ul>
-  </section>
-
-  <footer class="scaffold-foot">Products catalog node · audit 2026-08-28 · 16/27 live · 11 รอ IT deploy</footer>
+<main class="wrap">
+<div class="hero">
+<div class="hero-badges"><span class="badge owner-it">IT</span><span class="pill st-wip">รอแก้ 2 จุด</span></div>
+<h1>Products catalog</h1>
+<p class="hero-urls">URL ตอนนี้: <a class="url" href="https://web.cigblusolutions.com/productsCatalog" target="_blank" rel="noopener">/productsCatalog ↗</a><br>URL ที่ตกลง: <span class="url">/products/catalog</span></p>
+<p class="hero-note">หน้ารวมทุกรุ่น (27 รุ่น)</p>
+</div>
+<section class="block"><h2><span class="num">1</span> ต้องทำอะไร <span class="hint">เช็คเว็บจริง 2026-10-27</span></h2>
+<p class="legend"><b>P0</b> ต้องแก้ก่อนเปิดตัว/ก่อนรับ lead · <b>P1</b> แก้ก่อนโปรโมตวงกว้าง · <b>P2</b> ปรับปรุงทีหลังได้ — แต่ละข้อบอก <b>ใครทำ</b> · <b>ทำอะไร</b> · <b>ไฟล์</b> · <b>เสร็จเมื่อไร</b></p>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">URL ยังไม่ตรงกับที่ตกลง (ดูหน้า &quot;แผนที่ URL&quot;)</div>
+<p><b>ทำ:</b> เปลี่ยน URL เป็น <code>/products/catalog</code> และตั้ง redirect 308 จาก <code>/productsCatalog</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /productsCatalog แล้วไปที่ /products/catalog</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">หน้าเก่า /productsCatalog/coil-heat-exchanger ยังเปิดได้ อยู่ใน sitemap และมีตัว ** แสดงบนหน้า</div>
+<p><b>ทำ:</b> redirect 308 ไป /products/coil-heat-exchanger และลบออกจาก sitemap</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เก่าแล้วไปหน้า family Coil</p>
+</div>
+</section>
+<section class="block"><h2><span class="num">✓</span> เสร็จแล้ว <span class="hint">ยืนยันบนเว็บจริง 2026-10-27</span></h2><ul class="refs"><li>ทั้ง 27 รุ่นลิงก์จากหน้า catalog และเปิดได้</li></ul></section>
+<footer class="scaffold-foot">เช็คเว็บจริงล่าสุด 2026-10-27 · ข้อมูลหน้านี้มาจาก <code>_src/cigblu/pages.json</code></footer>
 </main>
 </body></html>

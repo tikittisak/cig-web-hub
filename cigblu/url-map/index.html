@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>แผนที่ URL · CIG Web Hub</title>
+<link rel="stylesheet" href="../../assets/hub.css">
+</head>
+<body>
+
+<div class="topbar"><a class="home-link" href="../index.html">← Dashboard</a></div>
+
+<main class="wrap">
+<div class="hero">
+<h1>แผนที่ URL + redirect</h1>
+<p class="hero-note">URL ที่ตกลงแล้ว (Ti อนุมัติ 2026-10-27) เน้น SEO และ AI crawler — เปลี่ยนก่อนย้ายไป www.cigblu.com จะถูกที่สุด เพราะยังไม่มีใครลิงก์มาที่เว็บทดสอบ</p></div>
+<section class="block"><h2><span class="num">1</span> กติกา URL</h2><ol class="refs"><li>ตัวพิมพ์เล็กทั้งหมด คั่นคำด้วย <code>-</code> ไม่มี .html ไม่มี / ท้าย</li><li>โครงสร้าง <code>/products/&lt;family&gt;/&lt;รุ่น&gt;</code> ลึกไม่เกิน 3 ชั้น — URL บอกได้ว่าสินค้าอยู่กลุ่มไหน</li><li>ใช้คำที่ลูกค้า/วิศวกรค้นหาจริง ขึ้นต้นด้วยประเภทสินค้า เช่น <code>air-cooled-condenser-ec-fan</code></li><li>ไม่ใช้รหัสภายใน (ACC, CU-SH) ปี หรือคำแคมเปญ</li><li>1 หน้า = 1 URL: canonical ชี้ตัวเอง, อยู่ใน sitemap ครั้งเดียว, BreadcrumbList ตรงกับ path, llms.txt ใช้ URL เดียวกัน</li><li>URL เก่าทุกอัน redirect แบบ 308/301 ไปหน้าที่ใกล้ที่สุด — ไม่โยนไปหน้าแรกทั้งหมด</li></ol></section>
+<section class="block"><h2><span class="num">2</span> URL เว็บทดสอบ → URL ที่ตกลง <span class="hint">IT ทำก่อน cutover</span></h2>
+<table class="mini"><tr><td>หน้า</td><td>URL ตอนนี้</td><td>URL ที่ตกลง</td></tr>
+<tr><td><a href="../home/index.html">Home</a></td><td><code>/</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../about/index.html">About us</a></td><td><code>/about</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../products/index.html">Products (ภาพรวม)</a></td><td><code>/products</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../products/catalog/index.html">Products catalog</a></td><td><code>/productsCatalog</code></td><td><b><code>/products/catalog</code></b></td></tr>
+<tr><td><a href="../products/coil-heat-exchanger/index.html">Coil &amp; Heat Exchanger</a></td><td><code>/products/coil-heat-exchanger</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../products/coil-heat-exchanger/water-coil/index.html">Water Coil</a></td><td><code>/productsCatalog/water-coil</code><br><code>/products/coil-heat-exchanger/water-coil</code></td><td><b><code>/products/coil-heat-exchanger/water-coil</code></b></td></tr>
+<tr><td><a href="../products/coil-heat-exchanger/evaporator-coil/index.html">Evaporator Coil</a></td><td><code>/productsCatalog/evaporator-coil</code><br><code>/products/coil-heat-exchanger/evaporator-coil</code></td><td><b><code>/products/coil-heat-exchanger/evaporator-coil</code></b></td></tr>
+<tr><td><a href="../products/coil-heat-exchanger/condenser-coil/index.html">Condenser Coil</a></td><td><code>/productsCatalog/condenser-coil</code><br><code>/products/condenser-coil</code></td><td><b><code>/products/coil-heat-exchanger/condenser-coil</code></b></td></tr>
+<tr><td><a href="../products/coil-heat-exchanger/5mm-tube-coil/index.html">5mm Tube Coil</a></td><td><code>/productsCatalog/coil-5mm</code><br><code>/products/coil-5mm</code></td><td><b><code>/products/coil-heat-exchanger/5mm-tube-coil</code></b></td></tr>
+<tr><td><a href="../products/coil-heat-exchanger/all-aluminum-coil/index.html">All Aluminum Coil</a></td><td><code>/productsCatalog/all-aluminum-coil</code><br><code>/products/all-aluminum-coil</code></td><td><b><code>/products/coil-heat-exchanger/all-aluminum-coil</code></b></td></tr>
+<tr><td><a href="../products/coil-heat-exchanger/tube-in-tube-heat-exchanger/index.html">Tube-in-Tube Heat Exchanger</a></td><td><code>/productsCatalog/tube-in-tube-heat-exchanger</code><br><code>/products/tube-in-tube-heat-exchanger</code></td><td><b><code>/products/coil-heat-exchanger/tube-in-tube-heat-exchanger</code></b></td></tr>
+<tr><td><a href="../products/coil-heat-exchanger/tube-in-tube-condenser/index.html">Tube in Tube Condenser (TTC Series) — draft</a></td><td><code>—</code></td><td><b><code>/products/coil-heat-exchanger/tube-in-tube-condenser</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/index.html">Refrigeration</a></td><td><code>/products/refrigeration</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../products/refrigeration/air-cooled-condensers/index.html">Air-Cooled Condensers (หน้ากลุ่มย่อย)</a></td><td><code>/products/refrigeration/air-cooled-condenser</code></td><td><b><code>/products/refrigeration/air-cooled-condensers</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/unit-coolers/index.html">Unit Coolers (หน้ากลุ่มย่อย)</a></td><td><code>/products/refrigeration/unit-cooler</code></td><td><b><code>/products/refrigeration/unit-coolers</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/cooling-generation/index.html">Cooling Generation (หน้ากลุ่มย่อย — รอตั้งชื่อ)</a></td><td><code>/products/refrigeration/cooling-generation</code></td><td><b><code>รอ MKT ตั้งชื่อ</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/r290-monoblock-refrigeration-unit/index.html">R290 Monoblock Refrigeration Unit</a></td><td><code>/productsCatalog/r290-refrigeration-unit</code></td><td><b><code>/products/refrigeration/r290-monoblock-refrigeration-unit</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/air-cooled-condenser-ec-fan/index.html">Air-Cooled Condenser — EC Fan</a></td><td><code>/productsCatalog/ec-fan-air-cooled-condenser</code></td><td><b><code>/products/refrigeration/air-cooled-condenser-ec-fan</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/air-cooled-condenser-standard/index.html">Air-Cooled Condenser — Standard (ALFA / BETA / DELTA)</a></td><td><code>/productsCatalog/acc-standard-series</code></td><td><b><code>/products/refrigeration/air-cooled-condenser-standard</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/air-cooled-condenser-refrigeration-ac/index.html">Air-Cooled Condenser — Refrigeration &amp; AC (CAC / CACP / CCU / CCUP)</a></td><td><code>/productsCatalog/acc-ac-refrigeration-series</code></td><td><b><code>/products/refrigeration/air-cooled-condenser-refrigeration-ac</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/air-cooled-condenser-gas-engine-generator/index.html">Air-Cooled Condenser — Gas Engine &amp; Generator Set</a></td><td><code>/productsCatalog/acc-gas-turbine-generator</code></td><td><b><code>/products/refrigeration/air-cooled-condenser-gas-engine-generator</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/stainless-steel-unit-cooler/index.html">Stainless Steel Unit Cooler</a></td><td><code>/productsCatalog/stainless-steel-unit-cooler</code></td><td><b><code>/products/refrigeration/stainless-steel-unit-cooler</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/unit-cooler-single-discharge/index.html">Unit Cooler — Single Discharge</a></td><td><code>/productsCatalog/unit-cooler-single-discharge</code></td><td><b><code>/products/refrigeration/unit-cooler-single-discharge</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/unit-cooler-dual-discharge/index.html">Unit Cooler — Dual Discharge</a></td><td><code>/productsCatalog/unit-cooler-dual-discharge</code></td><td><b><code>/products/refrigeration/unit-cooler-dual-discharge</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/unit-cooler-slim-type/index.html">Unit Cooler — Slim Type</a></td><td><code>/productsCatalog/unit-cooler-slim-type</code></td><td><b><code>/products/refrigeration/unit-cooler-slim-type</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/condensing-unit-semi-hermetic/index.html">Condensing Unit — Semi-Hermetic (Bare Type)</a></td><td><code>/productsCatalog/condensing-unit</code></td><td><b><code>/products/refrigeration/condensing-unit-semi-hermetic</code></b></td></tr>
+<tr><td><a href="../products/refrigeration/condensing-unit-compact-scroll/index.html">Condensing Unit — Compact (Scroll)</a></td><td><code>/productsCatalog/condensing-unit-compact</code></td><td><b><code>/products/refrigeration/condensing-unit-compact-scroll</code></b></td></tr>
+<tr><td><a href="../products/coil-coatings/index.html">Coil Coatings (เดิม Special Coating)</a></td><td><code>/products/special-coating</code></td><td><b><code>/products/coil-coatings</code></b></td></tr>
+<tr><td><a href="../products/coil-coatings/d-coat-superhydrophobic-coating/index.html">D-COAT+ Superhydrophobic Coating</a></td><td><code>/productsCatalog/d-coat-superhydrophobic-coating</code></td><td><b><code>/products/coil-coatings/d-coat-superhydrophobic-coating</code></b></td></tr>
+<tr><td><a href="../products/coil-coatings/heresite-p413-coating/index.html">Heresite P-413 Baked Phenolic Coating</a></td><td><code>/productsCatalog/heresite-p413-coating</code></td><td><b><code>/products/coil-coatings/heresite-p413-coating</code></b></td></tr>
+<tr><td><a href="../products/air-handling-units/index.html">Air Handling Units (เดิม AHU / AC / Fresh Air)</a></td><td><code>/products/ahu-ac-fresh-air</code></td><td><b><code>/products/air-handling-units</code></b></td></tr>
+<tr><td><a href="../products/air-handling-units/air-handling-unit/index.html">Air Handling Unit (ACDW Water-Coil Series)</a></td><td><code>/productsCatalog/air-handling-unit</code></td><td><b><code>/products/air-handling-units/air-handling-unit</code></b></td></tr>
+<tr><td><a href="../products/air-handling-units/air-purifier-fresh-air-unit/index.html">Air Purifier / Fresh Air Unit (ULPA / HEPA)</a></td><td><code>/productsCatalog/air-purifier-fresh-air-unit</code></td><td><b><code>/products/air-handling-units/air-purifier-fresh-air-unit</code></b></td></tr>
+<tr><td><a href="../products/air-handling-units/pocket-air-filter/index.html">Pocket Air Filter (Extended Surface)</a></td><td><code>/productsCatalog/pocket-air-filter</code></td><td><b><code>/products/air-handling-units/pocket-air-filter</code></b></td></tr>
+<tr><td><a href="../products/marine-hvac/index.html">Marine HVAC (เดิม Marine Application)</a></td><td><code>/products/marine-application</code></td><td><b><code>/products/marine-hvac</code></b></td></tr>
+<tr><td><a href="../products/marine-hvac/marine-fan-coil-unit/index.html">Marine Fan Coil Unit</a></td><td><code>/productsCatalog/marine-fan-coil-unit</code></td><td><b><code>/products/marine-hvac/marine-fan-coil-unit</code></b></td></tr>
+<tr><td><a href="../products/marine-hvac/marine-chiller-unit/index.html">Marine Chiller Unit</a></td><td><code>/productsCatalog/marine-chiller-unit</code></td><td><b><code>/products/marine-hvac/marine-chiller-unit</code></b></td></tr>
+<tr><td><a href="../products/marine-hvac/marine-air-conditioner/index.html">Marine Air Conditioner</a></td><td><code>/productsCatalog/marine-air-conditioner</code></td><td><b><code>/products/marine-hvac/marine-air-conditioner</code></b></td></tr>
+<tr><td><a href="../products/marine-hvac/marine-unit-cooler-ac-type/index.html">Marine Unit Cooler — AC Type</a></td><td><code>/productsCatalog/marine-unit-cooler-ac-type</code></td><td><b><code>/products/marine-hvac/marine-unit-cooler-ac-type</code></b></td></tr>
+<tr><td><a href="../products/marine-hvac/marine-unit-cooler-cold-room-type/index.html">Marine Unit Cooler — Cold Room Type</a></td><td><code>/productsCatalog/marine-unit-cooler-cold-room-type</code></td><td><b><code>/products/marine-hvac/marine-unit-cooler-cold-room-type</code></b></td></tr>
+<tr><td><a href="../products/data-center-cooling/index.html">Data Center Cooling</a></td><td><code>—</code></td><td><b><code>/products/data-center-cooling</code></b></td></tr>
+<tr><td><a href="../solutions/index.html">Solutions</a></td><td><code>/solutions</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../solutions/coil-replacement-ahu-renovation/index.html">Coil Replacement &amp; AHU Renovation</a></td><td><code>/solutions/coil-replacement-ahu-renovation</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../solutions/cold-room-design-installation/index.html">Cold Room Design &amp; Installation</a></td><td><code>/solutions/cold-room-design-installation</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../solutions/oem-product-development/index.html">OEM Product Development</a></td><td><code>/solutions/product-development</code></td><td><b><code>/solutions/oem-product-development</code></b></td></tr>
+<tr><td><a href="../solutions/iot-smart-energy-management/index.html">IoT &amp; Smart Energy Management (เดิม Smart Solutions)</a></td><td><code>/solutions/smart-solutions-iot</code></td><td><b><code>/solutions/iot-smart-energy-management</code></b></td></tr>
+<tr><td><a href="../projects/index.html">Projects</a></td><td><code>/projects</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../projects/cold-chain-refrigeration/index.html">Cold chain refrigeration (template)</a></td><td><code>/projects/cold-chain-refrigeration</code></td><td><b><code>/projects/&lt;ชื่อโครงการจริง&gt;</code></b></td></tr>
+<tr><td><a href="../projects/food-processing-facility-cooling/index.html">Food processing facility cooling (template)</a></td><td><code>/projects/food-processing-facility-cooling</code></td><td><b><code>/projects/&lt;ชื่อโครงการจริง&gt;</code></b></td></tr>
+<tr><td><a href="../projects/marine-cooling/index.html">Marine cooling (template)</a></td><td><code>/projects/marine-cooling</code></td><td><b><code>/projects/&lt;ชื่อโครงการจริง&gt;</code></b></td></tr>
+<tr><td><a href="../engineering/index.html">Engineering</a></td><td><code>—</code></td><td><b><code>/engineering</code></b></td></tr>
+<tr><td><a href="../insights/index.html">Insights</a></td><td><code>/insights</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../insights/news-events/index.html">News &amp; Events</a></td><td><code>/insights/news-events</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../insights/ahri-certified/index.html">CIG BluSolutions coils are AHRI Certified</a></td><td><code>/insights/ahri-certified</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../insights/bmam-expo-asia/index.html">Meet CIG BluSolutions at BMAM Expo Asia</a></td><td><code>/insights/bmam-expo-asia</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../insights/brand-and-domain-journey/index.html">From Coil Inter to CIG BluSolutions: our brand and domain journey</a></td><td><code>/insights/brand-and-domain-journey</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../insights/coil-coatings-corrosion-protection/index.html">Choosing the right coil coating: Heresite P-413 and D-COAT+</a></td><td><code>/insights/coil-coatings-corrosion-protection</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../insights/data-center-cooling-coil-retrofit/index.html">Retrofitting cooling coils for a high-density data center hall</a></td><td><code>/insights/data-center-cooling-coil-retrofit</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../contact/index.html">Contact</a></td><td><code>/contact</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../careers/index.html">Careers</a></td><td><code>/careers</code></td><td><span class="muted">ไม่เปลี่ยน</span></td></tr>
+<tr><td><a href="../privacy-policy/index.html">Privacy Policy</a></td><td><code>—</code></td><td><b><code>/privacy-policy</code></b></td></tr>
+<tr><td><a href="../terms-of-use/index.html">Terms of Use</a></td><td><code>—</code></td><td><b><code>/terms-of-use</code></b></td></tr>
+</table><p class="small muted">URL ที่มีตัวพิมพ์ใหญ่ทุกอัน → redirect ไปตัวพิมพ์เล็ก (กฎเดียว)</p></section>
+<section class="block" id="old-site"><h2><span class="num">3</span> URL เว็บเก่า (cigblusolutions.com) → เว็บใหม่ <span class="hint">IT ตั้งวัน cutover</span></h2><p>URL เหล่านี้มี backlink และอันดับ Google อยู่แล้ว ถ้าไม่ redirect จะเสียทั้งหมด</p><table class="mini"><tr><td>URL เก่า</td><td>→ URL ใหม่</td></tr>
+<tr><td><code>/about-cig/</code></td><td>/about</td></tr>
+<tr><td><code>/contact/, /th/contact/</code></td><td>/contact</td></tr>
+<tr><td><code>/careers/</code></td><td>/careers</td></tr>
+<tr><td><code>/news/</code></td><td>/insights/news-events</td></tr>
+<tr><td><code>/news/cig-is-ahri-certified/</code></td><td>/insights/ahri-certified</td></tr>
+<tr><td><code>/news/&lt;ข่าวอื่น&gt;/ (asa-2017, bmam-2017, rhvac-2017, tgbi-2017, asa-2018, amata-beyond-2018, ฯลฯ)</code></td><td>/insights/news-events</td></tr>
+<tr><td><code>/project-references/</code></td><td>/projects</td></tr>
+<tr><td><code>/services-solutions/, /service/blusolutions/, /service/me-design-solutions/</code></td><td>/solutions</td></tr>
+<tr><td><code>/service/coil-replacement/</code></td><td>/solutions/coil-replacement-ahu-renovation</td></tr>
+<tr><td><code>/service/cold-room-cold-store-design-installation/, /products/cold-store/</code></td><td>/solutions/cold-room-design-installation</td></tr>
+<tr><td><code>/service/product-development/</code></td><td>/solutions/oem-product-development</td></tr>
+<tr><td><code>/service/smart-solutions-design-installation/, /products/arii-smart-solutions/</code></td><td>/solutions/iot-smart-energy-management</td></tr>
+<tr><td><code>/products/</code></td><td>/products</td></tr>
+<tr><td><code>/heatexchanger-coil/, /th/coil/, /fin-tube-spec/, /th/fin-tube-spec/, /products/copper-fin-copper-tube-coils/</code></td><td>/products/coil-heat-exchanger</td></tr>
+<tr><td><code>/products/water-coils/, /products/water-coil-edit-by-kim/</code></td><td>/products/coil-heat-exchanger/water-coil</td></tr>
+<tr><td><code>/products/evaporator-coils-2/</code></td><td>/products/coil-heat-exchanger/evaporator-coil</td></tr>
+<tr><td><code>/products/condenser-coils/</code></td><td>/products/coil-heat-exchanger/condenser-coil</td></tr>
+<tr><td><code>/products/5mm-coil/, /products/5mm-coil-2/</code></td><td>/products/coil-heat-exchanger/5mm-tube-coil</td></tr>
+<tr><td><code>/products/all-aluminum-coil/, /products/all-aluminum-coil-2/</code></td><td>/products/coil-heat-exchanger/all-aluminum-coil</td></tr>
+<tr><td><code>/products/tube-in-tube-heat-exchanger/</code></td><td>/products/coil-heat-exchanger/tube-in-tube-heat-exchanger</td></tr>
+<tr><td><code>/products/r290/</code></td><td>/products/refrigeration/r290-monoblock-refrigeration-unit</td></tr>
+<tr><td><code>/products/air-cooled-condenser-ec-fan/</code></td><td>/products/refrigeration/air-cooled-condenser-ec-fan</td></tr>
+<tr><td><code>/products/air-cooled-condenser/</code></td><td>/products/refrigeration/air-cooled-condenser-standard</td></tr>
+<tr><td><code>/products/air-cooled-condenser-ac-r/</code></td><td>/products/refrigeration/air-cooled-condenser-refrigeration-ac</td></tr>
+<tr><td><code>/products/aidabatic-coooling-condenser/</code></td><td>/products/refrigeration/air-cooled-condensers</td></tr>
+<tr><td><code>/products/condensing-unit-bare-type/</code></td><td>/products/refrigeration/condensing-unit-semi-hermetic</td></tr>
+<tr><td><code>/products/condensing-unit-compact/</code></td><td>/products/refrigeration/condensing-unit-compact-scroll</td></tr>
+<tr><td><code>/products/condensing-unit-cdu/</code></td><td>/products/refrigeration (จนกว่าหน้า Cooling Generation จะได้ชื่อใหม่)</td></tr>
+<tr><td><code>/products/stainless-steel-unit-cooler/</code></td><td>/products/refrigeration/stainless-steel-unit-cooler</td></tr>
+<tr><td><code>/products/unit-cooler-single-discharge/</code></td><td>/products/refrigeration/unit-cooler-single-discharge</td></tr>
+<tr><td><code>/products/unit-cooler-slim-type/</code></td><td>/products/refrigeration/unit-cooler-slim-type</td></tr>
+<tr><td><code>/products/d-coat/, /products/d-coat-2/</code></td><td>/products/coil-coatings/d-coat-superhydrophobic-coating</td></tr>
+<tr><td><code>/products/heresite-p-413-2/</code></td><td>/products/coil-coatings/heresite-p413-coating</td></tr>
+<tr><td><code>/products/air-handling-unit-ahu-2/, /products/air-handling-unit-standard-model/</code></td><td>/products/air-handling-units/air-handling-unit</td></tr>
+<tr><td><code>/products/air-purifier-fresh-air-unit/, /products/heavy-duty-air-purifier-editing/</code></td><td>/products/air-handling-units/air-purifier-fresh-air-unit</td></tr>
+<tr><td><code>/products/navy-marine-heavy-duty-fan-coil-unit/</code></td><td>/products/marine-hvac/marine-fan-coil-unit</td></tr>
+<tr><td><code>/products/navy-marine-heavy-duty-chiller-unit/</code></td><td>/products/marine-hvac/marine-chiller-unit</td></tr>
+<tr><td><code>/products/navy-marine-heavy-duty-sea-water-cooled-marine-ac-unit/</code></td><td>/products/marine-hvac/marine-air-conditioner</td></tr>
+<tr><td><code>/products/navy-marine-heavy-duty-unit-cooler-ac-type/</code></td><td>/products/marine-hvac/marine-unit-cooler-ac-type</td></tr>
+<tr><td><code>/products/navy-marine-heavy-duty-unit-cooler-cold-room-type/</code></td><td>/products/marine-hvac/marine-unit-cooler-cold-room-type</td></tr>
+<tr><td><code>/bitcooler-immersion-cooling/</code></td><td>https://www.imvera.co (จนกว่าจะมีหน้า /products/data-center-cooling)</td></tr>
+<tr><td><code>/products/hpbm-loova-*, /products/architectural-wall-panels/, /products/foilback/, /products/kingzip/, /products/benchmark/, /products/rw/, URL สินค้าวัสดุก่อสร้างภาษาไทย</code></td><td>https://www.cigpcl.com/product-category/building-envelope/ (วัสดุก่อสร้างเป็นของ cigpcl.com — IT เช็ค /products/rw/ และ /products/benchmark/ ว่าเป็นวัสดุก่อสร้างจริง)</td></tr>
+<tr><td><code>/downloads/, /th/downloads/, /th/download2/</code></td><td>/products/catalog</td></tr>
+<tr><td><code>/th/, /th/hvac-r-by-application/, /th/coil-by-application/, /th/อื่นๆ</code></td><td>หน้าภาษาอังกฤษที่ตรงกัน หรือ / (เว็บใหม่ยังไม่มีภาษาไทย)</td></tr>
+<tr><td><code>/home/, /?page_id=74, /?p=306</code></td><td>/</td></tr>
+</table></section>
+<section class="block"><h2><span class="num">4</span> โดเมน</h2><ul class="refs"><li>ตอนนี้: web.cigblusolutions.com ต้องตอบ <code>X-Robots-Tag: noindex</code> ทุกหน้า</li><li>วัน cutover: <code>web.cigblusolutions.com/*</code> → <code>https://www.cigblu.com/*</code> (path เดิม)</li><li><code>cigblu.com</code> และ <code>http://</code> → <code>https://www.cigblu.com</code></li></ul></section>
+<footer class="scaffold-foot">ข้อมูลจาก <code>_src/cigblu/pages.json</code> + <code>redirects-old-site.json</code> · เช็ค 2026-10-27</footer>
+</main>
+</body></html>

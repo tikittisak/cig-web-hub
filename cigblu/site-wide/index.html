@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>ทั้งเว็บ (ทุกหน้า) · CIG Web Hub</title>
+<link rel="stylesheet" href="../../assets/hub.css">
+</head>
+<body>
+
+<div class="topbar"><a class="home-link" href="../index.html">← Dashboard</a></div>
+
+<main class="wrap">
+<div class="hero">
+<div class="hero-badges"><span class="badge owner-itcpk">IT + MKT</span><span class="pill st-confirm">ต้องแก้ก่อนเปิดตัว</span></div>
+<h1>ทั้งเว็บ (ทุกหน้า)</h1>
+<p class="hero-note">งานที่ไม่ได้อยู่หน้าใดหน้าหนึ่ง — ตั้งค่า server, โดเมน, URL, อีเมล, การทดสอบ และการอนุมัติเปิดตัว</p>
+</div>
+<section class="block"><h2><span class="num">1</span> ต้องทำอะไร <span class="hint">เช็คเว็บจริง 2026-10-27</span></h2>
+<p class="legend"><b>P0</b> ต้องแก้ก่อนเปิดตัว/ก่อนรับ lead · <b>P1</b> แก้ก่อนโปรโมตวงกว้าง · <b>P2</b> ปรับปรุงทีหลังได้ — แต่ละข้อบอก <b>ใครทำ</b> · <b>ทำอะไร</b> · <b>ไฟล์</b> · <b>เสร็จเมื่อไร</b></p>
+<div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">Google เก็บเว็บ staging (web.cigblusolutions.com) เข้า index ได้ทั้งหมด</div>
+<p><b>ทำ:</b> ใส่ header <code>X-Robots-Tag: noindex</code> ทุกหน้าบน web.cigblusolutions.com จนกว่าจะย้ายไป www.cigblu.com (อย่าใช้ robots.txt Disallow เพราะ Google จะมองไม่เห็นคำสั่ง noindex)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิดหน้าไหนก็ได้บน web.cigblusolutions.com แล้ว response header มี <code>X-Robots-Tag: noindex</code></p>
+<p class="why">ทำไม: ถ้าปล่อยไว้ พอย้ายไป www.cigblu.com จะมีเนื้อหาซ้ำ 2 โดเมนแย่งอันดับกันเอง</p>
+</div>
+<div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: ทุกฝ่าย</span><span class="stt hold">รอตัดสินใจ: ทุกฝ่าย</span></div>
+<div class="ci-title">ยังไม่มีการอนุมัติเปิดตัวร่วมกัน</div>
+<p><b>ทำ:</b> ปิด P0 ทุกข้อในหน้า &quot;งานที่ต้องทำ&quot; แล้วให้ MKT / IT / Engineering-QA / Sales ลงชื่อ + วันที่อนุมัติ</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีชื่อผู้อนุมัติครบ 4 ฝ่ายพร้อมวันที่ ในตารางความพร้อมเปิดตัวบน Dashboard</p>
+<p class="why">ทำไม: ตามรายงานทบทวนเว็บ 26 ต.ค. 2569 — ห้ามถือว่า &quot;รอทดสอบ&quot; เท่ากับผ่าน</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">URL ยังไม่เป็นแบบที่ตกลงไว้ (เช่น /productsCatalog/...)</div>
+<p><b>ทำ:</b> เปลี่ยน URL ทุกหน้าตามตารางในหน้า &quot;แผนที่ URL&quot; และตั้ง redirect 308 จาก URL เดิมทุกอัน — ทำก่อนย้ายโดเมนจะถูกที่สุด</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../url-map/index.html">📄 แผนที่ URL (ตารางเต็ม)</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด URL เดิมทุกอันแล้วถูกส่งไป URL ใหม่ (308) · URL ใหม่ตอบ 200</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">URL ตัวพิมพ์ใหญ่ขึ้น 404 (เช่น /productscatalog, /PRODUCTS)</div>
+<p><b>ทำ:</b> ตั้งกฎเดียว: URL ที่มีตัวพิมพ์ใหญ่ → redirect 308 ไปตัวพิมพ์เล็ก</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด /Products แล้วถูกส่งไป /products</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">http:// เปิดไม่ได้ (ขึ้น 503 &quot;No available server&quot;)</div>
+<p><b>ทำ:</b> ตั้ง redirect http → https ทุก URL</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เปิด http://web.cigblusolutions.com/about แล้วถูกส่งไป https://… (301/308)</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">canonical ชี้คนละโดเมน — /contact, /careers, /products/marine-application ชี้ www.cigblu.com ส่วนหน้าอื่นชี้ web.cigblusolutions.com</div>
+<p><b>ทำ:</b> สร้าง canonical / og:url / JSON-LD url จากค่าตั้งค่าเดียว (เช่น SITE_URL) ไม่เขียนโดเมนตรงในแต่ละหน้า · ไม่มี / ท้าย URL</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกหน้าใช้โดเมนเดียวกันใน canonical และ og:url</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">วันย้ายโดเมน: www.cigblu.com ยังส่งไปเว็บเก่า (WordPress)</div>
+<p><b>ทำ:</b> วัน cutover: ชี้ www.cigblu.com มาเว็บใหม่ · web.cigblusolutions.com/* → redirect ไป www.cigblu.com/* (path เดิม) · ตั้ง redirect URL เว็บเก่าทั้ง ~60 อัน ตามตารางในหน้า &quot;แผนที่ URL&quot;</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../url-map/index.html#old-site" download>⬇ แผนที่ URL › redirect เว็บเก่า</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> URL เว็บเก่าทุกอันในตาราง redirect ไปหน้าที่ถูกต้อง (ไม่ใช่หน้าแรกทั้งหมด)</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">sitemap.xml ยังไม่ถูก — มีหน้าซ้ำ, มีหน้า template, ขาด /careers และ /insights/news-events</div>
+<p><b>ทำ:</b> สร้าง sitemap ใหม่: 1 URL ต่อ 1 หน้า, เฉพาะหน้าที่ใช้งานจริง, ใช้โดเมน www.cigblu.com, lastmod เป็นวันที่แก้จริง</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มี URL ซ้ำ / template / 404 ใน sitemap</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">llms.txt (ไฟล์สรุปเว็บให้ AI) ยังชี้ /productsCatalog และไม่มี Projects, Careers</div>
+<p><b>ทำ:</b> อัปเดต llms.txt ให้ตรงกับ URL ใหม่ หลังเปลี่ยน URL</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกลิงก์ใน llms.txt ตอบ 200 และตรงกับ sitemap</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Sales → IT</span><span class="stt hold">รอตัดสินใจ: Sales</span></div>
+<div class="ci-title">ใช้อีเมลหลายโดเมน: contact@cigblusolutions.com (footer, ปุ่ม Email us), contact@cigblu.com (หน้า Contact), engineering@cigblu.com, careers@cigblu.com</div>
+<p><b>ทำ:</b> Sales เลือกอีเมลหลัก + ผู้รับสำรอง → IT ตรวจว่า alias/forwarding ส่งถึงจริงทั้ง 2 โดเมน → แก้ข้อความและ mailto ทุกจุดให้เหมือนกัน</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ส่งอีเมลทดสอบถึงทุกที่อยู่ที่แสดงบนเว็บแล้วมีคนได้รับ (เก็บหลักฐาน)</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: MKT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<div class="ci-title">ปุ่ม &quot;Download Catalog&quot; ทุกหน้ายังลิงก์ไป # (กดแล้วไม่เกิดอะไร)</div>
+<p><b>ทำ:</b> ตัดสินใจ: มีไฟล์ catalog PDF ให้ดาวน์โหลดไหม — ถ้ามี ส่งไฟล์ให้ IT · ถ้าไม่มี ให้ IT ซ่อนปุ่มนี้ทุกหน้า</p>
+<p><b>ที่:</b> Refrigeration, AHU, Unit coolers, Air-cooled condensers, Cooling Generation</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีปุ่ม Download Catalog ที่ลิงก์ไป #</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">หน้า family ไม่ลิงก์ไปหน้ารุ่นสินค้า และหน้ารุ่นไม่ลิงก์กลับหน้า family</div>
+<p><b>ทำ:</b> ทุกหน้า family ลิงก์ไปทุกรุ่นในกลุ่ม · ทุกหน้ารุ่นมี breadcrumb ลิงก์กลับ family · ใส่ BreadcrumbList JSON-LD ตรงกับ URL</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> จากหน้า family กดไปถึงทุกรุ่นได้โดยไม่ต้องผ่านหน้า catalog</p>
+<p class="why">ทำไม: ตอนนี้รุ่น Refrigeration / Coating / AHU เข้าถึงได้ทางหน้า catalog ทางเดียว — Google และ AI crawler ที่ตามลิงก์จะหาไม่เจอ</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">เมนูย่อยระหว่าง family (quick-nav) ไม่มี Marine</div>
+<p><b>ทำ:</b> เพิ่มลิงก์ Marine ในเมนูย่อยของ Refrigeration, Coil coatings, Air handling units</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกหน้า family มีลิงก์ครบ 5 family</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Eng/QA</span><span class="stt wait">รอ Eng/QA</span></div>
+<div class="ci-title">ข้อความอ้างผลงาน/การรับรองยังไม่มีหลักฐานกำกับ: ประหยัดพลังงาน 30% (EC Fan), R290 ดีกว่า R-134a 78%, &quot;certified to ISO 9001, AHRI, and ASHRAE&quot;, sketch-to-quote ใน 24 ชั่วโมง, ข้อความรับรองของ D-COAT+</div>
+<p><b>ทำ:</b> Eng/QA ทำทะเบียน claim: รุ่น, เงื่อนไขทดสอบ, ฐานเปรียบเทียบ, เอกสารอ้างอิง, วันหมดอายุ · แยก &quot;ระบบองค์กรได้รับรอง&quot; / &quot;สินค้าได้รับรอง&quot; / &quot;ออกแบบตามมาตรฐาน&quot; · ข้อไหนไม่มีหลักฐาน MKT ลดระดับข้อความ · Sales ยืนยันเงื่อนไข 24 ชั่วโมง</p>
+<p><b>ที่:</b> Home, Products, R290, EC Fan, D-COAT+</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุก claim บนเว็บมีแถวในทะเบียนพร้อมผู้อนุมัติ</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Eng/QA → MKT</span><span class="stt wait">รอ Eng/QA</span></div>
+<div class="ci-title">ข้อมูลโรงงานไม่ตรงกัน: หน้า Products บอก &quot;ผลิตและทดสอบทุก family ที่ 30,000 sq.m ใน Pathumthani&quot; แต่หน้า Contact มีโรงงาน Pinthong และ Teparak</div>
+<p><b>ทำ:</b> Eng/QA ยืนยันว่าแต่ละที่ทำอะไร + พื้นที่เท่าไร → MKT แก้ทุกหน้าให้ใช้ข้อมูลชุดเดียว</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกหน้าพูดถึงโรงงานตรงกัน</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอทดสอบ</span></div>
+<div class="ci-title">ยังไม่ได้ทดสอบมือถือ / การใช้งานด้วยคีย์บอร์ด / ความเร็ว</div>
+<p><b>ทำ:</b> ทดสอบ iOS Safari + Android Chrome ที่ความกว้าง 360 / 390 / 768 px (เมนูใช้ได้, ไม่ล้นแนวนอน, ปุ่มไม่ถูกบัง) · กด Tab ไปได้ทุกปุ่ม/ช่องกรอก · วัด PageSpeed มือถือ: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีผลทดสอบ (อุปกรณ์, วันที่, ผล, screenshot) ของ Home, Products, Contact และหน้ารุ่น 1 หน้า</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">ยังไม่มีแผนสำรองข้อมูล / ย้อนกลับ และผู้ดูแลหลังเปิดตัว</div>
+<p><b>ทำ:</b> เขียนวิธี rollback ถ้า deploy มีปัญหา + ระบุชื่อผู้ดูแลเว็บหลังเปิดตัว</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีเอกสาร rollback ที่ทดลองทำแล้ว 1 ครั้ง + ชื่อผู้ดูแล</p>
+</div>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">ไฟล์โลโก้ที่ใช้เป็นรูปแชร์มีเว้นวรรคในชื่อ (<code>CIG BLUSOLUTIONS LOGO.png</code>)</div>
+<p><b>ทำ:</b> เปลี่ยนชื่อเป็น <code>cig-blusolutions-logo.png</code> และแก้ทุกจุดที่อ้างถึง</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีชื่อไฟล์ที่มีเว้นวรรคบนเว็บ</p>
+</div>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<div class="ci-title">เว็บใหม่ยังไม่มี analytics (ไม่มี GA4 / Google Ads tag)</div>
+<p><b>ทำ:</b> MKT ตัดสินใจว่าจะติด GA4 ไหม · ถ้าติด: IT ใส่ tag + event &quot;กดขอราคา&quot; และ &quot;ส่งฟอร์มสำเร็จ&quot; (ห้ามส่งข้อมูลส่วนตัวใน event) · ถ้า tag ตั้ง cookie ต้องมี cookie banner และแก้ Privacy Policy ข้อ 6</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เห็นข้อมูลใน GA4 Realtime เมื่อเปิดเว็บ และนับ lead ไม่ซ้ำ</p>
+</div>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">template หน้าเนื้อหา (Insights / Solutions / Projects) มีจุดเล็กๆ: หัวข้อ &quot;On this page&quot; เป็น h4 ก่อน h2, มีจุด &quot;.&quot; เกินหลัง &quot;Message us on Line OA&quot;, ป้ายหมวดเป็นตัวพิมพ์เล็ก (news, case-study)</div>
+<p><b>ทำ:</b> เปลี่ยน &quot;On this page&quot; เป็นข้อความธรรมดา (ไม่ใช่ heading) · ลบจุดเกิน · แสดงป้ายหมวดเป็น News / Case Study / Article</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> หน้าเนื้อหาไม่มี 3 จุดนี้</p>
+</div>
+</section>
+<section class="block"><h2><span class="num">2</span> ไฟล์และลิงก์</h2>
+<p><a class="dl" href="../url-map/index.html">📄 แผนที่ URL (ตารางเต็ม)</a> <a class="dl" href="../url-map/index.html#old-site" download>⬇ แผนที่ URL › redirect เว็บเก่า</a></p>
+</section>
+<section class="block"><h2><span class="num">✓</span> เสร็จแล้ว <span class="hint">ยืนยันบนเว็บจริง 2026-10-27</span></h2><ul class="refs"><li>ทุก internal link ที่เช็ค (ราว 100 ลิงก์) ตอบ 200</li><li>ทุกหน้ามี h1 เดียว และรูปมี alt</li><li>หน้า 404 ส่ง status 404 จริง</li><li>robots.txt อนุญาต AI crawler แล้ว</li></ul></section>
+<footer class="scaffold-foot">เช็คเว็บจริงล่าสุด 2026-10-27 · ข้อมูลหน้านี้มาจาก <code>_src/cigblu/pages.json</code></footer>
+</main>
+</body></html>

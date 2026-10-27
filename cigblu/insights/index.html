@@ -8,72 +8,40 @@
 <link rel="stylesheet" href="../../assets/hub.css">
 </head>
 <body>
-<header class="topbar"><a class="home-link" href="../index.html">← Dashboard</a><span class="crumb">Insights</span></header>
-<main class="wrap node">
-  <div class="hero">
-    <div class="hero-badges"><span class="badge owner-cpk">MKT สร้างเอง</span><span class="pill st-wip">ขึ้นแล้ว · รอแก้</span></div>
-    <h1>Insights</h1>
-    <a class="url" href="https://web.cigblusolutions.com/insights/" target="_blank" rel="noopener">/insights/ ↗</a>
-    <p class="hero-note">Articles (#articles) · Case Studies (#case-studies) — audit 2026-08-28</p>
-  </div>
 
-  <section class="block">
-    <h2><span class="num">1</span> Change notes <span class="hint">Audit 2026-08-28</span></h2>
-    <p class="audit-meta"><span class="stt ok">✓ แก้แล้ว</span> โหลดไฟล์ได้เลย · <span class="stt hold">รอเคาะ</span> รอ Ti · <span class="stt wait">รอ IT</span> รอแก้โค้ด</p>
+<div class="topbar"><a class="home-link" href="../index.html">← Dashboard</a></div>
 
-    <div class="ci med">
-      <div class="ci-top"><span class="sev med">Med</span><span class="stt hold">รอ MKT</span></div>
-      <div class="ci-title">Index โชว์บทความแค่ 1 ใบ ("Choosing the right coil coating...") — อีก 1 บทความที่มีเนื้อหาพร้อมใน repo (<code>data-center-cooling-coil-retrofit</code>) ยังไม่ live (404 จริง)</div>
-      <p class="fix">→ publish เพิ่ม — เนื้อหาพร้อมอยู่แล้วที่ <code>site/insights/</code> (หมายเหตุ: <code>ahri-certified</code>/<code>brand-and-domain-journey</code> ที่เคยดูเหมือนหาย จริงๆ ไม่ใช่บั๊ก — ถูกจัดหมวด News อยู่ที่หน้า News &amp; Events แทน ถูกต้องแล้ว)</p>
-    </div>
-
-    <div class="ci med">
-      <div class="ci-top"><span class="sev med">Med</span><span class="stt wait">รอ IT</span></div>
-      <div class="ci-title">Nav spec เดิม (2026-07-13) กำหนด 4 deep-link จาก nav มา pre-select tab (<code>#articles</code>/<code>#case-studies</code>/<code>#press</code>/<code>#exhibitions</code>) — เช็คจริงแล้ว หน้านี้ไม่มีระบบ tab/filter อะไรเลย hash ไม่ทำอะไรเลย</div>
-      <p class="fix">→ ไม่ใช่บั๊ก (ไม่มี error, หน้าโหลดปกติ) แต่ feature ที่ spec ไว้ไม่เคย build — เนื้อหายังน้อย (บทความเดียว) อาจยังไม่จำเป็นตอนนี้ รอ confirm ว่าจะ build เมื่อไหร่</p>
-    </div>
-
-    <div class="ci med">
-      <div class="ci-top"><span class="sev med">Med</span><span class="stt wait">รอ IT</span></div>
-      <div class="ci-title">D-COAT+ ตกเครื่องหมาย + ในหัวข้อบทความที่โชว์อยู่ ("...Heresite P-413 and D-COAT")</div>
-      <p class="fix">→ แก้ตาม cig-design-standard.md — บั๊กเดียวกับ Products overview/catalog</p>
-    </div>
-
-    <div class="ci med">
-      <div class="ci-top"><span class="sev med">Med</span><span class="stt wait">รอ IT</span></div>
-      <div class="ci-title">Meta description เป็น placeholder "Cigblu Application" (ซ้ำกับ Solutions/Projects) · ไม่มี canonical tag · og:image หาย</div>
-      <p class="fix">→ แก้ทั้ง 3 จุดพร้อมกัน — pattern เดียวกับหน้าอื่น</p>
-    </div>
-
-    <div class="ci low">
-      <div class="ci-top"><span class="stt ok">สถานะดี</span></div>
-      <div class="ci-title">ไม่มี raw markdown · ไม่มีรูปหนักเกิน · ไม่มี dead link บนหน้า (ลิงก์เดียวที่มีไปบทความจริง)</div>
-    </div>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">2</span> Resource downloads <span class="hint">ไฟล์ให้ IT โหลด</span></h2>
-    <a class="dl" href="https://github.com/tikittisak/cib-website/tree/master/site/insights" target="_blank" rel="noopener">📁 site/insights/ — บทความพร้อม deploy ทั้งหมด (รวม 1 ใบที่ยังไม่ live)</a>
-    <a class="dl" href="https://github.com/tikittisak/cib-website/blob/master/archive/pages/insights/12-insights-page-section-guide.html" target="_blank" rel="noopener">📄 12-insights-page-section-guide.html</a>
-    <p class="small" style="margin-top:8px;color:var(--muted)">IT/MKT login GitHub โหลดได้เลย</p>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">3</span> สถานะงาน</h2>
-    <table class="kv">
-      <tr><td>เจ้าของ build</td><td>MKT สร้างเอง</td></tr>
-      <tr><td>สถานะปัจจุบัน</td><td>ขึ้น live แล้ว · เหลือ 3 จุด</td></tr>
-      <tr><td>รอ IT แก้โค้ด</td><td>D-COAT+ · meta description · canonical · og:image</td></tr>
-      <tr><td>รอ MKT</td><td>Publish data-center-cooling-coil-retrofit</td></tr>
-      <tr><td>อัปเดตล่าสุด</td><td>2026-08-28</td></tr>
-    </table>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">4</span> ลิงก์อ้างอิง</h2>
-    <ul class="refs"><li>Live: <a href="https://web.cigblusolutions.com/insights/" target="_blank" rel="noopener">https://web.cigblusolutions.com/insights/</a></li><li>Live (final): <span class="muted">https://www.cigblu.com/insights/</span> <span class="muted">(เมื่อย้าย domain)</span></li><li>Figma frame: <span class="muted">— วางลิงก์ —</span></li><li>ไฟล์ต้นทางใน repo: <a href="https://github.com/tikittisak/cib-website/tree/master/site/insights" target="_blank" rel="noopener">site/insights/</a></li></ul>
-  </section>
-
-  <footer class="scaffold-foot">Insights node · audit 2026-08-28 · เหลือ 3 จุด</footer>
+<main class="wrap">
+<div class="hero">
+<div class="hero-badges"><span class="badge owner-cpk">MKT</span><span class="pill st-live">ใช้ได้</span></div>
+<h1>Insights</h1>
+<p class="hero-urls">URL ตอนนี้: <a class="url" href="https://web.cigblusolutions.com/insights" target="_blank" rel="noopener">/insights ↗</a></p>
+<p class="hero-note">หน้ารวมบทความ / case study / ข่าว</p>
+</div>
+<section class="block"><h2><span class="num">1</span> ต้องทำอะไร <span class="hint">เช็คเว็บจริง 2026-10-27</span></h2>
+<p class="legend"><b>P0</b> ต้องแก้ก่อนเปิดตัว/ก่อนรับ lead · <b>P1</b> แก้ก่อนโปรโมตวงกว้าง · <b>P2</b> ปรับปรุงทีหลังได้ — แต่ละข้อบอก <b>ใครทำ</b> · <b>ทำอะไร</b> · <b>ไฟล์</b> · <b>เสร็จเมื่อไร</b></p>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">hero ของบทความ coating alt เขียน &quot;D-COAT&quot; (ขาด +)</div>
+<p><b>ทำ:</b> แก้ alt เป็น D-COAT+</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> alt ถูกต้อง</p>
+</div>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
+<div class="ci-title">รูปตอนแชร์ลิงก์ (og:image) ยังเป็นโลโก้กลางของเว็บ</div>
+<p><b>ทำ:</b> MKT ทำรูป og ขนาด 1200×630 px ของหน้านี้ → IT ใส่ใน og:image และ twitter:image</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> แชร์ลิงก์ใน LINE/Facebook แล้วเห็นรูปของหน้านี้ ไม่ใช่โลโก้</p>
+</div>
+</section>
+<section class="block"><h2><span class="num">✓</span> เสร็จแล้ว <span class="hint">ยืนยันบนเว็บจริง 2026-10-27</span></h2><ul class="refs"><li>บทความ data-center-cooling-coil-retrofit ขึ้นแล้ว (แต่มีปัญหา — ดูหน้าย่อย)</li><li>มี filter All / Articles / Case Studies</li><li>title บทความ coating มี D-COAT+ ครบ</li><li>meta และ canonical ใช้ได้แล้ว</li></ul></section>
+<section class="block"><h2><span class="num">↓</span> หน้าย่อย</h2><table class="kv">
+<tr><td><a href="../insights/news-events/index.html">News &amp; Events</a></td><td><span class="pill st-live">ใช้ได้</span></td></tr>
+<tr><td><a href="../insights/ahri-certified/index.html">CIG BluSolutions coils are AHRI Certified</a></td><td><span class="pill st-live">ใช้ได้</span></td></tr>
+<tr><td><a href="../insights/bmam-expo-asia/index.html">Meet CIG BluSolutions at BMAM Expo Asia</a></td><td><span class="pill st-confirm">ต้องแก้ก่อนเปิดตัว</span></td></tr>
+<tr><td><a href="../insights/brand-and-domain-journey/index.html">From Coil Inter to CIG BluSolutions: our brand and domain journey</a></td><td><span class="pill st-live">ใช้ได้</span></td></tr>
+<tr><td><a href="../insights/coil-coatings-corrosion-protection/index.html">Choosing the right coil coating: Heresite P-413 and D-COAT+</a></td><td><span class="pill st-live">ใช้ได้</span></td></tr>
+<tr><td><a href="../insights/data-center-cooling-coil-retrofit/index.html">Retrofitting cooling coils for a high-density data center hall</a></td><td><span class="pill st-confirm">ต้องแก้ก่อนเปิดตัว</span></td></tr>
+</table></section>
+<footer class="scaffold-foot">เช็คเว็บจริงล่าสุด 2026-10-27 · ข้อมูลหน้านี้มาจาก <code>_src/cigblu/pages.json</code></footer>
 </main>
 </body></html>

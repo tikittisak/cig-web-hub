@@ -8,78 +8,42 @@
 <link rel="stylesheet" href="../../assets/hub.css">
 </head>
 <body>
-<header class="topbar"><a class="home-link" href="../index.html">← Dashboard</a><span class="crumb">Careers</span></header>
-<main class="wrap node">
-  <div class="hero">
-    <div class="hero-badges"><span class="badge owner-itcpk">IT + MKT</span><span class="pill st-wip">Stub · รอเนื้อหา</span></div>
-    <h1>Careers</h1>
-    <span class="url muted">— ยังไม่มี route จริงบนเว็บ (IT ยังไม่ได้สร้าง)</span>
-    <p class="hero-note">หน้าใหม่ 2026-09-07 — index + ประกาศรับสมัครทีละใบ (โครงเดียวกับ Insights) กรอง 2 มิติ: แผนก + สถานที่ (Pathumthani/Chonburi/Samutprakan) แต่ละประกาศมีปุ่ม "สมัครตำแหน่งนี้" ลิงก์ออกไประบบรับสมัครแยกที่ IT ทำเอง (คนละ URL ต่อตำแหน่ง) — เว็บนี้ไม่รับข้อมูลผู้สมัครเอง</p>
-  </div>
 
-  <section class="block preview-block">
-    <div class="preview-bar">
-      <span><b>Live preview</b> — mirror ของ <code>site/careers/index.html</code> ฝัง inline · ไม่ลับ ส่งให้ HR ดูได้เลย · มี mockup posting 1 ใบ (ไม่ใช่ตำแหน่งจริง) · sync ล่าสุด 2026-09-07</span>
-      <a href="preview.html" target="_blank" rel="noopener">เปิดเต็มจอ ↗</a>
-    </div>
-    <iframe class="preview-frame" src="preview.html" title="Careers page preview" style="height:1500px"></iframe>
-  </section>
+<div class="topbar"><a class="home-link" href="../index.html">← Dashboard</a></div>
 
-  <section class="block">
-    <h2><span class="num">1</span> Change notes <span class="hint">สร้าง 2026-09-07</span></h2>
-
-    <div class="ci high">
-      <div class="ci-top"><span class="sev high">High</span><span class="stt wait">รอ MKT</span></div>
-      <div class="ci-title">Engine (Studio tool + content library + site output) สร้างเสร็จแล้ว ทดสอบจริงผ่าน (verify hard gate เขียว + human file:// UAT ผ่าน — filter 2 มิติ, ปุ่ม Apply ลิงก์ถูกตำแหน่ง, JSON-LD JobPosting ถูกต้อง) ใส่ 1 ใบไว้เป็น <strong>mockup demo เท่านั้น</strong> (title ขึ้นต้น "[ตัวอย่าง]", apply_url ชี้ example.com) — ยังไม่มีตำแหน่งงานจริงสักใบ</div>
-      <p class="fix">→ MKT เปิด <code>careers-studio.html</code> ลบ mockup ออก แล้วเขียนตำแหน่งจริงเข้า library</p>
-    </div>
-
-    <div class="ci high">
-      <div class="ci-top"><span class="sev high">High</span><span class="stt wait">รอ IT</span></div>
-      <div class="ci-title">ยังไม่มี route <code>/careers</code> บนเว็บจริงเลย — IT ยังไม่เคยรับทราบเรื่องหน้านี้</div>
-      <p class="fix">→ IT อ่าน <code>site/careers/</code> จาก repo แบบเดียวกับ insights/solutions/projects/products แล้วต่อเข้า nav</p>
-    </div>
-
-    <div class="ci med">
-      <div class="ci-top"><span class="sev med">Med</span><span class="stt hold">รอ Ti</span></div>
-      <div class="ci-title">Taxonomy ตอนนี้มีแค่ 3 สถานที่ที่รู้แน่ (Pathumthani/Chonburi/Samutprakan) — แผนก (department) ยังไม่มีลิสต์ตายตัว</div>
-      <p class="fix">→ ยืนยันลิสต์แผนกทั้งหมดที่จะใช้ก่อนเขียนตำแหน่งแรก กันต้องมาแก้ทีหลัง</p>
-    </div>
-
-    <div class="ci low">
-      <div class="ci-top"><span class="stt ok">สถานะดี</span></div>
-      <div class="ci-title">Filter UI ใช้ pattern เดียวกับ Products Catalog ที่ทำงานจริงแล้ว (chip 2 แถว + search + sort) ไม่ใช่ของใหม่ที่ไม่เคยพิสูจน์</div>
-    </div>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">2</span> Resource downloads <span class="hint">ไฟล์ให้ IT/MKT โหลด</span></h2>
-    <a class="dl" href="https://github.com/tikittisak/cib-website/tree/master/site/careers" target="_blank" rel="noopener">📁 site/careers/ — output ปัจจุบัน (1 mockup posting, ลบทิ้งก่อนขึ้นจริง)</a>
-    <a class="dl" href="https://github.com/tikittisak/cib-website/blob/master/publishing-app/tools/careers-studio.html" target="_blank" rel="noopener">🛠️ careers-studio.html — เครื่องมือเขียนตำแหน่งงาน</a>
-    <p class="small" style="margin-top:8px;color:var(--muted)">IT/MKT login GitHub โหลดได้เลย</p>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">3</span> สถานะงาน</h2>
-    <table class="kv">
-      <tr><td>เจ้าของ build</td><td>MKT เขียนเนื้อหา (Publishing Kit) + IT ต่อ route/nav</td></tr>
-      <tr><td>สถานะปัจจุบัน</td><td>Engine พร้อม + ทดสอบผ่านแล้ว · มีแค่ 1 mockup posting (ไม่ใช่ของจริง) · ยังไม่มี route บนเว็บ</td></tr>
-      <tr><td>รอ IT แก้โค้ด</td><td>สร้าง route <code>/careers</code> + เพิ่มเข้า nav</td></tr>
-      <tr><td>รอ MKT</td><td>เขียนตำแหน่งงานจริงเข้า library</td></tr>
-      <tr><td>รอ Ti</td><td>ยืนยันลิสต์แผนก (department taxonomy)</td></tr>
-      <tr><td>อัปเดตล่าสุด</td><td>2026-09-07</td></tr>
-    </table>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">4</span> ลิงก์อ้างอิง</h2>
-    <ul class="refs">
-      <li>Live: <span class="muted">— ยังไม่มี route จริง</span></li>
-      <li>Figma frame: <span class="muted">— ไม่ต้องใช้ Figma แล้ว (ดู CLAUDE.md) —</span></li>
-      <li>ไฟล์ต้นทางใน repo: <a href="https://github.com/tikittisak/cib-website/tree/master/publishing-app/content/careers" target="_blank" rel="noopener">publishing-app/content/careers/</a></li>
-    </ul>
-  </section>
-
-  <footer class="scaffold-foot">Careers node · สร้าง 2026-09-07 · engine พร้อม รอเนื้อหาจริง + IT ต่อ route</footer>
+<main class="wrap">
+<div class="hero">
+<div class="hero-badges"><span class="badge owner-itcpk">IT + MKT</span><span class="pill st-confirm">ต้องแก้ก่อนเปิดตัว</span></div>
+<h1>Careers</h1>
+<p class="hero-urls">URL ตอนนี้: <a class="url" href="https://web.cigblusolutions.com/careers" target="_blank" rel="noopener">/careers ↗</a></p>
+<p class="hero-note">หน้าประกาศรับสมัครงาน</p>
+</div>
+<section class="block"><h2><span class="num">1</span> ต้องทำอะไร <span class="hint">เช็คเว็บจริง 2026-10-27</span></h2>
+<p class="legend"><b>P0</b> ต้องแก้ก่อนเปิดตัว/ก่อนรับ lead · <b>P1</b> แก้ก่อนโปรโมตวงกว้าง · <b>P2</b> ปรับปรุงทีหลังได้ — แต่ละข้อบอก <b>ใครทำ</b> · <b>ทำอะไร</b> · <b>ไฟล์</b> · <b>เสร็จเมื่อไร</b></p>
+<div class="ci high">
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">ประกาศงานตัวอย่าง &quot;[ตัวอย่าง] Mechanical Design Engineer&quot; (MOCKUP) เปิดสาธารณะ และปุ่ม Apply ลิงก์ไป example.com</div>
+<p><b>ทำ:</b> ลบประกาศตัวอย่างออกจากหน้ารวมและให้ URL /careers/mockup-mechanical-design-engineer ตอบ 404</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีประกาศตัวอย่างและไม่มีลิงก์ example.com</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Ti</span><span class="stt hold">รอตัดสินใจ: Ti</span></div>
+<div class="ci-title">หน้า Careers ไม่อยู่ในเมนูและ sitemap — ยังไม่มีประกาศงานจริง</div>
+<p><b>ทำ:</b> ตัดสินใจกับ HR: เปิดหน้า Careers ตอนเปิดตัวไหม (ถ้าเปิด ต้องมีประกาศจริงอย่างน้อย 1 ตำแหน่ง + ใส่เมนู + sitemap)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีคำตอบ เปิด/ไม่เปิด</p>
+</div>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">ตัวกรองแผนกมีแค่ &quot;All&quot;</div>
+<p><b>ทำ:</b> ใส่รายชื่อแผนกตามที่ HR ให้</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> ตัวกรองมีแผนกจริง</p>
+</div>
+</section>
+<section class="block"><h2><span class="num">2</span> ไฟล์และลิงก์</h2>
+<ul class="refs"><li><a href="https://github.com/tikittisak/cib-website/blob/master/publishing-app/tools/careers-studio.html" target="_blank" rel="noopener">เครื่องมือเขียนประกาศงาน careers-studio (repo private)</a></li></ul>
+<p class="small muted">🔒 = อยู่ใน repo private (cib-website) เปิดได้เฉพาะคนที่มีสิทธิ์ — ขอสิทธิ์จาก Ti</p>
+</section>
+<section class="block"><h2><span class="num">✓</span> เสร็จแล้ว <span class="hint">ยืนยันบนเว็บจริง 2026-10-27</span></h2><ul class="refs"><li>หน้า /careers เปิดได้แล้ว</li></ul></section>
+<footer class="scaffold-foot">เช็คเว็บจริงล่าสุด 2026-10-27 · ข้อมูลหน้านี้มาจาก <code>_src/cigblu/pages.json</code></footer>
 </main>
 </body></html>
