@@ -1,5 +1,3 @@
-<!-- title: เมนูเว็บ (Navigation) — mapping + design -->
-<!-- note: ร่างสำหรับ IT · ใช้ URL ที่ตกลงแล้ว (ดูแผนที่ URL) · ทำพร้อมกับการเปลี่ยน URL -->
 <style>
 .nv-demo{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;margin:10px 0}
 .nv-bar{display:flex;align-items:center;gap:22px;padding:14px 20px;border-bottom:1px solid #eef0f3;font-size:14.5px;flex-wrap:wrap}
@@ -26,7 +24,7 @@
 @media(max-width:720px){.nv-mega,.nv-foot{grid-template-columns:1fr}}
 </style>
 
-<section class="block"><h2><span class="num">1</span> เมนูตอนนี้มีปัญหาอะไร <span class="hint">เช็คเว็บจริง 2026-10-27</span></h2>
+<section class="block"><h2><span class="num">A</span> เมนูตอนนี้มีปัญหาอะไร <span class="hint">เช็คเว็บจริง 2026-10-27</span></h2>
 <table class="mini">
 <tr><td>ปัญหา</td><td>ผล</td></tr>
 <tr><td>ลิงก์ใน dropdown <b>ไม่อยู่ใน HTML</b> — สร้างตอนเอาเมาส์ชี้เท่านั้น</td><td class="bad">Google บางส่วนและ AI crawler (GPTBot, ClaudeBot, PerplexityBot) ไม่รัน JavaScript จึงมองไม่เห็นลิงก์สินค้าทั้งหมดในเมนู</td></tr>
@@ -38,7 +36,7 @@
 <tr><td>Footer มีแค่ Contact, เบอร์โทร, อีเมล, เว็บบริษัทแม่ — Privacy Policy / Term of Uses เป็นข้อความธรรมดา</td><td class="bad">ไม่มีลิงก์นโยบาย และไม่มีลิงก์หน้าหลักใน footer</td></tr>
 </table></section>
 
-<section class="block"><h2><span class="num">2</span> โครงเมนูใหม่ (mapping)</h2>
+<section class="block"><h2><span class="num">B</span> โครงเมนูใหม่ (mapping)</h2>
 <p>หลักคิด: เมนูมี <b>6 หัวข้อ + ปุ่ม Get quote</b> · dropdown ลึกแค่ระดับ family / กลุ่มย่อย (รุ่นสินค้าเข้าจากหน้า family) · ทุกหัวข้อกดได้เองและพาไปหน้ารวม · ลูกศร ▾ แสดงเฉพาะหัวข้อที่มี dropdown จริง</p>
 <table class="mini">
 <tr><td>หัวข้อ</td><td>URL</td><td>dropdown</td></tr>
@@ -53,7 +51,7 @@
 <tr><td><i>Careers</i></td><td><code>/careers</code></td><td>ใส่ใน footer เมื่อมีประกาศงานจริง (รอ Ti ตัดสินใจ)</td></tr>
 </table></section>
 
-<section class="block"><h2><span class="num">3</span> หน้าตา — Desktop (Products เปิดอยู่)</h2>
+<section class="block"><h2><span class="num">C</span> หน้าตา — Desktop (Products เปิดอยู่)</h2>
 <p class="small muted">ใช้ดีไซน์เมนูเดิมของเว็บ (หัวข้อคอลัมน์ + รายการลิงก์) — เปลี่ยนแค่ข้อมูล ไม่ต้องออกแบบใหม่</p>
 <div class="nv-demo">
  <div class="nv-bar"><span class="nv-logo">CIG BluSolutions</span><a>About us</a><a class="on">Products ▾</a><a>Solutions ▾</a><a>Projects</a><a>Insights ▾</a><a>Contact</a><a class="nv-cta">Get quote →</a></div>
@@ -68,7 +66,7 @@
  </div>
 </div></section>
 
-<section class="block"><h2><span class="num">4</span> หน้าตา — มือถือ</h2>
+<section class="block"><h2><span class="num">D</span> หน้าตา — มือถือ</h2>
 <p class="small muted">กดปุ่ม ☰ (Toggle menu) แล้วเปิดเป็นรายการ · หัวข้อที่มี dropdown กาง/หุบได้ · ชื่อหัวข้อกดแล้วไปหน้ารวม · ปุ่ม Get quote อยู่ล่างสุด (ลองกดด้านล่างได้)</p>
 <div class="nv-mobile">
  <div class="top"><span>CIG BluSolutions</span><span>✕</span></div>
@@ -81,7 +79,7 @@
  <a class="cta">Get quote →</a>
 </div></section>
 
-<section class="block"><h2><span class="num">5</span> ค่าตั้งเมนู — วางแทนของเดิมได้เลย</h2>
+<section class="block"><h2><span class="num">E</span> ค่าตั้งเมนู — วางแทนของเดิมได้เลย</h2>
 <p>รูปแบบเดียวกับ array เมนูที่ใช้อยู่ตอนนี้ในโค้ด (<code>{label, href, hasDropdown, columns:[{heading, links}]}</code>) — ใช้หลังเปลี่ยน URL แล้ว</p>
 <pre class="code">const NAV = [
   { label: "About us", href: "/about", hasDropdown: false, columns: [] },
@@ -121,7 +119,7 @@
 <p class="small muted"><code>external: true</code> → เปิดแท็บใหม่ + <code>rel="noopener"</code> + ไอคอน ↗ · <code>footerLink</code> = ลิงก์ "All products →" ใต้คอลัมน์ (ถ้าคอมโพเนนต์ยังไม่รองรับ ใส่เป็นลิงก์สุดท้ายของคอลัมน์ Air &amp; Marine แทนได้)</p>
 </section>
 
-<section class="block"><h2><span class="num">6</span> กติกาการทำงานของเมนู</h2>
+<section class="block"><h2><span class="num">F</span> กติกาการทำงานของเมนู</h2>
 <table class="mini">
 <tr><td>เรื่อง</td><td>ต้องเป็นแบบนี้</td></tr>
 <tr><td>Crawler มองเห็น</td><td><b>render ลิงก์ dropdown ทั้งหมดใน HTML ตั้งแต่โหลดหน้า</b> แล้วซ่อนด้วย CSS (ไม่ใช่สร้างตอน hover) · ตรวจ: เปิด View Source (Ctrl+U) แล้วค้นหา <code>/products/marine-hvac</code> ต้องเจอ</td></tr>
@@ -134,7 +132,7 @@
 <tr><td>Hover</td><td>เปิดเมื่อชี้ หน่วงปิด ~200ms (ของเดิมทำแล้ว) · กดหัวข้อ = ไปหน้ารวม</td></tr>
 </table></section>
 
-<section class="block"><h2><span class="num">7</span> Footer</h2>
+<section class="block"><h2><span class="num">G</span> Footer</h2>
 <div class="nv-foot">
  <div><h4>Products</h4><a>Coil &amp; Heat Exchanger</a><a>Coil Coatings</a><a>Refrigeration</a><a>Air Handling Units</a><a>Marine HVAC</a><a>All products</a></div>
  <div><h4>Solutions</h4><a>Coil Replacement &amp; AHU Renovation</a><a>Cold Room Design &amp; Installation</a><a>OEM Product Development</a><a>IoT &amp; Smart Energy Management</a></div>
@@ -144,7 +142,7 @@
 </div>
 <p class="small">footer เป็นลิงก์จริงทั้งหมด (<code>&lt;a href&gt;</code>) · "Term of Uses" → <b>"Terms of Use"</b> · อีเมลเป็นข้อความต่อกัน (ดูงานใน ทั้งเว็บ)</p></section>
 
-<section class="block"><h2><span class="num">8</span> Breadcrumb</h2>
+<section class="block"><h2><span class="num">H</span> Breadcrumb</h2>
 <table class="mini">
 <tr><td>หน้า</td><td>breadcrumb</td></tr>
 <tr><td>รุ่นสินค้า</td><td>Home / Products / Refrigeration / Unit Cooler — Slim Type</td></tr>

@@ -8,7 +8,7 @@
 - `todo/` = งานที่ต้องทำทั้งหมด กรองตามฝ่ายได้
 - `url-map/` = URL ที่ตกลงแล้ว + redirect จากเว็บทดสอบและเว็บเก่า
 - `site-wide/` = งานที่ไม่ใช่ของหน้าใดหน้าหนึ่ง (โดเมน, server, อีเมล, ทดสอบ, อนุมัติ)
-- `navigation/` = เมนู + footer + breadcrumb: mapping, หน้าตา, ค่าตั้งที่วางแทนได้ (เนื้อหาใน `_src/cigblu/docs/navigation.html`)
+- `navigation/` = แถวที่ 2 ใน Dashboard: งานเมนู + mapping, หน้าตา, ค่าตั้งที่วางแทนได้, footer, breadcrumb (งานใน pages.json, เนื้อหาอธิบายใน `_src/cigblu/docs/navigation.html` — ไฟล์ใน `docs/<id>.html` ต่อท้ายหน้านั้นอัตโนมัติ)
 - `guide-it/` = คู่มือ IT ทดสอบความเร็ว / มือถือ / accessibility / SEO + AI crawler (เนื้อหาใน `_src/cigblu/docs/guide-it.html`)
 - โฟลเดอร์หน้า = URL ที่ตกลง (เช่น `products/refrigeration/unit-cooler-slim-type/`) ไม่ใช่ URL เว็บทดสอบตอนนี้
   โฟลเดอร์ชื่อเก่า (เช่น `products/special-coating/`) เหลือไว้เป็นหน้า redirect ให้ลิงก์ที่ส่งไปแล้วยังใช้ได้

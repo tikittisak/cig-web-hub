@@ -131,14 +131,6 @@
     {
      "p": "P1",
      "who": "IT",
-     "t": "เมนูย่อยระหว่าง family (quick-nav) ไม่มี Marine",
-     "do": "เพิ่มลิงก์ Marine ในเมนูย่อยของ Refrigeration, Coil coatings, Air handling units",
-     "done": "ทุกหน้า family มีลิงก์ครบ 5 family",
-     "st": "it"
-    },
-    {
-     "p": "P1",
-     "who": "IT",
      "t": "ยังไม่ได้ทดสอบความเร็ว / มือถือ / การใช้งานด้วยคีย์บอร์ด / SEO + AI crawler",
      "do": "ทำตาม \"คู่มือ IT\" ทีละข้อ (มีวิธีเปิดเครื่องมือ, จุดที่ต้องดู และเกณฑ์ผ่านทุกข้อ) กับ 6 หน้าที่ระบุ แล้วกรอกผลในตารางท้ายคู่มือ",
      "done": "มีตารางผลครบ 6 หน้า: LCP ≤ 2.5s, CLS ≤ 0.1, TBT ≤ 200ms, Accessibility ≥ 90, ไม่ล้นแนวนอนที่ 360px — พร้อม screenshot",
@@ -158,44 +150,6 @@
      "do": "MKT/ดีไซน์เลือก 2 ตระกูล (หัวข้อ 1 + เนื้อหา 1) → IT ลบตัวที่เหลือ · ใช้ next/font กับ `display: \"swap\"`",
      "done": "View Source แล้วเจอไฟล์ .woff2 ไม่เกิน 4 ไฟล์",
      "st": "decide:MKT"
-    },
-    {
-     "p": "P1",
-     "who": "IT",
-     "t": "เมนูยังใช้ URL เก่า/หน้าซ้ำ, ไม่มี Marine และ Data Center, มีลูกศร ▾ ที่ dropdown ว่าง",
-     "do": "แทนค่าตั้งเมนูด้วยชุดใหม่ในหน้า \"เมนูเว็บ\" ข้อ 5 (วางแทนได้เลย) · ทำ footer ตามข้อ 7 · breadcrumb ตามข้อ 8 — ทำพร้อมการเปลี่ยน URL",
-     "done": "เมนูและ footer ตรงกับหน้า \"เมนูเว็บ\" และทุกลิงก์ตอบ 200",
-     "st": "it",
-     "files": [
-      {
-       "label": "เมนูเว็บ (mapping + design + ค่าตั้ง)",
-       "href": "{root}navigation/index.html",
-       "kind": "hub"
-      }
-     ]
-    },
-    {
-     "p": "P1",
-     "who": "IT",
-     "t": "ลิงก์ใน dropdown เมนูไม่อยู่ใน HTML (สร้างตอนเอาเมาส์ชี้) — AI crawler และ Google บางส่วนมองไม่เห็นลิงก์สินค้าในเมนู",
-     "do": "render ลิงก์ dropdown ทั้งหมดตั้งแต่โหลดหน้า แล้วซ่อนด้วย CSS (ดูหน้า \"เมนูเว็บ\" ข้อ 6)",
-     "done": "กด Ctrl+U ที่หน้าไหนก็ได้ แล้วค้นหา `/products/marine-hvac` เจอ",
-     "st": "it",
-     "files": [
-      {
-       "label": "เมนูเว็บ ข้อ 6",
-       "href": "{root}navigation/index.html",
-       "kind": "hub"
-      }
-     ]
-    },
-    {
-     "p": "P2",
-     "who": "IT",
-     "t": "ไม่มีลิงก์ \"Skip to content\" สำหรับคนใช้คีย์บอร์ด",
-     "do": "ใส่ตามหน้า \"เมนูเว็บ\" ข้อ 6",
-     "done": "กด Tab ครั้งแรกแล้วเห็น Skip to content",
-     "st": "it"
     },
     {
      "p": "P1",
@@ -244,6 +198,59 @@
     "ทุกหน้ามี h1 เดียว และรูปมี alt",
     "หน้า 404 ส่ง status 404 จริง",
     "robots.txt อนุญาต AI crawler แล้ว"
+   ]
+  },
+  {
+   "id": "navigation",
+   "title": "เมนูเว็บ (Navigation) + footer + breadcrumb",
+   "kind": "site",
+   "owner": "IT",
+   "live": null,
+   "target": null,
+   "built": true,
+   "summary": "เมนูหลัก, dropdown, มือถือ, footer, breadcrumb",
+   "desc": "ปัญหาเมนูตอนนี้ + โครงเมนูใหม่ตาม URL ที่ตกลง + หน้าตา desktop/มือถือ + ค่าตั้งที่วางแทนได้ — ทำพร้อมการเปลี่ยน URL",
+   "items": [
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "เมนูย่อยระหว่าง family (quick-nav) ไม่มี Marine",
+     "do": "เพิ่มลิงก์ Marine ในเมนูย่อยของ Refrigeration, Coil coatings, Air handling units",
+     "done": "ทุกหน้า family มีลิงก์ครบ 5 family",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "เมนูยังใช้ URL เก่า/หน้าซ้ำ, ไม่มี Marine และ Data Center, มีลูกศร ▾ ที่ dropdown ว่าง",
+     "do": "แทนค่าตั้งเมนูด้วยชุดใหม่ในข้อ E ด้านล่าง (วางแทนได้เลย) · ทำ footer ตามข้อ G · breadcrumb ตามข้อ H — ทำพร้อมการเปลี่ยน URL",
+     "done": "เมนูและ footer ตรงกับข้อ D–H ด้านล่าง และทุกลิงก์ตอบ 200",
+     "st": "it"
+    },
+    {
+     "p": "P1",
+     "who": "IT",
+     "t": "ลิงก์ใน dropdown เมนูไม่อยู่ใน HTML (สร้างตอนเอาเมาส์ชี้) — AI crawler และ Google บางส่วนมองไม่เห็นลิงก์สินค้าในเมนู",
+     "do": "render ลิงก์ dropdown ทั้งหมดตั้งแต่โหลดหน้า แล้วซ่อนด้วย CSS (ดูข้อ F ด้านล่าง)",
+     "done": "กด Ctrl+U ที่หน้าไหนก็ได้ แล้วค้นหา `/products/marine-hvac` เจอ",
+     "st": "it"
+    },
+    {
+     "p": "P2",
+     "who": "IT",
+     "t": "ไม่มีลิงก์ \"Skip to content\" สำหรับคนใช้คีย์บอร์ด",
+     "do": "ใส่ตามข้อ F ด้านล่าง",
+     "done": "กด Tab ครั้งแรกแล้วเห็น Skip to content",
+     "st": "it"
+    }
+   ],
+   "fixed": [
+    "เมนูหน่วงปิด ~200ms ตอนเอาเมาส์ออก (ใช้ได้ดีแล้ว)",
+    "ปุ่ม ☰ มือถือมี aria-label แล้ว"
+   ],
+   "note_items": [
+    "เมนู Engineering (ซ่อนไว้ก่อนหรือไม่) — รอ Ti ตัดสินใจ ดูงานในหน้า Home",
+    "ลิงก์ Privacy Policy / Terms of Use ใน footer — ดูหน้า Privacy Policy และ Terms of Use"
    ]
   },
   {

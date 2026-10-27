@@ -120,7 +120,7 @@ def head(title, from_id):
     return ('<!doctype html>\n<html lang="th">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
             '<meta name="robots" content="noindex, nofollow">\n<title>%s · CIG Web Hub</title>\n'
-            '<link rel="stylesheet" href="%s../assets/hub.css">\n</head>\n<body>\n') % (esc(title), root(from_id))
+            '<link rel="stylesheet" href="%s../assets/hub.css">\n</head>\n<body class="cb">\n') % (esc(title), root(from_id))
 
 
 def topbar(from_id, crumbs):
@@ -188,6 +188,9 @@ def page_html(p):
     for n in p.get('note_items', []):
         o.append('<p class="see-also">↪ %s</p>' % rich(n))
     o.append('</section>')
+    doc = os.path.join(HERE, 'docs', pid + '.html')
+    if os.path.exists(doc):
+        o.append(open(doc).read())
 
     files = [f for i in items for f in i.get('files', [])] + p.get('files', [])
     refs = p.get('refs', [])
@@ -248,7 +251,7 @@ def dashboard():
              '</div>')
     o.append('<p class="legend">สถานะหน้า: 🔴 มี P0 ค้าง · 🟡 มี P1 ค้าง · 🟢 ไม่มี P0/P1 ค้าง (อาจเหลือ P2) · ⚪ ยังไม่มีหน้าบนเว็บ — คอลัมน์ "ค้าง" นับเฉพาะ P0 + P1</p>')
     o.append('<table class="board"><thead><tr><th>#</th><th>หน้า</th><th>URL ตอนนี้ → ที่ตกลง</th><th>เจ้าของ</th><th>สถานะ</th><th>ค้าง</th></tr></thead><tbody>')
-    order = ['site-wide'] + [p['id'] for p in PAGES if p['id'] != 'site-wide']
+    order = [p['id'] for p in PAGES if p['kind'] == 'site'] + [p['id'] for p in PAGES if p['kind'] != 'site']
     for n, pid in enumerate(order, 1):
         p = BY_ID[pid]
         sl, scls = page_status(p) if p['kind'] != 'site' else (('ต้องแก้ก่อนเปิดตัว', 'st-confirm') if open_items(p, ('P0',)) else ('รอแก้', 'st-wip'))
@@ -262,7 +265,7 @@ def dashboard():
         if p['kind'] != 'site' and target != live:
             u += '<br><span class="to">→ %s</span>' % (esc(target) if target else 'รอตั้งชื่อ')
         if p['kind'] == 'site':
-            u = '<span class="muted">โดเมน, server, URL, อีเมล, ทดสอบ</span>'
+            u = '<span class="muted">%s</span>' % esc(p.get('summary', 'โดเมน, server, URL, อีเมล, ทดสอบ'))
         cnt = len(open_items(p))
         o.append('<tr class="lvl%d%s" onclick="location.href=\'%s\'"><td class="num">%d</td><td class="tt">%s<a href="%s">%s</a></td><td>%s</td><td>%s</td><td><span class="pill %s">%s</span></td><td class="cnt">%s</td></tr>'
                  % (lvl, ' sitewide' if p['kind'] == 'site' else '', rel(None, pid), n, '· ' * lvl, rel(None, pid), esc(p['title']),
@@ -371,7 +374,7 @@ def main():
     write(os.path.join(OUT, 'index.html'), dashboard())
     write(os.path.join(OUT, 'todo', 'index.html'), todo())
     write(os.path.join(OUT, 'url-map', 'index.html'), url_map())
-    for name in ('navigation', 'guide-it'):
+    for name in ('guide-it',):
         write(os.path.join(OUT, name, 'index.html'), doc_page(name))
     write(os.path.join(OUT, 'it-build-issues-by-page-th.html'), stub('todo/index.html', 'งานที่ต้องทำทั้งหมด'))
     print('built %d pages' % len(PAGES))
