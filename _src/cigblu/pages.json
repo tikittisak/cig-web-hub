@@ -643,12 +643,12 @@
      "st": "decide:Ti"
     },
     {
-     "p": "P1",
-     "who": "MKT",
-     "t": "ยังไม่มีรูปสินค้า (PDF มีแค่ภาพลายเส้น)",
-     "do": "ทำรูปสินค้า (มี prompt สำหรับ AI สร้างรูปอยู่ในหน้า draft) หรือถ่ายรูปจริง",
-     "done": "มีรูป hero 1 รูป + og 1200×630",
-     "st": "mkt"
+     "p": "P2",
+     "who": "Eng/QA",
+     "t": "รูปสินค้าตอนนี้เป็นภาพ AI (ไม่ใช่รูปถ่ายจริง) — ขาจับในรูปเป็นขา L ด้านหน้า แต่ภาพลายเส้นใน PDF เป็นแผ่นพาดใต้ขดยื่นออกทั้งสองฝั่ง",
+     "do": "Eng/QA ดูว่ารูปใช้แทนสินค้าได้ไหม ถ้าไม่ได้ ให้ MKT แก้รูปหรือถ่ายรูปจริงมาแทน (ไฟล์ files/ttc-hero.webp, files/og-ttc.jpg)",
+     "done": "Eng/QA ตอบว่าใช้ได้ หรือมีรูปใหม่มาแทน",
+     "st": "eng"
     },
     {
      "p": "P2",
@@ -667,11 +667,23 @@
      "st": "it"
     }
    ],
-   "fixed": [],
+   "fixed": [
+    "มีรูปสินค้าแล้ว (ภาพ AI จาก ChatGPT ตาม prompt, 2026-10-27): hero 1448×1086 + og 1200×630 ใส่ในหน้า draft แล้ว"
+   ],
    "files": [
     {
-     "label": "หน้า draft (HTML) + prompt ทำรูป",
+     "label": "หน้า draft (HTML)",
      "href": "tube-in-tube-condenser.html",
+     "kind": "hub"
+    },
+    {
+     "label": "รูป hero (webp)",
+     "href": "files/ttc-hero.webp",
+     "kind": "hub"
+    },
+    {
+     "label": "รูป og 1200×630 (jpg)",
+     "href": "files/og-ttc.jpg",
      "kind": "hub"
     },
     {

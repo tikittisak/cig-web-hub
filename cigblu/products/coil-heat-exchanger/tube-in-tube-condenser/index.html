@@ -27,16 +27,16 @@
 <p class="done-when"><b>เสร็จเมื่อ:</b> มีชื่อผู้อนุมัติเนื้อหา + วันที่</p>
 </div>
 <div class="ci med">
-<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
-<div class="ci-title">ยังไม่มีรูปสินค้า (PDF มีแค่ภาพลายเส้น)</div>
-<p><b>ทำ:</b> ทำรูปสินค้า (มี prompt สำหรับ AI สร้างรูปอยู่ในหน้า draft) หรือถ่ายรูปจริง</p>
-<p class="done-when"><b>เสร็จเมื่อ:</b> มีรูป hero 1 รูป + og 1200×630</p>
-</div>
-<div class="ci med">
 <div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
 <div class="ci-title">ยังไม่มีหน้าบนเว็บ</div>
 <p><b>ทำ:</b> หลังเนื้อหาได้ sign-off: สร้างหน้าที่ /products/coil-heat-exchanger/tube-in-tube-condenser และลิงก์จากหน้า family Coil</p>
 <p class="done-when"><b>เสร็จเมื่อ:</b> หน้าเปิดได้ 200 และอยู่ใน sitemap</p>
+</div>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: Eng/QA</span><span class="stt wait">รอ Eng/QA</span></div>
+<div class="ci-title">รูปสินค้าตอนนี้เป็นภาพ AI (ไม่ใช่รูปถ่ายจริง) — ขาจับในรูปเป็นขา L ด้านหน้า แต่ภาพลายเส้นใน PDF เป็นแผ่นพาดใต้ขดยื่นออกทั้งสองฝั่ง</div>
+<p><b>ทำ:</b> Eng/QA ดูว่ารูปใช้แทนสินค้าได้ไหม ถ้าไม่ได้ ให้ MKT แก้รูปหรือถ่ายรูปจริงมาแทน (ไฟล์ files/ttc-hero.webp, files/og-ttc.jpg)</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> Eng/QA ตอบว่าใช้ได้ หรือมีรูปใหม่มาแทน</p>
 </div>
 <div class="ci low">
 <div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: Eng/QA</span><span class="stt wait">รอ Eng/QA</span></div>
@@ -46,8 +46,9 @@
 </div>
 </section>
 <section class="block"><h2><span class="num">2</span> ไฟล์และลิงก์</h2>
-<p><a class="dl" href="tube-in-tube-condenser.html">📄 หน้า draft (HTML) + prompt ทำรูป</a> <a class="dl" href="source/tube-in-tube-tit-spec.pdf" download>⬇ spec sheet ต้นฉบับ (PDF)</a></p>
+<p><a class="dl" href="tube-in-tube-condenser.html">📄 หน้า draft (HTML)</a> <a class="dl" href="files/ttc-hero.webp" download>⬇ รูป hero (webp)</a> <a class="dl" href="files/og-ttc.jpg" download>⬇ รูป og 1200×630 (jpg)</a> <a class="dl" href="source/tube-in-tube-tit-spec.pdf" download>⬇ spec sheet ต้นฉบับ (PDF)</a></p>
 </section>
+<section class="block"><h2><span class="num">✓</span> เสร็จแล้ว <span class="hint">ยืนยันบนเว็บจริง 2026-10-27</span></h2><ul class="refs"><li>มีรูปสินค้าแล้ว (ภาพ AI จาก ChatGPT ตาม prompt, 2026-10-27): hero 1448×1086 + og 1200×630 ใส่ในหน้า draft แล้ว</li></ul></section>
 <footer class="scaffold-foot">เช็คเว็บจริงล่าสุด 2026-10-27 · ข้อมูลหน้านี้มาจาก <code>_src/cigblu/pages.json</code></footer>
 </main>
 </body></html>
