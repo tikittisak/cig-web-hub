@@ -235,6 +235,12 @@ def dashboard():
          '<p class="hero-note">ที่เดียวสำหรับ IT · MKT · Eng/QA · Sales — แต่ละหน้าเว็บ <strong>ต้องทำอะไร · ใช้ไฟล์ไหน · ใครทำ · เสร็จเมื่อไร</strong></p>',
          '<p class="hero-sub">เช็คเว็บจริงล่าสุด %s ที่ web.cigblusolutions.com (เว็บทดสอบ) → จะย้ายไป www.cigblu.com · รวมผลจากรายงานทบทวนเว็บ 26 ต.ค. 2569</p>' % CHECKED,
          '</div>']
+    r = DATA.get('round')
+    if r:
+        o.append('<div class="round"><h2>🎯 %s</h2><p class="goal"><b>เป้าหมาย:</b> %s</p><ol>' % (esc(r['name']), esc(r['goal'])))
+        for num, t, href, sub in r['focus']:
+            o.append('<li><a href="%s"><b>%s</b></a><br><span class="muted">%s</span></li>' % (esc(href), esc(t), esc(sub)))
+        o.append('</ol><p><b>เสร็จรอบนี้เมื่อ:</b> %s</p><p class="muted small">%s</p></div>' % (esc(r['done_when']), esc(r['later'])))
     o.append('<div class="launch"><h2>พร้อมเปิดตัวหรือยัง? <span class="pill st-confirm">ยังไม่พร้อม</span></h2>'
              '<p>ยังมี <b>P0 ค้าง %d ข้อ</b> — ต้องปิดทุกข้อ แล้วให้ 4 ฝ่ายอนุมัติร่วมกัน</p>' % n0 if n0 else
              '<div class="launch"><h2>พร้อมเปิดตัวหรือยัง? <span class="pill st-wip">รออนุมัติ</span></h2><p>P0 ปิดครบแล้ว — รอ 4 ฝ่ายอนุมัติ</p>')
