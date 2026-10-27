@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>เมนูเว็บ (Navigation) — mapping + design · CIG Web Hub</title>
+<link rel="stylesheet" href="../../assets/hub.css">
+</head>
+<body>
+<div class="topbar"><a class="home-link" href="../index.html">← Dashboard</a></div>
+<main class="wrap">
+<div class="hero"><h1>เมนูเว็บ (Navigation) — mapping + design</h1><p class="hero-note">ร่างสำหรับ IT · ใช้ URL ที่ตกลงแล้ว (ดูแผนที่ URL) · ทำพร้อมกับการเปลี่ยน URL</p></div>
+<!-- title: เมนูเว็บ (Navigation) — mapping + design -->
+<!-- note: ร่างสำหรับ IT · ใช้ URL ที่ตกลงแล้ว (ดูแผนที่ URL) · ทำพร้อมกับการเปลี่ยน URL -->
+<style>
+.nv-demo{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;margin:10px 0}
+.nv-bar{display:flex;align-items:center;gap:22px;padding:14px 20px;border-bottom:1px solid #eef0f3;font-size:14.5px;flex-wrap:wrap}
+.nv-logo{font-weight:800;color:var(--blue);margin-right:10px}
+.nv-bar a{color:#1f2937}.nv-bar a.on{color:var(--blue);font-weight:600}
+.nv-cta{margin-left:auto;background:var(--blue);color:#fff !important;padding:8px 14px;border-radius:8px;font-weight:600}
+.nv-mega{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:18px 20px;background:#fafbfc}
+.nv-mega h4{margin:0 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.nv-mega ul{list-style:none;margin:0;padding:0}.nv-mega li{margin:6px 0;font-size:14px}
+.nv-mega li.fam a{font-weight:700;color:var(--navy)}
+.nv-mega .all{grid-column:1/-1;border-top:1px solid var(--line);padding-top:10px;font-weight:600}
+.nv-mobile{max-width:340px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;font-size:14.5px}
+.nv-mobile .top{display:flex;justify-content:space-between;padding:12px 14px;border-bottom:1px solid #eef0f3;font-weight:700;color:var(--blue)}
+.nv-mobile details{border-bottom:1px solid #eef0f3}
+.nv-mobile summary{padding:12px 14px;cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+.nv-mobile summary::after{content:"+";color:var(--muted)}.nv-mobile details[open] summary::after{content:"–"}
+.nv-mobile .sub{padding:0 14px 10px 24px}.nv-mobile .sub a{display:block;padding:6px 0}
+.nv-mobile .row{display:block;padding:12px 14px;border-bottom:1px solid #eef0f3;font-weight:600;color:#1f2937}
+.nv-mobile .cta{display:block;margin:12px 14px;text-align:center;background:var(--blue);color:#fff;padding:10px;border-radius:8px;font-weight:600}
+.nv-foot{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;background:var(--navy);color:#dce6fb;padding:18px 20px;border-radius:12px;font-size:13.5px}
+.nv-foot h4{margin:0 0 6px;color:#fff;font-size:13px}.nv-foot a{color:#bcd3ff;display:block;margin:3px 0}
+.nv-foot .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:10px;color:#9fb4dc}
+.nv-foot .legal a{display:inline;margin-right:14px}
+@media(max-width:720px){.nv-mega,.nv-foot{grid-template-columns:1fr}}
+</style>
+
+<section class="block"><h2><span class="num">1</span> เมนูตอนนี้มีปัญหาอะไร <span class="hint">เช็คเว็บจริง 2026-10-27</span></h2>
+<table class="mini">
+<tr><td>ปัญหา</td><td>ผล</td></tr>
+<tr><td>ลิงก์ใน dropdown <b>ไม่อยู่ใน HTML</b> — สร้างตอนเอาเมาส์ชี้เท่านั้น</td><td class="bad">Google บางส่วนและ AI crawler (GPTBot, ClaudeBot, PerplexityBot) ไม่รัน JavaScript จึงมองไม่เห็นลิงก์สินค้าทั้งหมดในเมนู</td></tr>
+<tr><td>Products dropdown ใช้ URL เก่า/หน้าซ้ำ: <code>/products/condenser-coil</code>, <code>/products/coil-5mm</code>, <code>/products/all-aluminum-coil</code>, <code>/productsCatalog</code>, <code>/products/special-coating</code></td><td class="bad">ส่งคนและ crawler ไปหน้าซ้ำ</td></tr>
+<tr><td>ไม่มี Marine HVAC และ Data Center Cooling ในเมนู</td><td class="bad">2 กลุ่มสินค้าหาไม่เจอจากเมนู</td></tr>
+<tr><td>About us, Solutions, Projects, Insights, Contact มีลูกศร ▾ แต่ dropdown ว่าง (<code>hasDropdown: true, columns: []</code>)</td><td class="hold2">คนกดลูกศรแล้วไม่มีอะไรขึ้น</td></tr>
+<tr><td>Engineering เป็น <code>&lt;button&gt;</code> ไม่มีลิงก์</td><td class="hold2">กดแล้วไม่ไปไหน (หน้ายังไม่มี)</td></tr>
+<tr><td>ไม่มีลิงก์ "Skip to content"</td><td class="hold2">คนใช้คีย์บอร์ดต้องกด Tab ผ่านเมนูทุกครั้ง</td></tr>
+<tr><td>Footer มีแค่ Contact, เบอร์โทร, อีเมล, เว็บบริษัทแม่ — Privacy Policy / Term of Uses เป็นข้อความธรรมดา</td><td class="bad">ไม่มีลิงก์นโยบาย และไม่มีลิงก์หน้าหลักใน footer</td></tr>
+</table></section>
+
+<section class="block"><h2><span class="num">2</span> โครงเมนูใหม่ (mapping)</h2>
+<p>หลักคิด: เมนูมี <b>6 หัวข้อ + ปุ่ม Get quote</b> · dropdown ลึกแค่ระดับ family / กลุ่มย่อย (รุ่นสินค้าเข้าจากหน้า family) · ทุกหัวข้อกดได้เองและพาไปหน้ารวม · ลูกศร ▾ แสดงเฉพาะหัวข้อที่มี dropdown จริง</p>
+<table class="mini">
+<tr><td>หัวข้อ</td><td>URL</td><td>dropdown</td></tr>
+<tr><td>About us</td><td><code>/about</code></td><td>ไม่มี</td></tr>
+<tr><td>Products</td><td><code>/products</code></td><td>3 คอลัมน์ (ดูภาพด้านล่าง) + "All products" → <code>/products/catalog</code></td></tr>
+<tr><td>Solutions</td><td><code>/solutions</code></td><td>4 บริการ</td></tr>
+<tr><td>Projects</td><td><code>/projects</code></td><td>ไม่มี (ยังไม่มีผลงานจริง — ดูงานในหน้า Projects)</td></tr>
+<tr><td>Insights</td><td><code>/insights</code></td><td>All insights · News &amp; Events</td></tr>
+<tr><td>Contact</td><td><code>/contact</code></td><td>ไม่มี</td></tr>
+<tr><td>ปุ่ม Get quote →</td><td><code>/contact</code></td><td>—</td></tr>
+<tr><td><i>Engineering</i></td><td><code>/engineering</code></td><td><b>ซ่อนไว้จนกว่าหน้าจะพร้อม</b> (รอ Ti ตัดสินใจ — ถ้าคงไว้ ให้เป็นลิงก์ ไม่มี dropdown)</td></tr>
+<tr><td><i>Careers</i></td><td><code>/careers</code></td><td>ใส่ใน footer เมื่อมีประกาศงานจริง (รอ Ti ตัดสินใจ)</td></tr>
+</table></section>
+
+<section class="block"><h2><span class="num">3</span> หน้าตา — Desktop (Products เปิดอยู่)</h2>
+<p class="small muted">ใช้ดีไซน์เมนูเดิมของเว็บ (หัวข้อคอลัมน์ + รายการลิงก์) — เปลี่ยนแค่ข้อมูล ไม่ต้องออกแบบใหม่</p>
+<div class="nv-demo">
+ <div class="nv-bar"><span class="nv-logo">CIG BluSolutions</span><a>About us</a><a class="on">Products ▾</a><a>Solutions ▾</a><a>Projects</a><a>Insights ▾</a><a>Contact</a><a class="nv-cta">Get quote →</a></div>
+ <div class="nv-mega">
+  <div><h4>Coil &amp; Coating</h4><ul>
+   <li class="fam"><a>Coil &amp; Heat Exchanger</a></li><li><a>Condenser Coil</a></li><li><a>Evaporator Coil</a></li><li><a>Water Coil</a></li><li><a>All Aluminum Coil</a></li><li class="fam"><a>Coil Coatings</a></li></ul></div>
+  <div><h4>Refrigeration</h4><ul>
+   <li class="fam"><a>Refrigeration</a></li><li><a>Unit Coolers</a></li><li><a>Air-Cooled Condensers</a></li><li><a>(Cooling Generation — รอชื่อ)</a></li><li><a>R290 Monoblock Unit</a></li></ul></div>
+  <div><h4>Air &amp; Marine</h4><ul>
+   <li class="fam"><a>Air Handling Units</a></li><li class="fam"><a>Marine HVAC</a></li><li class="fam"><a>Data Center Cooling (IMVERA ↗)</a></li></ul></div>
+  <div class="all"><a>All products →</a></div>
+ </div>
+</div></section>
+
+<section class="block"><h2><span class="num">4</span> หน้าตา — มือถือ</h2>
+<p class="small muted">กดปุ่ม ☰ (Toggle menu) แล้วเปิดเป็นรายการ · หัวข้อที่มี dropdown กาง/หุบได้ · ชื่อหัวข้อกดแล้วไปหน้ารวม · ปุ่ม Get quote อยู่ล่างสุด (ลองกดด้านล่างได้)</p>
+<div class="nv-mobile">
+ <div class="top"><span>CIG BluSolutions</span><span>✕</span></div>
+ <a class="row">About us</a>
+ <details open><summary>Products</summary><div class="sub"><a>Products overview</a><a>Coil &amp; Heat Exchanger</a><a>Coil Coatings</a><a>Refrigeration</a><a>Air Handling Units</a><a>Marine HVAC</a><a>Data Center Cooling (IMVERA ↗)</a><a>All products</a></div></details>
+ <details><summary>Solutions</summary><div class="sub"><a>Solutions overview</a><a>Coil Replacement &amp; AHU Renovation</a><a>Cold Room Design &amp; Installation</a><a>OEM Product Development</a><a>IoT &amp; Smart Energy Management</a></div></details>
+ <a class="row">Projects</a>
+ <details><summary>Insights</summary><div class="sub"><a>All insights</a><a>News &amp; Events</a></div></details>
+ <a class="row">Contact</a>
+ <a class="cta">Get quote →</a>
+</div></section>
+
+<section class="block"><h2><span class="num">5</span> ค่าตั้งเมนู — วางแทนของเดิมได้เลย</h2>
+<p>รูปแบบเดียวกับ array เมนูที่ใช้อยู่ตอนนี้ในโค้ด (<code>{label, href, hasDropdown, columns:[{heading, links}]}</code>) — ใช้หลังเปลี่ยน URL แล้ว</p>
+<pre class="code">const NAV = [
+  { label: "About us", href: "/about", hasDropdown: false, columns: [] },
+  { label: "Products", href: "/products", hasDropdown: true, columns: [
+    { heading: "Coil &amp; Coating", links: [
+      { label: "Coil &amp; Heat Exchanger", href: "/products/coil-heat-exchanger" },
+      { label: "Condenser Coil", href: "/products/coil-heat-exchanger/condenser-coil" },
+      { label: "Evaporator Coil", href: "/products/coil-heat-exchanger/evaporator-coil" },
+      { label: "Water Coil", href: "/products/coil-heat-exchanger/water-coil" },
+      { label: "All Aluminum Coil", href: "/products/coil-heat-exchanger/all-aluminum-coil" },
+      { label: "Coil Coatings", href: "/products/coil-coatings" } ] },
+    { heading: "Refrigeration", links: [
+      { label: "Refrigeration", href: "/products/refrigeration" },
+      { label: "Unit Coolers", href: "/products/refrigeration/unit-coolers" },
+      { label: "Air-Cooled Condensers", href: "/products/refrigeration/air-cooled-condensers" },
+      // { label: "(ชื่อที่ MKT ตั้ง)", href: "/products/refrigeration/(slug)" },  ← รอ MKT
+      { label: "R290 Monoblock Unit", href: "/products/refrigeration/r290-monoblock-refrigeration-unit" } ] },
+    { heading: "Air &amp; Marine", links: [
+      { label: "Air Handling Units", href: "/products/air-handling-units" },
+      { label: "Marine HVAC", href: "/products/marine-hvac" },
+      { label: "Data Center Cooling (IMVERA)", href: "https://www.imvera.co", external: true } ] },
+  ], footerLink: { label: "All products", href: "/products/catalog" } },
+  { label: "Solutions", href: "/solutions", hasDropdown: true, columns: [
+    { heading: "Services", links: [
+      { label: "Coil Replacement &amp; AHU Renovation", href: "/solutions/coil-replacement-ahu-renovation" },
+      { label: "Cold Room Design &amp; Installation", href: "/solutions/cold-room-design-installation" },
+      { label: "OEM Product Development", href: "/solutions/oem-product-development" },
+      { label: "IoT &amp; Smart Energy Management", href: "/solutions/iot-smart-energy-management" } ] } ] },
+  { label: "Projects", href: "/projects", hasDropdown: false, columns: [] },
+  { label: "Insights", href: "/insights", hasDropdown: true, columns: [
+    { heading: "Insights", links: [
+      { label: "All insights", href: "/insights" },
+      { label: "News &amp; Events", href: "/insights/news-events" } ] } ] },
+  { label: "Contact", href: "/contact", hasDropdown: false, columns: [] },
+  // Engineering: ซ่อนไว้จนกว่าหน้า /engineering จะพร้อม
+];</pre>
+<p class="small muted"><code>external: true</code> → เปิดแท็บใหม่ + <code>rel="noopener"</code> + ไอคอน ↗ · <code>footerLink</code> = ลิงก์ "All products →" ใต้คอลัมน์ (ถ้าคอมโพเนนต์ยังไม่รองรับ ใส่เป็นลิงก์สุดท้ายของคอลัมน์ Air &amp; Marine แทนได้)</p>
+</section>
+
+<section class="block"><h2><span class="num">6</span> กติกาการทำงานของเมนู</h2>
+<table class="mini">
+<tr><td>เรื่อง</td><td>ต้องเป็นแบบนี้</td></tr>
+<tr><td>Crawler มองเห็น</td><td><b>render ลิงก์ dropdown ทั้งหมดใน HTML ตั้งแต่โหลดหน้า</b> แล้วซ่อนด้วย CSS (ไม่ใช่สร้างตอน hover) · ตรวจ: เปิด View Source (Ctrl+U) แล้วค้นหา <code>/products/marine-hvac</code> ต้องเจอ</td></tr>
+<tr><td>ลิงก์จริง</td><td>ทุกหัวข้อและทุกรายการเป็น <code>&lt;a href&gt;</code> ไม่ใช้ <code>&lt;button&gt;</code> หรือ onClick แทนลิงก์</td></tr>
+<tr><td>ลูกศร ▾</td><td>แสดงเมื่อ <code>hasDropdown: true</code> และมีลิงก์อย่างน้อย 1 อันเท่านั้น</td></tr>
+<tr><td>คีย์บอร์ด</td><td>Tab ไปถึงทุกหัวข้อ · Enter/Space หรือ ↓ เปิด dropdown · Esc ปิดและกลับไปที่หัวข้อ · มีกรอบ focus มองเห็นชัด · ใส่ <code>aria-expanded</code> บนตัวเปิด dropdown</td></tr>
+<tr><td>หน้าที่อยู่</td><td>หัวข้อของหน้าปัจจุบันใส่ <code>aria-current="page"</code> และสีเน้น</td></tr>
+<tr><td>Skip link</td><td>เพิ่ม <code>&lt;a href="#main" class="skip-link"&gt;Skip to content&lt;/a&gt;</code> เป็นลิงก์แรกของหน้า (ซ่อนจนกว่าจะได้ focus) และใส่ <code>id="main"</code> ที่ <code>&lt;main&gt;</code></td></tr>
+<tr><td>มือถือ</td><td>ปุ่ม ☰ มี <code>aria-label="Open menu"</code> + <code>aria-expanded</code> · ปุ่ม/ลิงก์สูงอย่างน้อย 44px · เปิดเมนูแล้วหน้าไม่เลื่อนข้างหลัง · ไม่ล้นแนวนอนที่ 360px</td></tr>
+<tr><td>Hover</td><td>เปิดเมื่อชี้ หน่วงปิด ~200ms (ของเดิมทำแล้ว) · กดหัวข้อ = ไปหน้ารวม</td></tr>
+</table></section>
+
+<section class="block"><h2><span class="num">7</span> Footer</h2>
+<div class="nv-foot">
+ <div><h4>Products</h4><a>Coil &amp; Heat Exchanger</a><a>Coil Coatings</a><a>Refrigeration</a><a>Air Handling Units</a><a>Marine HVAC</a><a>All products</a></div>
+ <div><h4>Solutions</h4><a>Coil Replacement &amp; AHU Renovation</a><a>Cold Room Design &amp; Installation</a><a>OEM Product Development</a><a>IoT &amp; Smart Energy Management</a></div>
+ <div><h4>Company</h4><a>About us</a><a>Projects</a><a>Insights</a><a>News &amp; Events</a><a><i>Careers (เมื่อพร้อม)</i></a><a>C.I. Group (cigpcl.com ↗)</a></div>
+ <div><h4>Contact</h4><a>Contact us</a><a>+66 (0) 2976 5290</a><a>+66 (0) 92 463 2366</a><a>contact@… (อีเมลที่ Sales เลือก)</a></div>
+ <div class="legal">© 2026 CIG BluSolutions Co., Ltd. · <a>Privacy Policy</a><a>Terms of Use</a></div>
+</div>
+<p class="small">footer เป็นลิงก์จริงทั้งหมด (<code>&lt;a href&gt;</code>) · "Term of Uses" → <b>"Terms of Use"</b> · อีเมลเป็นข้อความต่อกัน (ดูงานใน ทั้งเว็บ)</p></section>
+
+<section class="block"><h2><span class="num">8</span> Breadcrumb</h2>
+<table class="mini">
+<tr><td>หน้า</td><td>breadcrumb</td></tr>
+<tr><td>รุ่นสินค้า</td><td>Home / Products / Refrigeration / Unit Cooler — Slim Type</td></tr>
+<tr><td>กลุ่มย่อย</td><td>Home / Products / Refrigeration / Unit Coolers</td></tr>
+<tr><td>บริการ</td><td>Home / Solutions / Cold Room Design &amp; Installation</td></tr>
+<tr><td>บทความ</td><td>Home / Insights / &lt;ชื่อบทความ&gt;</td></tr>
+<tr><td>ผลงาน</td><td>Home / Projects / &lt;ชื่อโครงการ&gt;</td></tr>
+</table>
+<p class="small">ทุกชั้นยกเว้นตัวสุดท้ายเป็นลิงก์ · ไม่มีคำซ้ำ (เช่น "Projects / Projects") · ใส่ BreadcrumbList JSON-LD ที่ตรงกับ breadcrumb</p></section>
+<footer class="scaffold-foot">เนื้อหาจาก <code>_src/cigblu/docs/navigation.html</code> · เช็คเว็บจริง 2026-10-27</footer>
+</main>
+</body></html>

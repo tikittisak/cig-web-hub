@@ -18,7 +18,7 @@ CHECKED = DATA['checked']
 LIVE = DATA['live_host']
 
 PRI = {'P0': ('P0', 'ต้องแก้ก่อนเปิดตัว', 'high'), 'P1': ('P1', 'แก้ก่อนโปรโมต', 'med'), 'P2': ('P2', 'ปรับปรุงทีหลังได้', 'low')}
-ST = {'it': 'รอ IT', 'mkt': 'รอ MKT', 'sales': 'รอ Sales', 'eng': 'รอ Eng/QA', 'test': 'รอทดสอบ', 'done': 'เสร็จบนเว็บจริง'}
+ST = {'wip-it': 'IT กำลังทำ', 'it': 'รอ IT', 'mkt': 'รอ MKT', 'sales': 'รอ Sales', 'eng': 'รอ Eng/QA', 'test': 'รอทดสอบ', 'done': 'เสร็จบนเว็บจริง'}
 
 
 def esc(s):
@@ -27,13 +27,13 @@ def esc(s):
 
 def rich(s):
     """Escape, then turn `code` into <code>."""
-    return re.sub(r'`([^`]+)`', r'<code>\1</code>', esc(s))
+    return re.sub(r'`([^`]+)`', r'<code>\1</code>', esc(s)).replace('\n', '<br>')
 
 
 def st_label(st):
     if st.startswith('decide:'):
         return 'รอตัดสินใจ: ' + st.split(':', 1)[1], 'hold'
-    return ST.get(st, st), ('ok' if st == 'done' else 'wait')
+    return ST.get(st, st), ('ok' if st in ('done', 'wip-it') else 'wait')
 
 
 def depth(pid):
@@ -235,7 +235,7 @@ def dashboard():
     o.append('<div class="launch"><h2>พร้อมเปิดตัวหรือยัง? <span class="pill st-confirm">ยังไม่พร้อม</span></h2>'
              '<p>ยังมี <b>P0 ค้าง %d ข้อ</b> — ต้องปิดทุกข้อ แล้วให้ 4 ฝ่ายอนุมัติร่วมกัน</p>' % n0 if n0 else
              '<div class="launch"><h2>พร้อมเปิดตัวหรือยัง? <span class="pill st-wip">รออนุมัติ</span></h2><p>P0 ปิดครบแล้ว — รอ 4 ฝ่ายอนุมัติ</p>')
-    o.append('<p><a class="dl" href="todo/index.html">📋 งานที่ต้องทำทั้งหมด (แยกตามคนทำ)</a> <a class="dl" href="url-map/index.html">🔗 แผนที่ URL + redirect</a> <a class="dl" href="site-wide/index.html">🌐 งานทั้งเว็บ</a></p>')
+    o.append('<p><a class="dl" href="todo/index.html">📋 งานที่ต้องทำทั้งหมด (แยกตามคนทำ)</a> <a class="dl" href="url-map/index.html">🔗 แผนที่ URL + redirect</a> <a class="dl" href="site-wide/index.html">🌐 งานทั้งเว็บ</a> <a class="dl" href="navigation/index.html">🧭 เมนูเว็บ (mapping + design)</a> <a class="dl" href="guide-it/index.html">🛠 คู่มือ IT: ทดสอบ + SEO/AI crawler</a></p>')
     o.append('<table class="kv signoff"><tr><td>MKT</td><td>ยังไม่อนุมัติ</td></tr><tr><td>IT</td><td>ยังไม่อนุมัติ</td></tr>'
              '<tr><td>Engineering / QA</td><td>ยังไม่อนุมัติ</td></tr><tr><td>Sales</td><td>ยังไม่อนุมัติ</td></tr></table></div>')
     o.append('<div class="stats">'
@@ -339,6 +339,14 @@ def url_map():
     return '\n'.join(o)
 
 
+def doc_page(name):
+    src = open(os.path.join(HERE, 'docs', name + '.html')).read()
+    title = re.search(r'<!-- title: (.*?) -->', src).group(1)
+    note = re.search(r'<!-- note: (.*?) -->', src).group(1)
+    return (head(title, name) + topbar(name, []) + '<main class="wrap">\n<div class="hero"><h1>%s</h1><p class="hero-note">%s</p></div>\n' % (esc(title), esc(note))
+            + src + '<footer class="scaffold-foot">เนื้อหาจาก <code>_src/cigblu/docs/%s.html</code> · เช็คเว็บจริง %s</footer>\n</main>\n</body></html>\n' % (name, CHECKED))
+
+
 def stub(target_rel, label):
     return ('<!doctype html>\n<html lang="th"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow">'
             '<meta http-equiv="refresh" content="0; url=%s"><title>ย้ายแล้ว</title></head>'
@@ -363,6 +371,8 @@ def main():
     write(os.path.join(OUT, 'index.html'), dashboard())
     write(os.path.join(OUT, 'todo', 'index.html'), todo())
     write(os.path.join(OUT, 'url-map', 'index.html'), url_map())
+    for name in ('navigation', 'guide-it'):
+        write(os.path.join(OUT, name, 'index.html'), doc_page(name))
     write(os.path.join(OUT, 'it-build-issues-by-page-th.html'), stub('todo/index.html', 'งานที่ต้องทำทั้งหมด'))
     print('built %d pages' % len(PAGES))
 

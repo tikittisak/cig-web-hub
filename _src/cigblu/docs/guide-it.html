@@ -1,0 +1,97 @@
+<!-- title: คู่มือ IT — ทดสอบมือถือ, ความเร็ว, accessibility, SEO + AI crawler -->
+<!-- note: ทำตามลำดับทีละข้อ ไม่ต้องเป็นผู้เชี่ยวชาญ SEO · ทุกข้อบอกว่าใช้เครื่องมืออะไร ดูตรงไหน และผ่านเมื่อไร -->
+<section class="block"><h2><span class="num">0</span> ทำกับหน้าไหน + บันทึกผลอย่างไร</h2>
+<p><b>หน้าที่ต้องทดสอบ (6 หน้า):</b> <code>/</code> · <code>/products</code> · <code>/products/refrigeration</code> · หน้ารุ่นสินค้า 1 หน้า (เช่น <code>/productsCatalog/condensing-unit</code>) · <code>/contact</code> · บทความ 1 หน้า (<code>/insights/coil-coatings-corrosion-protection</code>)</p>
+<p><b>บันทึกผล</b> ทุกครั้งเป็นตารางนี้ แล้วส่งให้ Ti (ถ้าไม่มีหลักฐาน ถือว่ายังไม่ผ่าน):</p>
+<table class="mini"><tr><td>วันที่</td><td>หน้า</td><td>อุปกรณ์ / เครื่องมือ</td><td>ค่าที่วัดได้</td><td>ผ่าน / ไม่ผ่าน</td><td>หลักฐาน (screenshot / ลิงก์รายงาน)</td></tr>
+<tr><td>2026-11-03</td><td>/</td><td>PageSpeed · Mobile</td><td>LCP 4.1s · CLS 0.02 · TBT 350ms</td><td class="bad">ไม่ผ่าน (LCP, TBT)</td><td>ลิงก์รายงาน</td></tr></table>
+<p class="small muted">แถวบนเป็นตัวอย่างการกรอก ไม่ใช่ผลจริง</p>
+</section>
+
+<section class="block"><h2><span class="num">1</span> ความเร็ว (PageSpeed)</h2>
+<ol class="refs">
+<li>เปิด <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener">pagespeed.web.dev</a> → วาง URL → กด Analyze</li>
+<li>เลือกแท็บ <b>Mobile</b> (ดู Desktop ด้วยแต่ Mobile สำคัญกว่า)</li>
+<li>จดค่า 3 ตัวในส่วน "Diagnose performance issues": <b>LCP</b>, <b>CLS</b>, <b>TBT</b> + คะแนน Performance</li>
+<li>กดซ้ำ 3 ครั้ง ใช้ค่ากลาง (ผลแต่ละรอบไม่เท่ากัน)</li>
+<li>ถ้าส่วนบน "Discover what your real users are experiencing" มีข้อมูล ให้จด <b>INP</b> ด้วย (มีเมื่อเว็บมีคนใช้จริงพอ — หลังย้ายโดเมน)</li>
+</ol>
+<table class="mini"><tr><td>ค่า</td><td>แปลว่า</td><td>ผ่านเมื่อ</td></tr>
+<tr><td>LCP</td><td>เวลาที่ภาพ/ข้อความใหญ่ที่สุดบนจอแรกโหลดเสร็จ</td><td>≤ 2.5 วินาที</td></tr>
+<tr><td>CLS</td><td>หน้ากระตุก/เลื่อนเองระหว่างโหลด</td><td>≤ 0.1</td></tr>
+<tr><td>TBT (แทน INP ในการทดสอบ)</td><td>เวลาที่หน้าค้าง กดอะไรไม่ได้ เพราะ JavaScript</td><td>≤ 200 ms</td></tr>
+<tr><td>INP (ข้อมูลผู้ใช้จริง)</td><td>กดแล้วหน้าตอบสนองช้าแค่ไหน</td><td>≤ 200 ms</td></tr>
+</table>
+<p><b>สิ่งที่รู้แล้วว่าต้องแก้ (ทำก่อนวัด จะได้ผลดีขึ้นทันที):</b></p>
+<table class="mini"><tr><td>ปัญหาที่เจอ</td><td>วิธีแก้ใน Next.js</td></tr>
+<tr><td>รูป hero หน้าแรกเป็น CSS background ขนาด 15 MB — เป็นตัว LCP</td><td>ใช้ไฟล์ <code>home-hero-background.webp</code> (680 KB, อยู่ในหน้า Home ของ hub) · ดีที่สุด: เปลี่ยนเป็น <code>&lt;Image fill priority sizes="100vw"&gt;</code> แทน CSS background เพื่อให้ Next.js ย่อขนาดตามจอ</td></tr>
+<tr><td>โหลดฟอนต์ 6 ตระกูล (Staatliches, Urbanist, Afacad, Outfit, Jaro, Inter) รวม 12 ไฟล์</td><td>ลดเหลือ 2 ตระกูล (หัวข้อ 1 + เนื้อหา 1) — ให้ MKT/ดีไซน์ยืนยันว่าใช้ตัวไหน · ใช้ <code>next/font</code> กับ <code>display: "swap"</code> และ <code>subsets: ["latin"]</code></td></tr>
+<tr><td>รูปบางรูปไม่มีขนาดกำหนด</td><td>ทุก <code>&lt;Image&gt;</code> ต้องมี <code>width</code>/<code>height</code> หรือ <code>fill</code> ในกล่องที่มีขนาด — กัน CLS</td></tr>
+<tr><td>แผนที่ Google Maps ในหน้า Contact</td><td>ใส่ <code>loading="lazy"</code> ที่ <code>&lt;iframe&gt;</code></td></tr>
+<tr><td>รูปที่อยู่ใต้จอแรก</td><td>ไม่ใส่ <code>priority</code> (ใส่เฉพาะรูปแรกบนจอ 1 รูป)</td></tr>
+<tr><td>ชื่อไฟล์มีเว้นวรรค/วงเล็บ (<code>Group 14513.jpg</code>, <code>CIG BLUSOLUTIONS LOGO.png</code>, OEM logo grid)</td><td>เปลี่ยนเป็นตัวเล็กคั่นด้วย <code>-</code> — ชื่อแปลกทำให้ next/image ตอบ 400 (รูป OEM ไม่ขึ้นตอนนี้)</td></tr>
+</table></section>
+
+<section class="block"><h2><span class="num">2</span> มือถือ</h2>
+<ol class="refs">
+<li>ทดสอบบนเครื่องจริง: iPhone (Safari) 1 เครื่อง + Android (Chrome) 1 เครื่อง</li>
+<li>บนคอม: Chrome → กด F12 → ไอคอนมือถือ (Toggle device toolbar) → ลองความกว้าง <b>360</b>, <b>390</b>, <b>768</b> px</li>
+<li>เช็คล้นแนวนอน: ใน Console พิมพ์ <code>document.documentElement.scrollWidth &gt; innerWidth</code> → ต้องได้ <code>false</code></li>
+</ol>
+<table class="mini"><tr><td>เช็ค</td><td>ผ่านเมื่อ</td></tr>
+<tr><td>เมนู ☰</td><td>เปิด/ปิดได้ · ทุกลิงก์ในเมนูกดได้ · ไม่ถูก header บัง</td></tr>
+<tr><td>ล้นแนวนอน</td><td>ไม่ต้องเลื่อนซ้าย-ขวาทุกหน้า (ผลคำสั่งด้านบน = false)</td></tr>
+<tr><td>ขนาดตัวอักษร</td><td>เนื้อหาอย่างน้อย 16px อ่านได้โดยไม่ต้องซูม</td></tr>
+<tr><td>ปุ่ม/ลิงก์</td><td>สูงอย่างน้อย 44px และไม่ชิดกันจนกดผิด</td></tr>
+<tr><td>ฟอร์ม Contact</td><td>กรอกได้ครบ · แป้นพิมพ์อีเมลขึ้นในช่อง Email · ปุ่ม Submit ไม่ถูกบัง</td></tr>
+<tr><td>เบอร์โทร / LINE</td><td>กด <code>tel:</code> แล้วโทรออกได้ · ลิงก์ LINE เปิดแอปได้</td></tr>
+</table></section>
+
+<section class="block"><h2><span class="num">3</span> Accessibility (ใช้งานด้วยคีย์บอร์ด / screen reader)</h2>
+<ol class="refs">
+<li>ใน PageSpeed ดูคะแนน <b>Accessibility</b> → ต้อง ≥ 90 · เปิดรายการที่ไม่ผ่านแล้วแก้ตามที่บอก</li>
+<li>ติดตั้งส่วนขยาย Chrome "axe DevTools" (ฟรี) → F12 → แท็บ axe → Scan → แก้ข้อที่เป็น Critical / Serious</li>
+<li>วางเมาส์ไว้ห่างๆ แล้วใช้แค่ปุ่ม <b>Tab</b>, <b>Shift+Tab</b>, <b>Enter</b>, <b>Esc</b> ไล่ทั้งหน้า</li>
+</ol>
+<table class="mini"><tr><td>เช็ค</td><td>ผ่านเมื่อ</td></tr>
+<tr><td>Tab ครั้งแรก</td><td>เจอลิงก์ "Skip to content" (ยังไม่มี — ดูหน้าเมนู ข้อ 6)</td></tr>
+<tr><td>กรอบ focus</td><td>เห็นชัดทุกครั้งว่ากำลังอยู่ที่ปุ่ม/ลิงก์ไหน</td></tr>
+<tr><td>เมนู dropdown</td><td>เปิดด้วย Enter ปิดด้วย Esc</td></tr>
+<tr><td>ฟอร์ม</td><td>ทุกช่องมีชื่อ (label) · กรอกผิดแล้วมีข้อความบอกว่าผิดตรงไหน</td></tr>
+<tr><td>รูป</td><td>รูปที่มีความหมายมี alt บอกว่าเป็นรูปอะไร · รูปตกแต่งใช้ <code>alt=""</code> (ตอนนี้ผ่านแล้ว)</td></tr>
+<tr><td>สีตัวอักษร</td><td>axe ไม่แจ้ง "color contrast"</td></tr>
+</table></section>
+
+<section class="block"><h2><span class="num">4</span> SEO + AI crawler</h2>
+<p><b>หลักข้อเดียวที่ต้องจำ:</b> AI crawler (GPTBot ของ ChatGPT, ClaudeBot, PerplexityBot) ส่วนใหญ่<b>ไม่รัน JavaScript</b> — เห็นแค่ HTML ที่ server ส่งมา · อะไรที่สร้างหลังโหลด (เช่น เมนู dropdown ตอนนี้) หรือฝังในรูป จะไม่ถูกเห็นเลย</p>
+<p><b>วิธีเช็คแบบง่าย:</b> เปิดหน้า → กด <b>Ctrl+U</b> (View Source) → กด Ctrl+F ค้นหาข้อความหรือลิงก์ที่ต้องการ → ถ้าไม่เจอ แปลว่า crawler ไม่เห็น<br>
+หรือใช้คำสั่ง <code>curl -s https://web.cigblusolutions.com/products | grep -o 'href="/products[^"]*"'</code></p>
+<table class="mini"><tr><td>เช็คทุกหน้า</td><td>ผ่านเมื่อ</td></tr>
+<tr><td><code>&lt;title&gt;</code></td><td>ไม่ซ้ำกับหน้าอื่น · ≤ 60 ตัวอักษร · รูปแบบ <code>&lt;ชื่อหน้า&gt; | CIG BluSolutions</code> (ไม่มีชื่อแบรนด์ซ้ำ 2 ครั้ง)</td></tr>
+<tr><td><code>meta description</code></td><td>120–155 ตัวอักษร พูดถึงเนื้อหาหน้านั้นจริง</td></tr>
+<tr><td><code>&lt;h1&gt;</code></td><td>มี 1 อันต่อหน้า (ตอนนี้ผ่าน) · หัวข้อเรียง h1 → h2 → h3 ไม่ข้ามชั้น</td></tr>
+<tr><td><code>canonical</code></td><td>ชี้ URL ของหน้าตัวเองบนโดเมนจริง ไม่มี / ท้าย · ทุกหน้าใช้โดเมนเดียวกัน</td></tr>
+<tr><td>og:title / og:description / og:image / og:url</td><td>มีครบ · og:image ขนาด 1200×630 ของหน้านั้น</td></tr>
+<tr><td>ข้อความสำคัญ</td><td>เป็นข้อความ HTML ไม่ฝังในรูป</td></tr>
+<tr><td>ลิงก์</td><td>เป็น <code>&lt;a href="..."&gt;</code> จริง ไม่ใช่ปุ่มที่ใช้ onClick พาไป · ไม่มีลิงก์ไป <code>#</code></td></tr>
+<tr><td>Status code</td><td>หน้าจริง = 200 · ย้ายแล้ว = 308/301 · ไม่มีหน้า = 404 (ตอนนี้ 404 ผ่าน)</td></tr>
+</table>
+<p><b>JSON-LD (ข้อมูลโครงสร้าง) — ใส่ตามประเภทหน้า:</b></p>
+<table class="mini"><tr><td>หน้า</td><td>ใส่ type</td></tr>
+<tr><td>Home</td><td><code>Organization</code> (มีแล้ว) + <code>WebSite</code></td></tr>
+<tr><td>รุ่นสินค้า</td><td><code>Product</code> (name, description, image, brand) + <code>BreadcrumbList</code></td></tr>
+<tr><td>family / กลุ่มย่อย</td><td><code>CollectionPage</code> + <code>BreadcrumbList</code></td></tr>
+<tr><td>Solutions</td><td><code>Service</code> + <code>BreadcrumbList</code></td></tr>
+<tr><td>Insights</td><td><code>Article</code> (headline, datePublished, author, image)</td></tr>
+<tr><td>Contact</td><td><code>Organization</code> + <code>ContactPoint</code></td></tr>
+</table>
+<p>ตรวจด้วย <a href="https://search.google.com/test/rich-results" target="_blank" rel="noopener">Rich Results Test</a> → วาง URL → ต้องไม่มี error</p>
+<p><b>ไฟล์ระดับเว็บ:</b></p>
+<table class="mini"><tr><td>ไฟล์</td><td>ผ่านเมื่อ</td></tr>
+<tr><td><code>robots.txt</code></td><td>อนุญาต AI crawler (ผ่านแล้ว) · บรรทัด Sitemap ชี้โดเมนจริง</td></tr>
+<tr><td><code>sitemap.xml</code></td><td>1 URL ต่อ 1 หน้า · ไม่มีหน้าซ้ำ / template / 404 · ใช้โดเมนจริง</td></tr>
+<tr><td><code>llms.txt</code></td><td>ลิงก์ทุกอันตอบ 200 และตรงกับ sitemap</td></tr>
+<tr><td>staging</td><td>web.cigblusolutions.com ตอบ header <code>X-Robots-Tag: noindex</code> — เช็คด้วย <code>curl -sI https://web.cigblusolutions.com/ | grep -i robots</code></td></tr>
+</table>
+<p><b>หลังย้ายไป www.cigblu.com:</b> ยืนยันโดเมนใน <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a> → ส่ง sitemap → ใช้ "URL Inspection" กับ 6 หน้าด้านบน → ดูรายงาน "Pages" ทุกสัปดาห์ 4 สัปดาห์แรก ว่าไม่มี 404 / redirect error เพิ่ม</p>
+</section>

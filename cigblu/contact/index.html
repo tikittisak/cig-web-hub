@@ -21,23 +21,17 @@
 <section class="block"><h2><span class="num">1</span> ต้องทำอะไร <span class="hint">เช็คเว็บจริง 2026-10-27</span></h2>
 <p class="legend"><b>P0</b> ต้องแก้ก่อนเปิดตัว/ก่อนรับ lead · <b>P1</b> แก้ก่อนโปรโมตวงกว้าง · <b>P2</b> ปรับปรุงทีหลังได้ — แต่ละข้อบอก <b>ใครทำ</b> · <b>ทำอะไร</b> · <b>ไฟล์</b> · <b>เสร็จเมื่อไร</b></p>
 <div class="ci high">
-<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT + Sales</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: IT + Sales</span><span class="stt ok">IT กำลังทำ</span></div>
 <div class="ci-title">ฟอร์มส่งไม่ได้: <code>&lt;form&gt;</code> ไม่มี action, ปุ่ม Submit เป็น type=&quot;button&quot; และไม่มีโค้ดรับการกด</div>
 <p><b>ทำ:</b> IT ต่อฟอร์มเข้าอีเมลหรือ CRM ที่ Sales เลือก (แยกปลายทางตาม Department) + ช่องติ๊กยินยอมที่ลิงก์ไป Privacy Policy · ทดสอบ: ส่ง TEST ทุก Department, กรอกอีเมลผิดรูปแบบ, เว้นช่องบังคับ, กดส่งซ้ำ, กรณีส่งไม่สำเร็จ</p>
 <p class="done-when"><b>เสร็จเมื่อ:</b> มีหลักฐานจากหน้าจอผู้ส่ง + กล่องรับ/CRM ของทุก Department พร้อมวันเวลาและชื่อ Sales ที่ยืนยัน</p>
-<p class="why">ทำไม: ห้ามเปิดรับ lead หรือทำแคมเปญจนกว่าข้อนี้จะผ่าน</p>
+<p class="why">ทำไม: IT แจ้งว่ากำลังทำ (2026-10-27) · ห้ามเปิดรับ lead หรือทำแคมเปญจนกว่าข้อนี้จะผ่าน</p>
 </div>
 <div class="ci high">
 <div class="ci-top"><span class="sev high">P0 · ต้องแก้ก่อนเปิดตัว</span><span class="who">ใครทำ: MKT → IT</span><span class="stt wait">รอ MKT</span></div>
 <div class="ci-title">ข้อความสั่งงานภายในแสดงบนหน้า: &quot;IT note: connect this form…&quot;, &quot;Field set carried over from the legacy…&quot;, &quot;Use the three original location records…&quot;, &quot;The legacy page used a direction map…&quot;</div>
 <p><b>ทำ:</b> MKT เขียนข้อความสำหรับลูกค้าแทน (เช่น ข้อมูลที่ควรเตรียม, ช่องทางติดต่อสำรอง — เวลาตอบกลับให้ Sales ยืนยันก่อน) → IT แทนที่และลบโน้ตทั้ง 4 จุด</p>
 <p class="done-when"><b>เสร็จเมื่อ:</b> ไม่มีข้อความ IT note / legacy / draft บนหน้า</p>
-</div>
-<div class="ci low">
-<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: MKT</span><span class="stt wait">รอ MKT</span></div>
-<div class="ci-title">อีเมลที่แสดงบนหน้ามีเว้นวรรคก่อน &quot;.COM&quot;</div>
-<p><b>ทำ:</b> จัดรูปแบบอีเมลให้ติดกัน</p>
-<p class="done-when"><b>เสร็จเมื่อ:</b> อีเมลไม่มีเว้นวรรค</p>
 </div>
 <div class="ci low">
 <div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>

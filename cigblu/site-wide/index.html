@@ -104,29 +104,43 @@
 <p class="done-when"><b>เสร็จเมื่อ:</b> ทุกหน้า family มีลิงก์ครบ 5 family</p>
 </div>
 <div class="ci med">
-<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Eng/QA</span><span class="stt wait">รอ Eng/QA</span></div>
-<div class="ci-title">ข้อความอ้างผลงาน/การรับรองยังไม่มีหลักฐานกำกับ: ประหยัดพลังงาน 30% (EC Fan), R290 ดีกว่า R-134a 78%, &quot;certified to ISO 9001, AHRI, and ASHRAE&quot;, sketch-to-quote ใน 24 ชั่วโมง, ข้อความรับรองของ D-COAT+</div>
-<p><b>ทำ:</b> Eng/QA ทำทะเบียน claim: รุ่น, เงื่อนไขทดสอบ, ฐานเปรียบเทียบ, เอกสารอ้างอิง, วันหมดอายุ · แยก &quot;ระบบองค์กรได้รับรอง&quot; / &quot;สินค้าได้รับรอง&quot; / &quot;ออกแบบตามมาตรฐาน&quot; · ข้อไหนไม่มีหลักฐาน MKT ลดระดับข้อความ · Sales ยืนยันเงื่อนไข 24 ชั่วโมง</p>
-<p><b>ที่:</b> Home, Products, R290, EC Fan, D-COAT+</p>
-<p class="done-when"><b>เสร็จเมื่อ:</b> ทุก claim บนเว็บมีแถวในทะเบียนพร้อมผู้อนุมัติ</p>
-</div>
-<div class="ci med">
-<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: Eng/QA → MKT</span><span class="stt wait">รอ Eng/QA</span></div>
-<div class="ci-title">ข้อมูลโรงงานไม่ตรงกัน: หน้า Products บอก &quot;ผลิตและทดสอบทุก family ที่ 30,000 sq.m ใน Pathumthani&quot; แต่หน้า Contact มีโรงงาน Pinthong และ Teparak</div>
-<p><b>ทำ:</b> Eng/QA ยืนยันว่าแต่ละที่ทำอะไร + พื้นที่เท่าไร → MKT แก้ทุกหน้าให้ใช้ข้อมูลชุดเดียว</p>
-<p class="done-when"><b>เสร็จเมื่อ:</b> ทุกหน้าพูดถึงโรงงานตรงกัน</p>
-</div>
-<div class="ci med">
 <div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอทดสอบ</span></div>
-<div class="ci-title">ยังไม่ได้ทดสอบมือถือ / การใช้งานด้วยคีย์บอร์ด / ความเร็ว</div>
-<p><b>ทำ:</b> ทดสอบ iOS Safari + Android Chrome ที่ความกว้าง 360 / 390 / 768 px (เมนูใช้ได้, ไม่ล้นแนวนอน, ปุ่มไม่ถูกบัง) · กด Tab ไปได้ทุกปุ่ม/ช่องกรอก · วัด PageSpeed มือถือ: LCP ≤ 2.5s, INP ≤ 200ms, CLS ≤ 0.1</p>
-<p class="done-when"><b>เสร็จเมื่อ:</b> มีผลทดสอบ (อุปกรณ์, วันที่, ผล, screenshot) ของ Home, Products, Contact และหน้ารุ่น 1 หน้า</p>
+<div class="ci-title">ยังไม่ได้ทดสอบความเร็ว / มือถือ / การใช้งานด้วยคีย์บอร์ด / SEO + AI crawler</div>
+<p><b>ทำ:</b> ทำตาม &quot;คู่มือ IT&quot; ทีละข้อ (มีวิธีเปิดเครื่องมือ, จุดที่ต้องดู และเกณฑ์ผ่านทุกข้อ) กับ 6 หน้าที่ระบุ แล้วกรอกผลในตารางท้ายคู่มือ</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../guide-it/index.html">📄 คู่มือ IT: ทดสอบ + SEO/AI crawler</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> มีตารางผลครบ 6 หน้า: LCP ≤ 2.5s, CLS ≤ 0.1, TBT ≤ 200ms, Accessibility ≥ 90, ไม่ล้นแนวนอนที่ 360px — พร้อม screenshot</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: MKT → IT</span><span class="stt hold">รอตัดสินใจ: MKT</span></div>
+<div class="ci-title">โหลดฟอนต์ 6 ตระกูล (Staatliches, Urbanist, Afacad, Outfit, Jaro, Inter) รวม 12 ไฟล์ — ทำให้หน้าโหลดช้า</div>
+<p><b>ทำ:</b> MKT/ดีไซน์เลือก 2 ตระกูล (หัวข้อ 1 + เนื้อหา 1) → IT ลบตัวที่เหลือ · ใช้ next/font กับ <code>display: &quot;swap&quot;</code></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> View Source แล้วเจอไฟล์ .woff2 ไม่เกิน 4 ไฟล์</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">เมนูยังใช้ URL เก่า/หน้าซ้ำ, ไม่มี Marine และ Data Center, มีลูกศร ▾ ที่ dropdown ว่าง</div>
+<p><b>ทำ:</b> แทนค่าตั้งเมนูด้วยชุดใหม่ในหน้า &quot;เมนูเว็บ&quot; ข้อ 5 (วางแทนได้เลย) · ทำ footer ตามข้อ 7 · breadcrumb ตามข้อ 8 — ทำพร้อมการเปลี่ยน URL</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../navigation/index.html">📄 เมนูเว็บ (mapping + design + ค่าตั้ง)</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> เมนูและ footer ตรงกับหน้า &quot;เมนูเว็บ&quot; และทุกลิงก์ตอบ 200</p>
+</div>
+<div class="ci med">
+<div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">ลิงก์ใน dropdown เมนูไม่อยู่ใน HTML (สร้างตอนเอาเมาส์ชี้) — AI crawler และ Google บางส่วนมองไม่เห็นลิงก์สินค้าในเมนู</div>
+<p><b>ทำ:</b> render ลิงก์ dropdown ทั้งหมดตั้งแต่โหลดหน้า แล้วซ่อนด้วย CSS (ดูหน้า &quot;เมนูเว็บ&quot; ข้อ 6)</p>
+<p class="files"><b>ไฟล์:</b> <a class="dl" href="../navigation/index.html">📄 เมนูเว็บ ข้อ 6</a></p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> กด Ctrl+U ที่หน้าไหนก็ได้ แล้วค้นหา <code>/products/marine-hvac</code> เจอ</p>
 </div>
 <div class="ci med">
 <div class="ci-top"><span class="sev med">P1 · แก้ก่อนโปรโมต</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
 <div class="ci-title">ยังไม่มีแผนสำรองข้อมูล / ย้อนกลับ และผู้ดูแลหลังเปิดตัว</div>
 <p><b>ทำ:</b> เขียนวิธี rollback ถ้า deploy มีปัญหา + ระบุชื่อผู้ดูแลเว็บหลังเปิดตัว</p>
 <p class="done-when"><b>เสร็จเมื่อ:</b> มีเอกสาร rollback ที่ทดลองทำแล้ว 1 ครั้ง + ชื่อผู้ดูแล</p>
+</div>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">ไม่มีลิงก์ &quot;Skip to content&quot; สำหรับคนใช้คีย์บอร์ด</div>
+<p><b>ทำ:</b> ใส่ตามหน้า &quot;เมนูเว็บ&quot; ข้อ 6</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> กด Tab ครั้งแรกแล้วเห็น Skip to content</p>
 </div>
 <div class="ci low">
 <div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
@@ -146,11 +160,17 @@
 <p><b>ทำ:</b> เปลี่ยน &quot;On this page&quot; เป็นข้อความธรรมดา (ไม่ใช่ heading) · ลบจุดเกิน · แสดงป้ายหมวดเป็น News / Case Study / Article</p>
 <p class="done-when"><b>เสร็จเมื่อ:</b> หน้าเนื้อหาไม่มี 3 จุดนี้</p>
 </div>
+<div class="ci low">
+<div class="ci-top"><span class="sev low">P2 · ปรับปรุงทีหลังได้</span><span class="who">ใครทำ: IT</span><span class="stt wait">รอ IT</span></div>
+<div class="ci-title">อีเมลใน footer (ทุกหน้า) ถูกตัดเป็น 2 ส่วน: <code>contact@cigblusolutions&lt;wbr/&gt;&lt;span class=&quot;whitespace-nowrap&quot;&gt;.com&lt;/span&gt;</code> — โปรแกรมอ่านหน้าจอและการ copy เห็นเป็น &quot;contact@cigblusolutions .com&quot;</div>
+<p><b>ทำ:</b> เขียนอีเมลเป็นข้อความเดียว <code>contact@cigblusolutions.com</code> (ลบ <code>&lt;wbr/&gt;</code> และ <code>&lt;span&gt;</code>) · ถ้ากลัวล้นจอมือถือ ใส่ CSS <code>overflow-wrap: anywhere</code> ที่ลิงก์แทน · ทำแบบเดียวกันกับปุ่ม &quot;Visit Corporate Website →&quot;</p>
+<p class="done-when"><b>เสร็จเมื่อ:</b> copy อีเมลจาก footer แล้ววางได้ตรง ไม่มีเว้นวรรค</p>
+</div>
 </section>
 <section class="block"><h2><span class="num">2</span> ไฟล์และลิงก์</h2>
-<p><a class="dl" href="../url-map/index.html">📄 แผนที่ URL (ตารางเต็ม)</a> <a class="dl" href="../url-map/index.html#old-site" download>⬇ แผนที่ URL › redirect เว็บเก่า</a></p>
+<p><a class="dl" href="../url-map/index.html">📄 แผนที่ URL (ตารางเต็ม)</a> <a class="dl" href="../url-map/index.html#old-site" download>⬇ แผนที่ URL › redirect เว็บเก่า</a> <a class="dl" href="../guide-it/index.html">📄 คู่มือ IT: ทดสอบ + SEO/AI crawler</a> <a class="dl" href="../navigation/index.html">📄 เมนูเว็บ (mapping + design + ค่าตั้ง)</a> <a class="dl" href="../navigation/index.html">📄 เมนูเว็บ ข้อ 6</a></p>
 </section>
-<section class="block"><h2><span class="num">✓</span> เสร็จแล้ว <span class="hint">ยืนยันบนเว็บจริง 2026-10-27</span></h2><ul class="refs"><li>ทุก internal link ที่เช็ค (ราว 100 ลิงก์) ตอบ 200</li><li>ทุกหน้ามี h1 เดียว และรูปมี alt</li><li>หน้า 404 ส่ง status 404 จริง</li><li>robots.txt อนุญาต AI crawler แล้ว</li></ul></section>
+<section class="block"><h2><span class="num">✓</span> เสร็จแล้ว <span class="hint">ยืนยันบนเว็บจริง 2026-10-27</span></h2><ul class="refs"><li>ข้อความ claim (ประหยัดพลังงาน 30%, R290 ดีกว่า R-134a 78%, ISO 9001 / AHRI / ASHRAE, sketch-to-quote 24 ชม., D-COAT+) — Ti ยืนยันว่าถูกต้อง คงไว้ ไม่ต้องแก้ (2026-10-27)</li><li>ทุก internal link ที่เช็ค (ราว 100 ลิงก์) ตอบ 200</li><li>ทุกหน้ามี h1 เดียว และรูปมี alt</li><li>หน้า 404 ส่ง status 404 จริง</li><li>robots.txt อนุญาต AI crawler แล้ว</li></ul></section>
 <footer class="scaffold-foot">เช็คเว็บจริงล่าสุด 2026-10-27 · ข้อมูลหน้านี้มาจาก <code>_src/cigblu/pages.json</code></footer>
 </main>
 </body></html>
